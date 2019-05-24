@@ -5,7 +5,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src
-COPY ["ADSConfiguracion.Cliente/ADSConfiguracion.Cliente.csproj", "ADSConfiguracion.Cliente/"]
+COPY ["ADSConfiguracion.Cliente.csproj", "ADSConfiguracion.Cliente/"]
 RUN dotnet restore "ADSConfiguracion.Cliente/ADSConfiguracion.Cliente.csproj"
 COPY . .
 WORKDIR "/src/ADSConfiguracion.Cliente"
