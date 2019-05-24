@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj": {}
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj": {}
   },
   "projects": {
-    "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj": {
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj",
+        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj",
         "projectName": "ADSConfiguracion",
-        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj",
+        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion\\ADSConfiguracion.csproj",
         "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
-        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion\\obj\\",
+        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

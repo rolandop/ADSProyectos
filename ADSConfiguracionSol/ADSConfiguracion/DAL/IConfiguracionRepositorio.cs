@@ -1,4 +1,5 @@
 ﻿using ADSConfiguracion.DAL.Entidades;
+using ADSConfiguracion.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,11 @@ namespace ADSConfiguracion.DAL
         Task<bool> EliminarConfiguracion(string id);
 
         // update just a single document / Configuracion
-        Task<bool> ActualizarConfiguracion(string id, string clave, string valor);        
+        Task<bool> ActualizarConfiguracion(string id, string seccion, string clave,
+                                                string valor, string descripcion);        
 
         // should be used with high cautious, only in relation with demo setup
         Task<bool> EliminarTodasConfiguracionesAsync();
+        
     }
 }

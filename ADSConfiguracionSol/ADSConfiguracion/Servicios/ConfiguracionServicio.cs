@@ -63,29 +63,37 @@ namespace ADSConfiguracion.Servicios
         private void CrearSeccion(ICollection<Configuracion> configuraciones,
                                        string seccionPrincipal)
         {
-     
+            Dictionary<string, object> seccionServicio = null;
+
+            if (!ConfigModelo.ContainsKey(seccionPrincipal))
+            {
+                ConfigModelo.Add(seccionPrincipal, new Dictionary<string, object>());
+            }
+            seccionServicio = ConfigModelo[seccionPrincipal] as Dictionary<string, object>;
+
             if (configuraciones.Any())
             {
                 foreach (var seccionGrupo in configuraciones
                                        .GroupBy(config => config.Seccion))
                 {
-                    Dictionary<string, object> seccionActual = ConfigModelo;
+                    Dictionary<string, object> seccionActual = seccionServicio;
 
-
-                    var seccion = string.IsNullOrWhiteSpace(seccionGrupo.Key)
+                    if (!string.IsNullOrWhiteSpace(seccionGrupo.Key))
+                    {
+                        var seccion = string.IsNullOrWhiteSpace(seccionGrupo.Key)
                                         ? seccionPrincipal : seccionGrupo.Key;
 
-                    var subSecciones = seccion.Split('/');
+                        var subSecciones = seccion.Split('/');
 
-                    foreach (var subSecccion in subSecciones)
-                    {
-                        if (!seccionActual.ContainsKey(subSecccion))
+                        foreach (var subSecccion in subSecciones)
                         {
-                            var nuevaSeccion = new Dictionary<string, object>();
-                            seccionActual.Add(subSecccion, nuevaSeccion);                            
+                            if (!seccionActual.ContainsKey(subSecccion))
+                            {
+                                seccionActual.Add(subSecccion, new Dictionary<string, object>());
+                            }
+                            seccionActual = seccionActual[subSecccion] as Dictionary<string, object>;
                         }
-                        seccionActual = seccionActual[subSecccion] as Dictionary<string, object>;
-                    }
+                    }                    
 
                     foreach (var config in seccionGrupo
                                         .OrderBy(config => config.Clave)
@@ -162,24 +170,26 @@ namespace ADSConfiguracion.Servicios
 
         public async Task Notificar(string id, string ambiente, string version)
         {
-            var servicio = await
-                                _servicioRepositorio
-                                        .ObtenerServicioAsync(id, ambiente, version);
+            var servicio = await _servicioRepositorio
+                                            .ObtenerServicioAsync(id, ambiente, version);
 
             if (servicio == null)
             {
                 _logger.LogInformation("Notificar NotFound");
             }
 
-            var clienteRest = new RestClient();
-            var solicitud = new RestRequest(servicio.UrlActualizacion, Method.POST);
+            var uri = new Uri(servicio.UrlActualizacion);
+            var origin = uri.GetLeftPart(UriPartial.Authority);
+            var clienteRest = new RestClient(origin);
+            var solicitud = new RestRequest(uri.PathAndQuery, Method.POST);
 
-            var configs = await ObtenerConfiguracionServicio(id, ambiente, version);
+            var configs = await
+                                ObtenerConfiguracionServicio(id, ambiente, version);
 
-            var configJson = JsonConvert.SerializeObject(configs);
-
-            solicitud.AddParameter("application/json; charset=utf-8", configJson, ParameterType.RequestBody);
-            solicitud.RequestFormat = DataFormat.Json;
+            solicitud.AddJsonBody(new
+            {
+                configuracionJson = JsonConvert.SerializeObject(configs)
+            });
 
             try
             {
@@ -187,11 +197,13 @@ namespace ADSConfiguracion.Servicios
                 {
                     if (respuesta.StatusCode == HttpStatusCode.OK)
                     {
-                        _logger.LogInformation("Servicio {id} devolvió OK", id);
+                        _logger.LogInformation("Notificar OK Servicio {Servicio} {Ambiente} {Version} ", 
+                                    id, ambiente, version);
                     }
                     else
                     {
-                        _logger.LogWarning("Servicio devolvió {StatusCode}", respuesta.StatusCode);
+                        _logger.LogError("Notificar OK Servicio {Servicio} {Ambiente} {Version}, Mensate {Mensaje}",
+                                    id, ambiente, version, respuesta.Content);
                     }
                 });
             }
@@ -199,9 +211,6 @@ namespace ADSConfiguracion.Servicios
             {
                 _logger.LogError(ex, "No se pudo enviar la configuración al servicio ", id);
             }
-
-            //return Ok(configs);
-
         }
 
         public Task<bool> EliminarTodasConfiguracionesAsync()
@@ -212,6 +221,77 @@ namespace ADSConfiguracion.Servicios
         public Task AgregarConfiguracionAsync(Configuracion elemento)
         {
             return _configuracionRepositorio.AgregarConfiguracionAsync(elemento);
+        }
+
+        public async Task<bool> GrabarConfiguraciones(ICollection<ConfiguracionModelo> configuraciones)
+        {
+            
+            foreach (var configuracion in configuraciones)
+            {
+                var configAux = await _configuracionRepositorio.ObtenerConfiguracionAsync(
+                                                    configuracion.ServicioId,
+                                                    configuracion.Ambiente,
+                                                    configuracion.ServicioVersion,
+                                                    configuracion.Seccion,
+                                                    configuracion.Clave
+                                                );
+                if (configAux == null)
+                {
+                    await _configuracionRepositorio
+                                                .AgregarConfiguracionAsync(new Configuracion {
+                                                    ServicioId = configuracion.ServicioId,
+                                                    Ambiente = configuracion.Ambiente,
+                                                    ServicioVersion = configuracion.ServicioVersion,
+                                                    Seccion = configuracion.Seccion,
+                                                    Clave = configuracion.Clave,
+                                                    Valor = configuracion.Valor,
+                                                    Descripcion = configuracion.Descripcion
+                                                });
+                }
+                else
+                {
+                    await _configuracionRepositorio
+                                                .ActualizarConfiguracion(
+                                                    configAux.Id.ToString(),
+                                                    configuracion.Seccion, 
+                                                    configuracion.Clave,
+                                                    configuracion.Valor, 
+                                                    configuracion.Descripcion
+                                                );
+                }
+            }
+
+            var servciosNotificar = configuraciones
+                                        .GroupBy(conf => new
+                                        {
+                                            conf.ServicioId,
+                                            conf.Ambiente,
+                                            conf.ServicioVersion
+                                        });
+
+            foreach (var servicio in servciosNotificar)
+            {
+                if (servicio.Key.ServicioId == "Global")
+                {
+                    var servicios = await 
+                            _servicioRepositorio.ObtenerServiciosAsync(true);
+                    foreach (var servicio2 in servicios)
+                    {
+                        _ = Notificar(servicio2.ServicioId, 
+                                        servicio2.Ambiente, 
+                                            servicio2.ServicioVersion);
+                    }
+                    break;
+                }
+                else
+                {
+                    _ = Notificar(servicio.Key.ServicioId, 
+                                    servicio.Key.Ambiente, 
+                                        servicio.Key.ServicioVersion);
+                }
+            }
+
+            return true;
         }
     }
 

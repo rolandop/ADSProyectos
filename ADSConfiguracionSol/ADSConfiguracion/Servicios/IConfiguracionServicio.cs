@@ -17,5 +17,7 @@ namespace ADSConfiguracion.Servicios
         Task Clonar(ClonarModelo clonar);
         Task<bool> EliminarTodasConfiguracionesAsync();
         Task AgregarConfiguracionAsync(Configuracion elemento);
+        Task<bool> GrabarConfiguraciones(ICollection<ConfiguracionModelo> configuraciones);
+        Task Notificar(string id, string ambiente, string version);
     }
 }

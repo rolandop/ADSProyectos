@@ -22,6 +22,7 @@ namespace ADSConfiguracion.Controllers
         public SistemaController(ILogger<ConfiguracionController> logger,
                                         IConfiguracionServicio configuracionServicio)
         {
+            _logger = logger;
             _configuracionServicio = configuracionServicio;
         }       
 
@@ -134,7 +135,8 @@ namespace ADSConfiguracion.Controllers
                     ServicioId = "Databook",
                     ServicioVersion = "1.0",
                     Ambiente = "DEV",
-                    Clave = "databook_ws_endpoint",
+                    Seccion = "",
+                    Clave = "Endpoint",
                     Valor = "https://",
                     Descripcion = "Ruta para consulta de servicio externo databook"
                 });

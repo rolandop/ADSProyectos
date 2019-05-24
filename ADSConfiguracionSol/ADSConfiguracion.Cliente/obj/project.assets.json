@@ -12634,11 +12634,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion.Cliente\\ADSConfiguracion.Cliente.csproj",
+      "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion.Cliente\\ADSConfiguracion.Cliente.csproj",
       "projectName": "ADSConfiguracion.Cliente",
-      "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion.Cliente\\ADSConfiguracion.Cliente.csproj",
+      "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion.Cliente\\ADSConfiguracion.Cliente.csproj",
       "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
-      "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSConfiguracionSol\\ADSConfiguracion.Cliente\\obj\\",
+      "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion.Cliente\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

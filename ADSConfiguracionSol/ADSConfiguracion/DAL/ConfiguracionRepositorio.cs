@@ -1,5 +1,6 @@
 ﻿using ADSConfiguracion.DAL.Entidades;
 using ADSConfiguracion.DAL.Modelos;
+using ADSConfiguracion.Modelos;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
@@ -58,7 +59,7 @@ namespace ADSConfiguracion.DAL
         }
 
         public async Task<Configuracion> 
-                    ObtenerConfiguracionAsync(string id, 
+                    ObtenerConfiguracionAsync(string servivioId, 
                                                 string ambiente, 
                                                 string version,
                                                 string seccion,
@@ -66,10 +67,10 @@ namespace ADSConfiguracion.DAL
         {
             try
             {
-                ObjectId idInterno = ObtenerIdInterno(id);
+                ObjectId idInterno = ObtenerIdInterno(servivioId);
                 return await _contexto.Configuraciones
                                 .Find(config =>
-                                           config.ServicioId == id
+                                           config.ServicioId == servivioId
                                         && config.Ambiente == ambiente
                                         && config.Seccion == seccion
                                         && config.ServicioVersion == version
@@ -164,12 +165,18 @@ namespace ADSConfiguracion.DAL
             }
         }
 
-        public async Task<bool> ActualizarConfiguracion(string id, string clave, string valor)
+        public async Task<bool> ActualizarConfiguracion(string id, string seccion, string clave, 
+                                                string valor, string descripcion)
         {
-            var filter = Builders<Configuracion>.Filter.Eq(s => s.ServicioId, id);
+            var objectId = ObtenerIdInterno(id);
+
+            var filter = Builders<Configuracion>.Filter
+                                                    .Eq(s=> s.Id, objectId);
+
             var update = Builders<Configuracion>.Update
-                            .Set(s => s.Clave, clave)
+                            .Set(s => s.Seccion, seccion)
                             .Set(s => s.Valor, valor)
+                            .Set(s => s.Descripcion, descripcion)
                             .CurrentDate(s => s.FechaActualizacion);
 
             try
@@ -222,6 +229,7 @@ namespace ADSConfiguracion.DAL
                 _logger.LogError(ex, "");
                 throw ex;
             }
-        }     
+        }
+
     }
 }

@@ -95,47 +95,38 @@ namespace ADSConfiguracion.Controllers
         [HttpPost("notificar/{id}/{ambiente}/{version}")]
         public async Task<IActionResult> Notificar(string id, string ambiente, string version)
         {
-            var servicio = await
-                                _servicioServicio.ObtenerServicioAsync(id, ambiente, version);
-
-            if (servicio == null)
-            {
-                _logger.LogInformation("Notificar NotFound");
-
-                return NotFound();
-            }
-
-            var clienteRest = new RestClient();
-            var solicitud = new RestRequest(servicio.UrlActualizacion, Method.POST);
-
-            var configs = await 
-                                _configuracionServicio.ObtenerConfiguracionServicio(id, ambiente, version);
-                
-            solicitud.AddJsonBody(new {
-                configuracionJson = JsonConvert.SerializeObject(configs)
-            });            
-
             try
             {
-                clienteRest.ExecuteAsync(solicitud, respuesta =>
-                {
-                    if (respuesta.StatusCode == HttpStatusCode.OK)
-                    {
-                        // OK
-                    }
-                    else
-                    {
-                        // NOK
-                    }
-                });
+                await _configuracionServicio.Notificar(id, ambiente, version);
+                return Ok();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "No se pudo enviar la configuración al servicio ", id);
+                _logger.LogError(ex, "Error al notificar servicio {Servicio} {Ambiente} {Version} ",
+                                    id, ambiente, version);
+
+                return StatusCode(500);
             }
+        }
 
-            return Ok(configs);
+        [HttpPost("")]
+        public async Task<IActionResult> Agregar([FromBody] ICollection<ConfiguracionModelo> configuraciones)
+        {
+            
+            var resultado = await
+                                _configuracionServicio.GrabarConfiguraciones(configuraciones);
 
+            if (resultado)
+            {
+                _logger.LogInformation("Configuración agregada");
+                return Ok();
+            }
+            else
+            {
+                _logger.LogError("No se crearon las configuraciones {@Configuraciones}", configuraciones);
+
+                return NoContent();
+            }
         }
     }
 }
