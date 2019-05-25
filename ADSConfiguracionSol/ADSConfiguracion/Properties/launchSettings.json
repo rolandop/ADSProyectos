@@ -27,12 +27,15 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     },
     "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values",
-      "httpPort": 60208,
-      "useSSL": true,
-      "sslPort": 44344
+        "commandName": "Docker",
+        "launchBrowser": true,
+        "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Staging"
+        },
+        "httpPort": 60208,
+        "useSSL": true,
+        "sslPort": 44344
     }
   }
 }

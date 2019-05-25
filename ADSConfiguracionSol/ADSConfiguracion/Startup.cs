@@ -32,12 +32,18 @@ namespace ADSConfiguracion
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.Configure<BaseDatosConfiguracionModelo>(Configuration.GetSection("MongoSettings"));
             services.Configure<BaseDatosConfiguracionModelo>(options =>
             {
-                options.CadenaConeccion
-                         = Configuration.GetSection("MongoConnection:ConnectionString").Value;
-                options.BaseDatos
-                         = Configuration.GetSection("MongoConnection:Database").Value;
+               options.Host
+                         = Configuration.GetSection("MongoDB:Host").Value;
+                options.Database
+                         = Configuration.GetSection("MongoDB:Database").Value;
+                options.User
+                         = Configuration.GetSection("MongoDB:User").Value;
+                options.Password
+                         = Configuration.GetSection("MongoDB:Password").Value;
+                
             });
 
             services.AddScoped<IConfiguracionRepositorio, ConfiguracionRepositorio>();
@@ -45,6 +51,10 @@ namespace ADSConfiguracion
             services.AddScoped<IConfiguracionServicio, ConfiguracionServicio>();
             services.AddScoped<IServicioServicio, ServicioServicio>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            
+
+
 
             ConfigureJobsIoc(services);
         }

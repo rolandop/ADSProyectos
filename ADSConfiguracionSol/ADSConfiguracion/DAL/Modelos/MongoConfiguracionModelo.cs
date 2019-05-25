@@ -7,7 +7,9 @@ namespace ADSConfiguracion.DAL.Modelos
 {
     public class BaseDatosConfiguracionModelo
     {
-        public string CadenaConeccion;
-        public string BaseDatos;
+        public string Host;
+        public string User;
+        public string Password;
+        public string Database;
     }
 }

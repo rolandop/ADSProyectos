@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ADSConfiguracion.DAL.Modelos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace ADSConfiguracion.Controllers
 {
@@ -10,11 +12,33 @@ namespace ADSConfiguracion.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        IOptions<BaseDatosConfiguracionModelo> _settings;
+
+        public ValuesController(IOptions<BaseDatosConfiguracionModelo> settings)
+        {
+            _settings = settings;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet]
+        [Route("mongoSettings")]
+        public ActionResult MongoSettings()
+        {
+            return Ok(_settings);
+        }
+
+        [HttpGet]
+        [Route("env")]
+        public ActionResult MongoSettEnvironmnet(string name)
+        {
+
+            return Ok(_settings);
         }
 
         // GET api/values/5

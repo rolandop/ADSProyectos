@@ -3,6 +3,10 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+ENV MongoDB__Host="172.17.0.3"
+ENV MongoDB__User="mongoadmin"
+ENV MongoDB__Password="asegsys"
+
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src
 COPY ["ADSConfiguracion/ADSConfiguracion.csproj", "ADSConfiguracion/"]

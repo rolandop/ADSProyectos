@@ -15,9 +15,21 @@ namespace ADSConfiguracion.DAL
 
         public ADSConfiguracionesContexto(IOptions<BaseDatosConfiguracionModelo> settings)
         {
-            var client = new MongoClient(settings.Value.CadenaConeccion);
+            var connectionString = "";
+
+            if (string.IsNullOrWhiteSpace(settings.Value.User)
+                || string.IsNullOrWhiteSpace(settings.Value.Password))
+            {
+                connectionString = $"mongodb://{settings.Value.Host}";
+            }
+            else
+            {
+                connectionString = $"mongodb://{settings.Value.User}:{settings.Value.Password}@{settings.Value.Host}";
+            }
+
+            var client = new MongoClient(connectionString);
             if (client != null)
-                _database = client.GetDatabase(settings.Value.BaseDatos);
+                _database = client.GetDatabase(settings.Value.Database);
         }
 
         public IMongoCollection<Configuracion> Configuraciones

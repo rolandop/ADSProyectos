@@ -77,6 +77,8 @@ namespace ADSConfiguracion
 
                 try
                 {
+                    _logger.LogInformation("Obteniendo Servicios..");
+
                     var servicios = ObtenerServicios(true);
 
                     foreach (var servicio in servicios)
