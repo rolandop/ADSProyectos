@@ -35,7 +35,7 @@ namespace ADSConfiguracion.Cliente.Configuracion.Servicios
 
             var clienteRest = new RestClient(_configuracion.ServiceConfiguracionUrl);
             var solicitud =
-                    new RestRequest($"api/v1/configuracion/{_configuracion.ServiceName}/{_configuracion.ServiceEnvironment}/{_configuracion.ServiceVersion}"
+                    new RestRequest($"api/v1/configuracion/{_configuracion.ServiceId}/{_configuracion.Environment}/{_configuracion.ServiceVersion}"
                                     , Method.GET);
 
             solicitud.RequestFormat = DataFormat.Json;
@@ -80,9 +80,9 @@ namespace ADSConfiguracion.Cliente.Configuracion.Servicios
             solicitud.RequestFormat = DataFormat.Json;
             var parametros = new
             {
-                ServicioId = _configuracion.ServiceName,
+                ServicioId = _configuracion.ServiceId,
                 ServicioVersion = _configuracion.ServiceVersion,
-                Ambiente = _configuracion.ServiceEnvironment,
+                Ambiente = _configuracion.Environment,
                 UrlActualizacion = $"{_configuracion.ServiceUrl}/api/configuracion/",
                 UrlVerificacion = $"{_configuracion.ServiceUrl}/api/configuracion/ping"
             };

@@ -30,11 +30,8 @@
         "commandName": "Docker",
         "launchBrowser": true,
         "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values",
-        "environmentVariables": {
-            "ASPNETCORE_ENVIRONMENT": "Staging"
-        },
         "httpPort": 60208,
-        "useSSL": true,
+        "useSSL": false,
         "sslPort": 44344
     }
   }

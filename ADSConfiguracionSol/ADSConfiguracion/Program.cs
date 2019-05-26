@@ -30,14 +30,14 @@ namespace ADSConfiguracion
                         .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true); // optional extra provider
 
-                   if (env.IsDevelopment()) // different providers in dev
-                   {
-                       var appAssembly = Assembly.Load(new AssemblyName(env.ApplicationName));
-                       if (appAssembly != null)
-                       {
-                           config.AddUserSecrets(appAssembly, optional: true);
-                       }
-                   }
+                   //if (env.IsDevelopment()) // different providers in dev
+                   //{
+                   //    var appAssembly = Assembly.Load(new AssemblyName(env.ApplicationName));
+                   //    if (appAssembly != null)
+                   //    {
+                   //        config.AddUserSecrets(appAssembly, optional: true);
+                   //    }
+                   //}
 
                    config.AddEnvironmentVariables(); // overwrites previous values
 

@@ -7,7 +7,7 @@ ENV Global__Services__Logs__ServiceUrl="http://adsconfiguraicion"
 ENV ServiceId="Databook"
 ENV ServiceEnvironment="DEV"
 ENV ServiceVersion="1.0"
-ENV ServiceUrl="http://adsconfiguracioncliente"
+ENV ServiceUrl="http://adsconfiguracionCliente"
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src

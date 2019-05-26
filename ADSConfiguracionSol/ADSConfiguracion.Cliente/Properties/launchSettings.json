@@ -31,7 +31,7 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values",
       "httpPort": 52651,
-      "useSSL": true,
+      "useSSL": false,
       "sslPort": 44315
     }
   }

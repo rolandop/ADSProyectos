@@ -36,19 +36,19 @@ namespace ADSConfiguracion.Cliente
             services.Configure<ConfiguracionParamModelo>(options =>
             {
                 options.ServiceConfiguracionUrl
-                         = Configuration.GetSection("Configuration:ServiceConfiguracionUrl").Value;
+                         = Configuration.GetSection("Global:Services:Logs:ServiceUrl").Value;
 
                 options.ServiceUrl
-                        = Configuration.GetSection("Configuration:ServiceUrl").Value;
+                        = Configuration.GetSection("ServiceUrl").Value;
 
-                options.ServiceName
-                         = Configuration.GetSection("Configuration:ServiceName").Value;
+                options.ServiceId
+                         = Configuration.GetSection("ServiceId").Value;
 
-                options.ServiceEnvironment
-                        = Configuration.GetSection("Configuration:Environment").Value;
+                options.Environment
+                        = Configuration.GetSection("ServiceEnvironment").Value;
 
                 options.ServiceVersion
-                        = Configuration.GetSection("Configuration:ServiceVersion").Value;
+                        = Configuration.GetSection("ServiceVersion").Value;
 
 
 

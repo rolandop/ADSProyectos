@@ -8,8 +8,8 @@ namespace ADSConfiguracion.Cliente.Configuracion.Modelos
     public class ConfiguracionParamModelo
     {
         public string ServiceConfiguracionUrl { get; set; }
-        public string ServiceName { get; set; }
-        public string ServiceEnvironment { get; set; }
+        public string ServiceId { get; set; }
+        public string Environment { get; set; }
         public string ServiceVersion { get; set; }
         public string ServiceUrl { get; set; }
     }

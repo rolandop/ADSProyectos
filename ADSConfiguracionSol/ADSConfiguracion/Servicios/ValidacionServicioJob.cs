@@ -77,7 +77,7 @@ namespace ADSConfiguracion
 
                 try
                 {
-                    _logger.LogInformation("Obteniendo Servicios..");
+                    _logger.LogTrace("Obteniendo Servicios..");
 
                     var servicios = ObtenerServicios(true);
 
@@ -92,7 +92,9 @@ namespace ADSConfiguracion
                             }
                         }
 
-                        _logger.LogInformation("Validando servicio ", servicio.Id);
+                        _logger.LogTrace("Validando servicio {ServicioId} {ServicioNombre} {ServicioVersion}", 
+                                servicio.Id, servicio.Ambiente, servicio.ServicioVersion);
+
                         var uri = new Uri(servicio.UrlVerificacion);
                         var origin = uri.GetLeftPart(UriPartial.Authority);
                         var clienteRest = new RestClient(origin);
@@ -106,16 +108,19 @@ namespace ADSConfiguracion
                             var actualizo = DesactivarServicio(servicio);
                             if (!actualizo)
                             {
-                                _logger.LogError("No se pudo desabilitar el servicio ", servicio.Id);
+                                _logger.LogError("No se pudo desabilitar el servicio");
                             }
                             else
                             {
-                                _logger.LogInformation("Servicio desactivado ", servicio.Id);
+                                _logger.LogInformation("Servicio desactivado");
                             }
-                            ActualizarIntentos(servicio, servicio.Intentos++);
+
+                            _logger.LogTrace("Actualiza intentos a {Intentos}", servicio.Intentos + 1);
+                            ActualizarIntentos(servicio, servicio.Intentos + 1);
                         }
                         else
                         {
+                            _logger.LogTrace("Actualiza intentos a 0");
                             ActualizarIntentos(servicio, 0);
                         }
                     }

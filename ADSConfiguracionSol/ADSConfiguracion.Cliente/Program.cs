@@ -19,7 +19,27 @@ namespace ADSConfiguracion.Cliente
         {         
 
             var host = WebHost
-              .CreateDefaultBuilder(args)              
+              .CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((builderContext, config) =>
+              {
+                  var env = builderContext.HostingEnvironment;
+                  config
+                       .SetBasePath(env.ContentRootPath)
+                       .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                       .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true); // optional extra provider
+
+                  if (env.IsDevelopment()) // different providers in dev
+                  {
+                      
+                  }
+
+                  config.AddEnvironmentVariables(); // overwrites previous values
+
+                  if (args != null)
+                  {
+                      config.AddCommandLine(args);
+                  }
+              })
               .ConfigureLogging((hostingContext, logging) =>
               {
                   logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
