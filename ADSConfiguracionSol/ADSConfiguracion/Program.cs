@@ -52,6 +52,7 @@ namespace ADSConfiguracion
                    logging.AddConsole();
                    logging.AddDebug();
                    logging.AddEventSourceLogger(); 
+
                    
                })
                .UseStartup<Startup>()

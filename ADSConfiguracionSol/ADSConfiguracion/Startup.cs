@@ -17,13 +17,20 @@ using Microsoft.Extensions.Options;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
+using Serilog;
 
 namespace ADSConfiguracion
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
+            Log.Logger = 
+                new LoggerConfiguration()
+                  .Enrich.FromLogContext()
+                  .WriteTo.Console()
+                  .CreateLogger();
+
             Configuration = configuration;
         }
 
@@ -50,6 +57,10 @@ namespace ADSConfiguracion
             services.AddScoped<IServicioRepositorio, ServicioRepositorio>();
             services.AddScoped<IConfiguracionServicio, ConfiguracionServicio>();
             services.AddScoped<IServicioServicio, ServicioServicio>();
+
+            services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             

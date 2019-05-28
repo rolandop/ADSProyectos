@@ -3,7 +3,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-ENV Global__Services__Logs__ServiceUrl="http://adsconfiguraicion"
+ENV Global__Services__Configuration__ServiceUrl="http://adsconfiguracion"
 ENV ServiceId="Databook"
 ENV ServiceEnvironment="DEV"
 ENV ServiceVersion="1.0"

@@ -29,11 +29,11 @@ namespace ADSConfiguracion.Controllers
         [HttpGet("{opcion}")]
         public async Task<string> Sistema(string opcion)
         {
-            _logger.LogTrace("Sistema", opcion);
+            _logger.LogInformation("Sistema", opcion);
 
             if (opcion == "iniciar")
             {
-                _logger.LogTrace("Sistema", "iniciar");
+                _logger.LogInformation("Sistema", "iniciar");
 
                 await _configuracionServicio.EliminarTodasConfiguracionesAsync();
 
@@ -146,7 +146,7 @@ namespace ADSConfiguracion.Controllers
                 return "Configuración creada exitosamente.!";
             }
 
-            _logger.LogTrace("Sistema", "Opción no válida");
+            _logger.LogInformation("Sistema", "Opción no válida");
 
             return "Opción no válida";
         }

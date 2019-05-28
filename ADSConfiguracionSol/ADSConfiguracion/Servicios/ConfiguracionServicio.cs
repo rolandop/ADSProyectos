@@ -175,8 +175,11 @@ namespace ADSConfiguracion.Servicios
 
             if (servicio == null)
             {
-                _logger.LogInformation("Notificar NotFound");
+                _logger.LogWarning("Notificar NotFound");
             }
+
+            _logger.LogInformation("Notificando Servicio {Servicio} {Ambiente} {Version} a {UrlActualizacion}",
+                                    id, ambiente, version, servicio.UrlActualizacion);
 
             var uri = new Uri(servicio.UrlActualizacion);
             var origin = uri.GetLeftPart(UriPartial.Authority);
@@ -202,7 +205,7 @@ namespace ADSConfiguracion.Servicios
                     }
                     else
                     {
-                        _logger.LogError("Notificar OK Servicio {Servicio} {Ambiente} {Version}, Mensate {Mensaje}",
+                        _logger.LogError("No se pudo notificar al Servicio {Servicio} {Ambiente} {Version}, Mensaje {Mensaje}",
                                     id, ambiente, version, respuesta.Content);
                     }
                 });

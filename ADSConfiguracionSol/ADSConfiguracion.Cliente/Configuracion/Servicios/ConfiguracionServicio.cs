@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
+using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace ADSConfiguracion.Cliente.Configuracion.Servicios
 {
@@ -19,12 +21,14 @@ namespace ADSConfiguracion.Cliente.Configuracion.Servicios
         private readonly ConfiguracionParamModelo _configuracion;
         private readonly ILogger<ConfiguracionServicio> _logger;
         private string _configuracionJson;
+        private readonly IConfiguration _config;
 
         public ConfiguracionServicio(ILogger<ConfiguracionServicio> logger,
-                            IOptions<ConfiguracionParamModelo> settings,                            
-                            IHostingEnvironment env)
+                            IOptions<ConfiguracionParamModelo> settings,
+                            IConfiguration config)
         {            
-            _logger = logger;            
+            _logger = logger;
+            _config = config;
             _configuracion = settings.Value;
 
             ObtenerConfiguracion();
@@ -32,6 +36,8 @@ namespace ADSConfiguracion.Cliente.Configuracion.Servicios
 
         public void ObtenerConfiguracion()
         {
+            _logger.LogInformation("ObtenerConfiguracion de  {Configuracion} de {Url}"
+                                        , _configuracion, _configuracion.ServiceConfiguracionUrl);
 
             var clienteRest = new RestClient(_configuracion.ServiceConfiguracionUrl);
             var solicitud =
@@ -75,6 +81,9 @@ namespace ADSConfiguracion.Cliente.Configuracion.Servicios
 
         public void SubscribirServicio()
         {
+            _logger.LogInformation("Subscribir servicio a {Url}"
+                                        , _configuracion.ServiceConfiguracionUrl);
+
             var clienteRest = new RestClient(_configuracion.ServiceConfiguracionUrl);
             var solicitud = new RestRequest($"api/v1/configuracion/subscribe", Method.POST);
             solicitud.RequestFormat = DataFormat.Json;
@@ -115,6 +124,43 @@ namespace ADSConfiguracion.Cliente.Configuracion.Servicios
         public string ObtenerConfiguracionJson()
         {
             return _configuracionJson;
+        }
+
+        public string ObtenerValor(string clave)
+        {
+            try
+            {
+                _logger.LogInformation("ObtenerValor");
+                dynamic jsonObj = JsonConvert.DeserializeObject(_configuracionJson);
+
+                if (jsonObj != null)
+                {
+                    var partes = clave.Split(":");
+                    var objetoEvaluar = jsonObj;
+
+                    foreach (var parte in partes)
+                    {
+                        if (objetoEvaluar != null)
+                        {
+                            objetoEvaluar = objetoEvaluar[parte];
+                        }
+                        else
+                        {                            
+                            break;
+                        }
+                    }
+                    if (objetoEvaluar != null)
+                    {
+                        return objetoEvaluar.ToString();
+                    }                               
+                }
+                return _config[clave];
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "ObtenerValor");
+                return "";
+            }
         }
     }
 }

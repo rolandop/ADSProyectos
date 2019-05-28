@@ -24,6 +24,7 @@ namespace ADSConfiguracion.Cliente.Controllers
         {
             _logger = logger;
             _configuracionServicio = configuracionServicio;
+            _configuracionServicio.ObtenerValor("Global:Services:Configuration:ServiceUrl");
         }
 
         [HttpGet]
@@ -32,7 +33,7 @@ namespace ADSConfiguracion.Cliente.Controllers
         {
             _logger.LogInformation("Ping from {@Url}", Request.PathBase);
 
-            return Ok();
+            return Ok("Pong");
         }
 
 
@@ -53,6 +54,16 @@ namespace ADSConfiguracion.Cliente.Controllers
             _logger.LogInformation("ConfiguracionActual");
             
             return Content(_configuracionServicio.ObtenerConfiguracionJson(), "application/json");
+        }
+
+        [HttpGet]
+        [Route("valor/{clave}")]
+        public ActionResult Valor(string clave)
+        {
+            var valor = _configuracionServicio.ObtenerValor(clave);
+            _logger.LogInformation("Valor= {@Valor}", valor);
+
+            return Ok(valor);
         }
     }
 }

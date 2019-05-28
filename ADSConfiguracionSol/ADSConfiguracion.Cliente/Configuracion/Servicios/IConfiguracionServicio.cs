@@ -11,5 +11,6 @@ namespace ADSConfiguracion.Cliente.Configuracion.Servicios
         void ObtenerConfiguracion();
         void ActualizarConfiguracion(string configuracionJson);
         void SubscribirServicio();
+        string ObtenerValor(string clave);
     }
 }

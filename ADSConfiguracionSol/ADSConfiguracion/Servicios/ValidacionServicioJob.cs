@@ -77,7 +77,7 @@ namespace ADSConfiguracion
 
                 try
                 {
-                    _logger.LogTrace("Obteniendo Servicios..");
+                    _logger.LogInformation("Obteniendo Servicios..");
 
                     var servicios = ObtenerServicios(true);
 
@@ -92,37 +92,47 @@ namespace ADSConfiguracion
                             }
                         }
 
-                        _logger.LogTrace("Validando servicio {ServicioId} {ServicioNombre} {ServicioVersion}", 
-                                servicio.Id, servicio.Ambiente, servicio.ServicioVersion);
+                        try
+                        {
+                            _logger.LogInformation("Validando servicio {ServicioId} {ServicioNombre} {ServicioVersion} en {Url}",
+                                servicio.Id, servicio.Ambiente, servicio.ServicioVersion, servicio.UrlVerificacion);
 
-                        var uri = new Uri(servicio.UrlVerificacion);
-                        var origin = uri.GetLeftPart(UriPartial.Authority);
-                        var clienteRest = new RestClient(origin);
-                        var solicitud = new RestRequest(uri.PathAndQuery, Method.GET);
+                            var uri = new Uri(servicio.UrlVerificacion);
+                            var origin = uri.GetLeftPart(UriPartial.Authority);
+                            var clienteRest = new RestClient(origin);
+                            var solicitud = new RestRequest(uri.PathAndQuery, Method.GET);
 
-                        var respuesta = clienteRest.Execute(solicitud);
+                            var respuesta = clienteRest.Execute(solicitud);
 
-                        if (respuesta.StatusCode != System.Net.HttpStatusCode.OK
-                            && servicio.Intentos > 10) {
-
-                            var actualizo = DesactivarServicio(servicio);
-                            if (!actualizo)
+                            if (respuesta.StatusCode != System.Net.HttpStatusCode.OK
+                                && servicio.Intentos > 10)
                             {
-                                _logger.LogError("No se pudo desabilitar el servicio");
+
+                                var actualizo = DesactivarServicio(servicio);
+                                if (!actualizo)
+                                {
+                                    _logger.LogError("No se pudo desabilitar el servicio");
+                                }
+                                else
+                                {
+                                    _logger.LogInformation("Servicio desactivado");
+                                }
+
+                                _logger.LogInformation("Actualiza intentos a {Intentos}", servicio.Intentos + 1);
+                                ActualizarIntentos(servicio, servicio.Intentos + 1);
                             }
                             else
                             {
-                                _logger.LogInformation("Servicio desactivado");
+                                _logger.LogInformation("Reinicia intentos a 0");
+                                ActualizarIntentos(servicio, 0);
                             }
-
-                            _logger.LogTrace("Actualiza intentos a {Intentos}", servicio.Intentos + 1);
-                            ActualizarIntentos(servicio, servicio.Intentos + 1);
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            _logger.LogTrace("Actualiza intentos a 0");
-                            ActualizarIntentos(servicio, 0);
+                            _logger.LogError(ex, "Error al realizar ping al servicio {url}", servicio.UrlVerificacion);
                         }
+
+                        
                     }
                 }
                 catch (Exception exc)

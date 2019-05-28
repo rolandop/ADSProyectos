@@ -3,7 +3,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-ENV MongoDB__Host="172.17.0.3"
+ENV MongoDB__Host="172.19.0.2"
 ENV MongoDB__User="mongoadmin"
 ENV MongoDB__Password="asegsys"
 

@@ -36,7 +36,7 @@ namespace ADSConfiguracion.Cliente
             services.Configure<ConfiguracionParamModelo>(options =>
             {
                 options.ServiceConfiguracionUrl
-                         = Configuration.GetSection("Global:Services:Logs:ServiceUrl").Value;
+                         = Configuration.GetSection("Global:Services:Configuration:ServiceUrl").Value;
 
                 options.ServiceUrl
                         = Configuration.GetSection("ServiceUrl").Value;

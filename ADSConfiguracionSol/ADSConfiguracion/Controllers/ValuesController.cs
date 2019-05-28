@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using ADSConfiguracion.DAL.Modelos;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using RestSharp;
 
 namespace ADSConfiguracion.Controllers
 {
@@ -13,9 +16,12 @@ namespace ADSConfiguracion.Controllers
     public class ValuesController : ControllerBase
     {
         IOptions<BaseDatosConfiguracionModelo> _settings;
+        private readonly ILogger<ConfiguracionController> _logger;
 
-        public ValuesController(IOptions<BaseDatosConfiguracionModelo> settings)
+        public ValuesController(ILogger<ConfiguracionController> logger,
+                            IOptions<BaseDatosConfiguracionModelo> settings)
         {
+            _logger = logger;
             _settings = settings;
         }
 
@@ -23,6 +29,14 @@ namespace ADSConfiguracion.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            var json = new
+            {
+                Hola = "yo",
+                Jaja = "El mmismo"
+            };
+
+            _logger.LogInformation("Prueba de json en informacion {Json}", json);
+
             return new string[] { "value1", "value2" };
         }
 
@@ -34,11 +48,47 @@ namespace ADSConfiguracion.Controllers
         }
 
         [HttpGet]
-        [Route("env")]
-        public ActionResult MongoSettEnvironmnet(string name)
+        [Route("restclient")]
+        public ActionResult RestClient([FromQuery]string url, string path)
         {
 
-            return Ok(_settings);
+            try
+            {
+                var clienteRest = new RestClient(url);
+                var solicitud = new RestRequest(path);
+                
+                var respuesta = clienteRest.Execute(solicitud);
+
+                _logger.LogError("Respuesta {@Respuesta}", respuesta);
+
+                return Ok(respuesta.Content);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "No se pudo enviar la configuración al servicio ");
+                return Ok(ex);
+            }
+            
+        }
+
+        [HttpGet]
+        [Route("string")]
+        public async Task<ActionResult>  String([FromQuery]string url, string path)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                string json = await client.GetStringAsync($"{url}/{path}");
+                _logger.LogError("Respuesta {@Respuesta}", json);
+
+                return Ok(json);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "No se pudo enviar la configuración al servicio ");
+                return Ok(ex);
+            }
+            
         }
 
         // GET api/values/5
