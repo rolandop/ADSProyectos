@@ -1,0 +1,39 @@
+mongo
+docker run -d --name adsmongo -p 27017:27017 --expose=27017 --network adsnet --network mongo -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=asegsys mongo
+
+ADSConfiguracion
+docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsnet --network-alias adsconfiguracion --link mongo --link adsconfiguracioncliente -e MongoDB__Host=mongo -e ASPNETCORE_ENVIRONMENT=Development citytechdock/adsconfiguracion
+
+docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsnet --network-alias adsconfiguracion --link mongo --link adsconfiguracioncliente -e MongoDB__Host=mongo -e ASPNETCORE_ENVIRONMENT=Development imagenconfig1
+
+
+
+ADSConfiguracionCliente
+docker run -d --name adsconfiguracioncliente -p 60221:80 --expose=60221 --network adsnet --network-alias adsconfiguracioncliente --link adsconfiguracion -e Global__Services__Logs__ServiceUrl="http://adsconfiguracion" -e ServiceUrl="http://adsconfiguracioncliente" -e ASPNETCORE_ENVIRONMENT=Development citytechdock/adsconfiguracioncliente
+
+
+
+
+
+cambiar de red
+
+docker network connect adsnet AdsMongoDevDock
+
+
+//portainer
+docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+
+docker run --env ASPNETCORE_ENVIRONMENT=Development --env ASPNETCORE_URLS=http://+:5000 -p 5000:5000 -t --rm -it  garfbradaz/ep3
+
+
+
+Servicios en linux
+apt-get install apt-transport-https  ca-certificates curl software-properties-common build-essential git
+
+
+
+Crear imagenes
+docker build -t nombreimagen . -f ADSConfiguracionDockerfile
+
+

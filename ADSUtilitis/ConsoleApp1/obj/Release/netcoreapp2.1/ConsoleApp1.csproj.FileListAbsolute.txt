@@ -1,0 +1,14 @@
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\bin\Release\netcoreapp2.1\ConsoleApp1.deps.json
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\bin\Release\netcoreapp2.1\ConsoleApp1.runtimeconfig.json
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\bin\Release\netcoreapp2.1\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\bin\Release\netcoreapp2.1\ConsoleApp1.dll
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\bin\Release\netcoreapp2.1\ConsoleApp1.pdb
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\bin\Release\netcoreapp2.1\ADSUtilities.dll
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\bin\Release\netcoreapp2.1\ADSUtilities.pdb
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\obj\Release\netcoreapp2.1\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\obj\Release\netcoreapp2.1\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\obj\Release\netcoreapp2.1\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\obj\Release\netcoreapp2.1\ConsoleApp1.AssemblyInfo.cs
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\obj\Release\netcoreapp2.1\ConsoleApp1.csproj.CopyComplete
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\obj\Release\netcoreapp2.1\ConsoleApp1.dll
+C:\Users\Danner\source\repos\ADSUtilitis\ConsoleApp1\obj\Release\netcoreapp2.1\ConsoleApp1.pdb

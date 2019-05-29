@@ -1,0 +1,9 @@
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\bin\Debug\netcoreapp2.1\ADSUtility.deps.json
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\bin\Debug\netcoreapp2.1\ADSUtility.dll
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.1\ADSUtility.csproj.CoreCompileInputs.cache
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.1\ADSUtility.AssemblyInfoInputs.cache
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.1\ADSUtility.AssemblyInfo.cs
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\bin\Debug\netcoreapp2.1\ADSUtility.pdb
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.1\ADSUtility.dll
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.1\ADSUtility.pdb
+C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.1\ADSUtility.csprojAssemblyReference.cache

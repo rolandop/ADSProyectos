@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>ZooKeeperNetEx.Recipes.Tests</AssemblyName>
+    <TargetFrameworks>$(StandardTestTfms)</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ZooKeeperNetEx.Tests\ZooKeeperNetEx.Tests.csproj" />
+    <ProjectReference Include="..\..\src\ZooKeeperNetEx.Recipes\ZooKeeperNetEx.Recipes.csproj" />
+  </ItemGroup>
+
+</Project>

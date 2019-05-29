@@ -1,0 +1,17 @@
+﻿<Project>
+  <Import Project="..\Directory.Build.props" />
+
+  <PropertyGroup>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSource>true</IncludeSource>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFrameworks>netstandard1.3</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Net.NameResolution" Version="$(SystemNetNameResolution)" />
+    <PackageReference Include="System.Diagnostics.TraceSource" Version="$(SystemDiagnosticsTraceSource)" />
+  </ItemGroup>
+
+</Project>
