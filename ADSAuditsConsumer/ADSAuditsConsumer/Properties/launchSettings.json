@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ADSAuditsConsumer": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

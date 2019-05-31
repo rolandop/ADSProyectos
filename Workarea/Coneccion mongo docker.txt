@@ -1,5 +1,5 @@
 mongo
-docker run -d --name adsmongo -p 27017:27017 --expose=27017 --network adsnet --network mongo -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=asegsys mongo
+docker run -d --name mongo -p 27017:27017 --expose=27017 --network adsnet -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=asegsys mongo
 
 ADSConfiguracion
 docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsnet --network-alias adsconfiguracion --link mongo --link adsconfiguracioncliente -e MongoDB__Host=mongo -e ASPNETCORE_ENVIRONMENT=Development citytechdock/adsconfiguracion
@@ -9,7 +9,7 @@ docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsne
 
 
 ADSConfiguracionCliente
-docker run -d --name adsconfiguracioncliente -p 60221:80 --expose=60221 --network adsnet --network-alias adsconfiguracioncliente --link adsconfiguracion -e Global__Services__Logs__ServiceUrl="http://adsconfiguracion" -e ServiceUrl="http://adsconfiguracioncliente" -e ASPNETCORE_ENVIRONMENT=Development citytechdock/adsconfiguracioncliente
+docker run -d --name adsconfiguracioncliente -p 60221:80 --expose=60221 --network adsnet --network-alias adsconfiguracioncliente --link adsconfiguracion -e Global__Services__Configuration__ServiceUrl="http://adsconfiguracion" -e ServiceUrl="http://adsconfiguracioncliente" -e ASPNETCORE_ENVIRONMENT=Development citytechdock/adsconfiguracioncliente
 
 
 
@@ -18,6 +18,12 @@ docker run -d --name adsconfiguracioncliente -p 60221:80 --expose=60221 --networ
 cambiar de red
 
 docker network connect adsnet AdsMongoDevDock
+
+
+
+crear red
+docker network create adsnet
+
 
 
 //portainer

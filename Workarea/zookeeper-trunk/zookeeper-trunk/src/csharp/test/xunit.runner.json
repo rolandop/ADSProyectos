@@ -1,7 +1,0 @@
-{
-  "appDomain": "denied",
-  "diagnosticMessages": true,
-  "parallelizeTestCollections": true,
-  "methodDisplay": "classAndMethod",
-  "shadowCopy": false
-}
