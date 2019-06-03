@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
-using ADSConfiguracion.Cliente.Configuracion.Modelos;
-using ADSConfiguracion.Cliente.Configuracion.Servicios;
+using ADSConfiguracion.Utilities;
+using ADSConfiguracion.Utilities.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +15,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Serilog;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ADSConfiguracion.Cliente
 {
@@ -21,6 +25,12 @@ namespace ADSConfiguracion.Cliente
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
+            Log.Logger =
+                new LoggerConfiguration()
+                  .Enrich.FromLogContext()
+                  .WriteTo.Console()
+                  .CreateLogger();
+
             Configuration = configuration;
         }       
 
@@ -28,43 +38,58 @@ namespace ADSConfiguracion.Cliente
         public void ConfigureServices(IServiceCollection services)
         {
             StartConfiguracion(services);
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
+
+            services.AddSwaggerGen(swagger =>
+            {
+                var contact = new Contact()
+                {
+                    Name = Configuration.GetSection("Swagger:ContactName").Value,
+                    Url = Configuration.GetSection("Swagger:ContactUrl").Value,
+                    Email = Configuration.GetSection("Swagger:ContactEmail").Value
+                };
+
+                swagger.SwaggerDoc(Configuration.GetSection("Swagger:DocNameV1").Value,
+                                   new Info
+                                   {
+                                       Title = Configuration.GetSection("Swagger:DocInfoTitle").Value,
+                                       Version = Configuration.GetSection("Swagger:DocInfoVersion").Value,
+                                       Description = Configuration.GetSection("Swagger:DocInfoDescription").Value,
+                                       Contact = contact
+                                   });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                swagger.IncludeXmlComments(xmlPath);
+            });
+
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         private void StartConfiguracion(IServiceCollection services)
         {
-            services.Configure<ConfiguracionParamModelo>(options =>
+
+            services.AddADSConfiguration(options =>
             {
-                options.ServiceConfiguracionUrl
-                         = Configuration.GetSection("Global:Services:Configuration:ServiceUrl").Value;
+                options.Configure(new ConfigurationParamModel {
 
-                options.ServiceUrl
-                        = Configuration.GetSection("ServiceUrl").Value;
-
-                options.ServiceId
-                         = Configuration.GetSection("ServiceId").Value;
-
-                options.Environment
-                        = Configuration.GetSection("ServiceEnvironment").Value;
-
-                options.ServiceVersion
-                        = Configuration.GetSection("ServiceVersion").Value;
-
+                    Service
+                        = Configuration.GetSection("Service").Value,
+                    ServiceId
+                             = Configuration.GetSection("ServiceId").Value,
+                    ServiceConfiguration
+                            = Configuration.GetSection("Global:Services:Configuration:Service").Value,
+                    ServiceVersion
+                            = Configuration.GetSection("ServiceVersion").Value,
+                    ServiceEnvironment
+                        = Configuration.GetSection("ServiceEnvironment").Value
+                }); 
 
 
-                /* var urlServicio = Environment.GetEnvironmentVariable("CONFIGURATION_SERVICE_URL");
-
-                 if (!string.IsNullOrWhiteSpace(urlServicio))
-                 {
-                     options.UrlServicio = urlServicio;
-                 }*/
+                
             });
-
-            services.AddSingleton<IConfiguracionServicio, ConfiguracionServicio>();
-
-            var serviceProvider = services.BuildServiceProvider();
-            var configuracionService = serviceProvider.GetService<IConfiguracionServicio>();
-            configuracionService.SubscribirServicio();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,7 +104,16 @@ namespace ADSConfiguracion.Cliente
                 app.UseHsts();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(
+                    Configuration.GetSection("Swagger:EndpointUrl").Value,
+                    Configuration.GetSection("Swagger:EndpointDescription").Value);
+            });
+
             app.UseHttpsRedirection();
+            app.UseADSConfiguracionUtils();
             app.UseMvc();
         }
     }

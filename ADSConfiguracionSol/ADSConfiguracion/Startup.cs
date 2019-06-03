@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using ADSConfiguracion.DAL;
-using ADSConfiguracion.DAL.Modelos;
+using ADSConfiguracion.DAL.Models;
 using ADSConfiguracion.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,6 +20,7 @@ using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
 using Serilog;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ADSConfiguracion
 {
@@ -40,7 +43,7 @@ namespace ADSConfiguracion
         public void ConfigureServices(IServiceCollection services)
         {
             //services.Configure<BaseDatosConfiguracionModelo>(Configuration.GetSection("MongoSettings"));
-            services.Configure<BaseDatosConfiguracionModelo>(options =>
+            services.Configure<DatabaseConfigurationModel>(options =>
             {
                options.Host
                          = Configuration.GetSection("MongoDB:Host").Value;
@@ -53,19 +56,36 @@ namespace ADSConfiguracion
                 
             });
 
-            services.AddScoped<IConfiguracionRepositorio, ConfiguracionRepositorio>();
-            services.AddScoped<IServicioRepositorio, ServicioRepositorio>();
-            services.AddScoped<IConfiguracionServicio, ConfiguracionServicio>();
-            services.AddScoped<IServicioServicio, ServicioServicio>();
+            services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
+            services.AddScoped<IConfigurationService, ConfigurationService>();
+            services.AddScoped<IServiceService, ServiceService>();
 
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
 
+            services.AddSwaggerGen(swagger =>
+            {
+                var contact = new Contact() {
+                    Name = Configuration.GetSection("Swagger:ContactName").Value,
+                    Url = Configuration.GetSection("Swagger:ContactUrl").Value,
+                    Email = Configuration.GetSection("Swagger:ContactEmail").Value
+                };
+
+                swagger.SwaggerDoc(Configuration.GetSection("Swagger:DocNameV1").Value,
+                                   new Info
+                                   {
+                                       Title = Configuration.GetSection("Swagger:DocInfoTitle").Value,
+                                       Version = Configuration.GetSection("Swagger:DocInfoVersion").Value,
+                                       Description = Configuration.GetSection("Swagger:DocInfoDescription").Value,
+                                       Contact = contact
+                                   });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                swagger.IncludeXmlComments(xmlPath);
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            
-
-
 
             ConfigureJobsIoc(services);
         }
@@ -82,6 +102,14 @@ namespace ADSConfiguracion
             {
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(
+                    Configuration.GetSection("Swagger:EndpointUrl").Value, 
+                    Configuration.GetSection("Swagger:EndpointDescription").Value);
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();

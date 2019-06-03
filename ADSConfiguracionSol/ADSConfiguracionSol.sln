@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADSConfiguracion", "ADSConfiguracion\ADSConfiguracion.csproj", "{CF0E00AC-24C8-47C8-A26F-45B32BB9ADA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSConfiguracion.Cliente", "ADSConfiguracion.Cliente\ADSConfiguracion.Cliente.csproj", "{AFCD1C2D-4C94-41D5-A88A-F8F78C4A3250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADSConfiguracion.Cliente", "ADSConfiguracion.Cliente\ADSConfiguracion.Cliente.csproj", "{AFCD1C2D-4C94-41D5-A88A-F8F78C4A3250}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADSConfiguracion.Utilities", "ADSConfiguracion.Utilities\ADSConfiguracion.Utilities.csproj", "{4A9218BE-B677-47B5-97E1-CD9FC3A78623}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AFCD1C2D-4C94-41D5-A88A-F8F78C4A3250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCD1C2D-4C94-41D5-A88A-F8F78C4A3250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCD1C2D-4C94-41D5-A88A-F8F78C4A3250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A9218BE-B677-47B5-97E1-CD9FC3A78623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A9218BE-B677-47B5-97E1-CD9FC3A78623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A9218BE-B677-47B5-97E1-CD9FC3A78623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A9218BE-B677-47B5-97E1-CD9FC3A78623}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

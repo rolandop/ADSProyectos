@@ -18,7 +18,7 @@ namespace ADSConfiguracion
     {
         public static void Main(string[] args)
         {
-
+#pragma warning disable CS1591
             var host = WebHost
                .CreateDefaultBuilder(args)
                //.UseUrls($"http://localhost:6808")
@@ -29,12 +29,6 @@ namespace ADSConfiguracion
                         .SetBasePath(env.ContentRootPath)
                         .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true); // optional extra provider
-
-
-
-
-
-
 
                    //if (env.IsDevelopment()) // different providers in dev
                    //{
@@ -67,9 +61,10 @@ namespace ADSConfiguracion
 
             host.Run();
 
+#pragma warning restore CS1591
         }
 
-      
+
 
     }
 }

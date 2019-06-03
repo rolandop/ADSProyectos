@@ -21,14 +21,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "netcoreapp2.2"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
+          "netcoreapp2.2": {
             "projectReferences": {}
           }
         },
@@ -39,22 +39,23 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.1": {
+        "netcoreapp2.2": {
           "dependencies": {
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.1.1, )",
+              "version": "[2.2.0, )",
               "autoReferenced": true
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.1.2, )"
+              "version": "[2.2.0, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.1.0, )",
+              "version": "[2.2.0, )",
               "autoReferenced": true
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
@@ -63,7 +64,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[2.1.9, )"
+              "version": "[2.2.3, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
@@ -84,6 +85,10 @@
             "Serilog.Sinks.Console": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             }
           },
           "imports": [

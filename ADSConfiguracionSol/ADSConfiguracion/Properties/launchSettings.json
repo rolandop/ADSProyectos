@@ -13,6 +13,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/values",
+      "useSSL": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

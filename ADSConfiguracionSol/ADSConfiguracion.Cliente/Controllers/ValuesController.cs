@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ADSConfiguracion.Utilities.Controller;
+using ADSConfiguracion.Utilities.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.Extensions.Logging;
 
 namespace ADSConfiguracion.Cliente.Controllers
 {
@@ -10,11 +14,30 @@ namespace ADSConfiguracion.Cliente.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IConfigurationService _configurationService;
+        private readonly ApplicationPartManager _partManager;
+        private readonly ILogger<ValuesController> _logger;
+
+        public ValuesController(
+           IConfigurationService configurationService,
+           ILogger<ValuesController> logger,
+           ApplicationPartManager partManager)
+        {
+            _logger = logger;
+            _configurationService = configurationService;
+            _partManager = partManager;
+
+        }
+
+
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            _logger.LogInformation("ConfiguracionActual");
+
+            return Content(_configurationService.GetConfigurationJson(), "application/json");
         }
 
         // GET api/values/5

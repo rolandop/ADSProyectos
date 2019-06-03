@@ -1,13 +1,14 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-ENV MongoDB__Host="172.19.0.2"
+ENV MongoDB__Host="mongo"
+ENV MongoDB__Database="ConfiguracionesDb"
 ENV MongoDB__User="mongoadmin"
 ENV MongoDB__Password="asegsys"
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
 COPY ["ADSConfiguracion/ADSConfiguracion.csproj", "ADSConfiguracion/"]
 RUN dotnet restore "ADSConfiguracion/ADSConfiguracion.csproj"
