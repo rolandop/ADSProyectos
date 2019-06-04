@@ -14,4 +14,3 @@ C:\Users\Danner\source\repos\ADSAudits\ADSAudits\obj\Debug\netcoreapp2.1\ADSAudi
 C:\Users\Danner\source\repos\ADSAudits\ADSAudits\obj\Debug\netcoreapp2.1\ADSAudits.dll
 C:\Users\Danner\source\repos\ADSAudits\ADSAudits\obj\Debug\netcoreapp2.1\ADSAudits.pdb
 C:\Users\Danner\source\repos\ADSAudits\ADSAudits\obj\Debug\netcoreapp2.1\ADSAudits.csprojAssemblyReference.cache
-C:\Users\Danner\source\repos\ADSAudits\ADSAudits\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

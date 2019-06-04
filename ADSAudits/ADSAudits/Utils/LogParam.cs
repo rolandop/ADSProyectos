@@ -12,7 +12,7 @@ namespace ADSAudits.Utils
     {
         public string TransactionId { get; set; }
         public string Application { get; set; }
-        public int LogLevel { get; set; } = 0;
+        public string LogLevel { get; set; }
         public String Cuerpo { get; set; }
 
     }

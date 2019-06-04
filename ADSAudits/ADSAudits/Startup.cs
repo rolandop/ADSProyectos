@@ -8,8 +8,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using HostedServices = Microsoft.Extensions.Hosting;
-using Confluent.Kafka;
+using ADSConfiguracion.Utilities;
+using ADSConfiguracion.Utilities.Models;
+
 namespace ADSAudits
 {
     public class Startup
@@ -35,35 +36,31 @@ namespace ADSAudits
                     .AllowCredentials());
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.Configure<Settings>(options =>
+
+            services.AddADSConfiguration(options =>
             {
-                if (Environment.GetEnvironmentVariable("ConnectionString") != null)
+                options.Configure(new ConfigurationParamModel
                 {
-                    options.ConnectionString
-                    = Environment.GetEnvironmentVariable("ConnectionString").ToString();
-                }
-                else
-                {
-                    options.ConnectionString
-                    = Configuration.GetSection("MongoConnection:ConnectionString").Value;
-                }
-                if (Environment.GetEnvironmentVariable("ConnectionString") != null)
-                {
-                    options.Database = Environment.GetEnvironmentVariable("Database").ToString();
-                }
-                else
-                {
-                    options.Database
-                    = Configuration.GetSection("MongoConnection:Database").Value;
-                }
-                
 
+                    Service
+                        = Configuration.GetSection("Service").Value,
+                    ServiceId
+                             = Configuration.GetSection("ServiceId").Value,
+                    ServiceConfiguration
+                            = Configuration.GetSection("Global:Services:Configuration:Service").Value,
+                    ServiceVersion
+                            = Configuration.GetSection("ServiceVersion").Value,
+                    ServiceEnvironment
+                        = Configuration.GetSection("ServiceEnvironment").Value
+                });
             });
-            services.AddTransient<ILogRepository, LogRepository>();
 
-        
+            services.AddTransient<ILogRepository, LogRepository>();
+            services.AddSingleton<LogContext>();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
 
 
         }
@@ -82,8 +79,8 @@ namespace ADSAudits
                 app.UseHsts();
             }
             app.UseCors("CorsPolicy");
-
             app.UseHttpsRedirection();
+            app.UseADSConfiguracionUtils();
             app.UseMvc();
         }
     }

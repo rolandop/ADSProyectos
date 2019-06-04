@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ADSAudits
 {
-    public class SwaggerConfiguration
+    public static class SwaggerConfiguration
     {
         public const string EndpointDescription = "Auditorias y Log";
         public const string EndpointUrl = "/swagger/v1/swagger.json";
@@ -15,5 +16,9 @@ namespace ADSAudits
         public const string DocInfoTitle = "ADSAudits";
         public const string DocInfoVersion = "v1";
         public const string DocInfoDescription = "Micro Servicio de Audotorias";
+
+      
     }
+
+  
 }

@@ -1,5 +1,6 @@
 ﻿
 using ADSAudits.DAL.Models;
+using ADSConfiguracion.Utilities.Services;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
@@ -11,13 +12,18 @@ namespace ADSAudits.Interfaces.Imp
 {
     public class LogContext
     {
-        private readonly IMongoDatabase _database = null;
 
-        public LogContext(IOptions<Settings> settings)
+        private readonly IMongoDatabase _database = null;
+        private readonly IConfigurationService _configurationService;
+
+        public LogContext(IConfigurationService configurationService)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
+            this._configurationService = configurationService;
+            var s = this._configurationService.GetValue("ServiceConfigurationUrl");
+
+            var client = new MongoClient(this._configurationService.GetValue("Global:MongoConnection:ConnectionString"));
             if (client != null)
-                _database = client.GetDatabase(settings.Value.Database);
+                _database = client.GetDatabase(this._configurationService.GetValue("adsaudits:Database"));
         }
 
         public IMongoCollection<LogModel> Log
