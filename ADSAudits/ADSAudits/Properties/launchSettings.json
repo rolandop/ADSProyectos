@@ -4,7 +4,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:55080",
-      "sslPort": 44328
+      "sslPort": 0
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -12,10 +12,11 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/log/v1",
+      "launchUrl": "configuration/ping",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "useSSL": false
     },
     "ADSAudits": {
       "commandName": "Project",
@@ -31,7 +32,7 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/values",
       "httpPort": 55081,
-      "useSSL": true,
+      "useSSL": false,
       "sslPort": 44329
     }
   }

@@ -13,9 +13,9 @@ namespace ADSAudits.Interfaces.Imp
     {
         private readonly LogContext _context = null;
 
-        public LogRepository(IOptions<Settings> settings)
+        public LogRepository(LogContext context)
         {
-            _context = new LogContext(settings);
+            _context = context;
         }
 
         public async Task AddLogAsync(LogModel item)

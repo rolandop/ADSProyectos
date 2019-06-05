@@ -1,9 +1,14 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
+ENV Global__Services__Configuration__Service="adsconfiguracion"
+ENV ServiceId="adsaudits"
+ENV ServiceEnvironment="DEV"
+ENV ServiceVersion="1.0"
+
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
 COPY ["ADSAudits/ADSAudits.csproj", "ADSAudits/"]
 RUN dotnet restore "ADSAudits/ADSAudits.csproj"

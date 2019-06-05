@@ -19,7 +19,7 @@ namespace ADSAudits.DAL.Models
 
         public string Application { get; set; } = string.Empty;
         // Nivel del log que se genera
-        public int LogLevel { get; set; } = 0;
+        public string LogLevel { get; set; }
         [BsonDateTimeOptions]
         // Fecha de Creacion 
         public DateTime CreateOn { get; set; } = DateTime.Now;
