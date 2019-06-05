@@ -171,7 +171,17 @@ namespace ADSConfiguracion.Utilities.Services
             try
             {
                 _logger.LogInformation("ObtenerValor");
-                dynamic jsonObj = JsonConvert.DeserializeObject(_configuracionJson);
+                dynamic jsonObj = null;
+
+                try
+                {
+                    jsonObj = JsonConvert.DeserializeObject(_configuracionJson);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Al Deserializar {@_configuracionJson}", 
+                            _configuracionJson);
+                }                
 
                 if (jsonObj != null)
                 {
@@ -199,7 +209,7 @@ namespace ADSConfiguracion.Utilities.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, "ObtenerValor");
-                return "";
+                return _config[clave];
             }
         }
     }

@@ -1,0 +1,87 @@
+version: '3'
+
+services:
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    networks:
+        adsnet:
+            aliases:
+              - mongo  
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: asegsys
+    volumes:
+      - adsvol-mongodb:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    expose:
+      - "8081"
+    networks:
+        adsnet:
+            aliases:
+              - mongo-express  
+    depends_on:
+      - mongo
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: mongoadmin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: asegsys
+      
+  adsconfiguracion:
+    image: citytechdock/adsconfiguracion
+    ports:
+      - "60220:80"
+    expose:
+      - "60220"
+    depends_on:
+      - mongo
+    networks:
+        adsnet:
+            aliases:
+              - adsconfiguracion  
+    restart: always
+    environment:
+      MongoDB__Host: mongo
+      MongoDB__Database: ConfiguracionesDb
+      MongoDB__User: mongoadmin
+      MongoDB__Password: asegsys     
+      
+  adsconfiguracioncliente:
+    image: citytechdock/adsconfiguracioncliente
+    ports:
+      - "60221:80"
+    expose:
+      - "60221"
+    depends_on:
+      - adsconfiguracion
+    networks:
+        adsnet:
+            aliases:
+              - adsconfiguracioncliente  
+    restart: always
+    environment:
+      Global__Services__Configuration__Service: adsconfiguracion
+      Service: adsconfiguracioncliente
+      ServiceId: adsconfiguracioncliente
+      ServiceEnvironment: DEV
+      ServiceVersion: 1.0
+    
+
+volumes:
+  adsvol-mongodb:
+    external:
+      name: adsvol-mongodb
+    
+networks:
+  adsnet:
+    external:
+       name: adsnet

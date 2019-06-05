@@ -195,7 +195,7 @@ namespace ADSConfiguracion.Servicios
 
             solicitud.AddJsonBody(new
             {
-                configuracionJson = JsonConvert.SerializeObject(configs)
+                configurationJson = JsonConvert.SerializeObject(configs)
             });
 
             try

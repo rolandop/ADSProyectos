@@ -14,20 +14,20 @@ namespace ADSConfiguracion.DAL
     public class ServiceRepository : IServiceRepository
     {
         private readonly ILogger<ServiceRepository> _logger;
-        private readonly ADSConfigurationContext _contexto = null;
+        private readonly ADSConfigurationContext _context = null;
 
         public ServiceRepository(ILogger<ServiceRepository> logger, 
             IOptions<DatabaseConfigurationModel> settings)
         {
             _logger = logger;
-            _contexto = new ADSConfigurationContext(settings);
+            _context = new ADSConfigurationContext(settings);
         }
 
         public async Task<Service> GetServiceAsync(string serviceId, string environment, string version)
         {
             try
             {                
-                return await _contexto.Services
+                return await _context.Services
                                 .Find(srv =>
                                     (srv.ServiceId == serviceId)
                                         && srv.Environment == environment
@@ -45,7 +45,7 @@ namespace ADSConfiguracion.DAL
         {
             try
             {
-                await _contexto.Services.InsertOneAsync(service);
+                await _context.Services.InsertOneAsync(service);
             }
             catch (Exception ex)
             {
@@ -69,7 +69,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 UpdateResult actionResult
-                    = await _contexto.Services.UpdateOneAsync(filter, update);
+                    = await _context.Services.UpdateOneAsync(filter, update);
 
                 return actionResult.IsAcknowledged
                     && actionResult.ModifiedCount > 0;
@@ -85,7 +85,7 @@ namespace ADSConfiguracion.DAL
         {
             try
             {
-                return await _contexto.Services
+                return await _context.Services
                                 .Find(srv => srv.Active == active)
                                 .ToListAsync();
                                 
@@ -111,7 +111,7 @@ namespace ADSConfiguracion.DAL
             {
 
                 UpdateResult actionResult
-                    = await _contexto.Services.UpdateOneAsync(filter, update);
+                    = await _context.Services.UpdateOneAsync(filter, update);
 
                 return actionResult.IsAcknowledged
                     && actionResult.ModifiedCount > 0;
@@ -143,7 +143,7 @@ namespace ADSConfiguracion.DAL
             {
 
                 UpdateResult actionResult
-                    = await _contexto.Services.UpdateOneAsync(filter, update);
+                    = await _context.Services.UpdateOneAsync(filter, update);
 
                 return actionResult.IsAcknowledged
                     && actionResult.ModifiedCount > 0;

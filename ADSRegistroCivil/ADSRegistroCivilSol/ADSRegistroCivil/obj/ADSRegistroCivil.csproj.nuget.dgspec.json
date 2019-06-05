@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyectos\\ASEGSUR\\ADS Core\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {}
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {}
   },
   "projects": {
-    "D:\\Proyectos\\ASEGSUR\\ADS Core\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyectos\\ASEGSUR\\ADS Core\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
+        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
         "projectName": "ADSRegistroCivil",
-        "projectPath": "D:\\Proyectos\\ASEGSUR\\ADS Core\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
-        "packagesPath": "C:\\Users\\ortizja\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyectos\\ASEGSUR\\ADS Core\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\obj\\",
+        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
+        "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
+        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ortizja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\penaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

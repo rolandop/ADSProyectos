@@ -7,10 +7,11 @@ docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsne
 docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsnet --network-alias adsconfiguracion --link mongo --link adsconfiguracioncliente -e MongoDB__Host=mongo -e ASPNETCORE_ENVIRONMENT=Development imagenconfig1
 
 
-
 ADSConfiguracionCliente
 docker run -d --name adsconfiguracioncliente -p 60221:80 --expose=60221 --network adsnet --network-alias adsconfiguracioncliente --link adsconfiguracion -e Global__Services__Configuration__ServiceUrl="http://adsconfiguracion" -e ServiceUrl="http://adsconfiguracioncliente" -e ASPNETCORE_ENVIRONMENT=Development citytechdock/adsconfiguracioncliente
 
+
+docker run -d --name adsconfiguracioncliente -p 60221:80 --expose=60221 --network adsnet --network-alias adsconfiguracioncliente --link adsconfiguracion -e Global__Services__Configuration__Service="adsconfiguracion" -e ASPNETCORE_ENVIRONMENT=Development cliente1
 
 
 
@@ -43,3 +44,12 @@ Crear imagenes
 docker build -t nombreimagen . -f ADSConfiguracionDockerfile
 
 
+
+Serilog
+
+Install-Package Serilog.Extensions.Logging -DependencyVersion Highest
+Install-Package Serilog.Sinks.Console
+
+
+crear link
+mklink /J “C:\Users\Public\Documents\Hyper-V\Virtual hard disks” d:\docker\vhd

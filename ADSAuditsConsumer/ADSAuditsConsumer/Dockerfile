@@ -1,9 +1,14 @@
-FROM mcr.microsoft.com/dotnet/core/runtime:2.1-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core/runtime:2.2-stretch-slim AS base
 WORKDIR /app
 
+ENV Global__Services__kafka__Service="kafka:9092"
+ENV CONSUMER__NAME="adsloggerconsumer"
+ENV MongoDB__Host="mongo"
+ENV MongoDB__Database="LogsDb"
+ENV MongoDB__User="mongoadmin"
+ENV MongoDB__Password="asegsys"
 
-
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
 COPY ["ADSAuditsConsumer/ADSAuditsConsumer.csproj", "ADSAuditsConsumer/"]
 RUN dotnet restore "ADSAuditsConsumer/ADSAuditsConsumer.csproj"

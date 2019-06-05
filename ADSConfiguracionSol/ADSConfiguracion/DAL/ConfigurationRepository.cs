@@ -16,20 +16,20 @@ namespace ADSConfiguracion.DAL
     {
         private readonly ILogger<ConfigurationRepository> _logger;
 
-        private readonly ADSConfigurationContext _contexto = null;
+        private readonly ADSConfigurationContext _context = null;
 
         public ConfigurationRepository(ILogger<ConfigurationRepository> logger,
                                 IOptions<DatabaseConfigurationModel> settings)
         {
             _logger = logger;
-            _contexto = new ADSConfigurationContext(settings);
+            _context = new ADSConfigurationContext(settings);
         }
 
         public async Task<IEnumerable<Configuration>> GetConfigurationsAsync()
         {
             try
             {
-                return await _contexto.Configurations
+                return await _context.Configurations
                         .Find(_ => true).ToListAsync();
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 ObjectId idInterno = GetInternalId(id);
-                return await _contexto.Configurations
+                return await _context.Configurations
                                 .Find(config => config.Id == idInterno
                                         || config.ServiceId == id)
                                 .FirstOrDefaultAsync();
@@ -68,7 +68,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 ObjectId idInterno = GetInternalId(serviceId);
-                return await _contexto.Configurations
+                return await _context.Configurations
                                 .Find(config =>
                                            config.ServiceId == serviceId
                                         && config.Environment == environment
@@ -90,7 +90,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 ObjectId idInterno = GetInternalId(serviceId);
-                return await _contexto.Configurations
+                return await _context.Configurations
                                 .Find(config => 
                                            config.ServiceId == serviceId
                                         && config.Environment == environment
@@ -109,7 +109,7 @@ namespace ADSConfiguracion.DAL
         {
             try
             {   
-                return await _contexto.Configurations
+                return await _context.Configurations
                                 .Find(config =>
                                         config.Environment == environment
                                         && config.ServiceId == "Global"
@@ -138,7 +138,7 @@ namespace ADSConfiguracion.DAL
             {
                 configuration.Id = ObjectId.Empty;
 
-                await _contexto.Configurations.InsertOneAsync(configuration);
+                await _context.Configurations.InsertOneAsync(configuration);
             }
             catch (Exception ex)
             {
@@ -152,7 +152,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 DeleteResult actionResult
-                    = await _contexto.Configurations.DeleteOneAsync(
+                    = await _context.Configurations.DeleteOneAsync(
                         Builders<Configuration>.Filter.Eq("Id", id));
 
                 return actionResult.IsAcknowledged
@@ -182,7 +182,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 UpdateResult actionResult
-                    = await _contexto.Configurations.UpdateOneAsync(filter, update);
+                    = await _context.Configurations.UpdateOneAsync(filter, update);
 
                 return actionResult.IsAcknowledged
                     && actionResult.ModifiedCount > 0;
@@ -199,7 +199,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 ReplaceOneResult actionResult
-                    = await _contexto.Configurations
+                    = await _context.Configurations
                                     .ReplaceOneAsync(n => n.Id.Equals(id)
                                             , element
                                             , new UpdateOptions { IsUpsert = true });
@@ -219,7 +219,7 @@ namespace ADSConfiguracion.DAL
             try
             {
                 DeleteResult actionResult
-                    = await _contexto.Configurations.DeleteManyAsync(new BsonDocument());
+                    = await _context.Configurations.DeleteManyAsync(new BsonDocument());
 
                 return actionResult.IsAcknowledged
                     && actionResult.DeletedCount > 0;

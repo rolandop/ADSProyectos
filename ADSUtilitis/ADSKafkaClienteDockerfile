@@ -1,8 +1,10 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
+ENV Global__Services__kafka__ServiceUrl = "kafka:9092"
+
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src
 COPY ["ADSKafkaCliente/ADSKafkaCliente.csproj", "ADSKafkaCliente/"]
 RUN dotnet restore "ADSKafkaCliente/ADSKafkaCliente.csproj"

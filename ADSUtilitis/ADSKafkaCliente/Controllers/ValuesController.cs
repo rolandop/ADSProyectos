@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ADSLog;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace ADSKafkaCliente.Controllers
 {
@@ -11,6 +11,13 @@ namespace ADSKafkaCliente.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ILogger<ValuesController> _logger;
+
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -30,12 +37,16 @@ namespace ADSKafkaCliente.Controllers
                     Nombre = "Pepe"
                 };
 
-                var log = new Log();
+                var traceId = DateTime.Now.Ticks.ToString();
 
-                for (var i = 0; i < numlogs; i++)
+                for (var i = 1; i <= numlogs; i++)
                 {
-                    log.Warning("error", p, i.ToString());
-                    Console.WriteLine("Send" + i.ToString());
+                    _logger.LogWarning(new EventId(i, traceId), "Log {i} de {total}, model = {@model}{}", 
+                            i, numlogs, p, new {
+                                valor2 = "mi mama me pega"
+                            });
+
+                    //Console.WriteLine("Log enviado..");
                 }
             }
             catch (Exception ex)
@@ -57,8 +68,8 @@ namespace ADSKafkaCliente.Controllers
                     Nombre = "Pepe"
                 };
 
-                var log = new Log();
-                log.Error(error, parametro);
+                
+                _logger.LogError(error, parametro);
                 Console.WriteLine("Error=" + error + "," + parametro);
             }
             catch (Exception ex)

@@ -4,6 +4,7 @@ EXPOSE 80
 EXPOSE 443
 
 ENV Global__Services__Configuration__Service="adsconfiguracion"
+ENV Service="adsconfiguracioncliente"
 ENV ServiceId="adsconfiguracioncliente"
 ENV ServiceEnvironment="DEV"
 ENV ServiceVersion="1.0"
