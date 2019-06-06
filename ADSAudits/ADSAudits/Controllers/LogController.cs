@@ -75,11 +75,13 @@ namespace ADSAudits.Controllers
                 _logger.LogInformation("Insert ");
                 var a = new LogModel
                 {
-                    Application = newLog.Application,
-                    Cuerpo = newLog.Cuerpo,
+                    EventId = newLog.EventId,
+                    LogDetail = newLog.LogDetail,
                     LogLevel = newLog.LogLevel,
-                    TransactionId = newLog.TransactionId
-                };
+                    TraceId = newLog.TraceId,
+                    Message = newLog.Message,
+                    Service = newLog.Service
+            };
 
             _logRepository.AddLogAsync(a);
 
