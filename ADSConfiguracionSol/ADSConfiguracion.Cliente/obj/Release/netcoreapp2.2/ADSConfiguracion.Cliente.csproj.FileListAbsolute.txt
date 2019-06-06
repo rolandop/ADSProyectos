@@ -3,7 +3,6 @@ D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\b
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\bin\Release\netcoreapp2.2\ADSConfiguracion.Cliente.runtimeconfig.dev.json
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\bin\Release\netcoreapp2.2\ADSConfiguracion.Cliente.dll
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\bin\Release\netcoreapp2.2\ADSConfiguracion.Cliente.pdb
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\bin\Release\netcoreapp2.2\ADSConfiguracion.Utilities.dll
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.csprojAssemblyReference.cache
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.csproj.CoreCompileInputs.cache
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.RazorAssemblyInfo.cache
@@ -11,6 +10,7 @@ D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\o
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.AssemblyInfoInputs.cache
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.AssemblyInfo.cs
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.RazorTargetAssemblyInfo.cache
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.csproj.CopyComplete
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.dll
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.pdb
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\bin\Release\netcoreapp2.2\ADSConfiguracion.Cliente.xml
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Release\netcoreapp2.2\ADSConfiguracion.Cliente.xml

@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion.Utilities\\ADSConfiguracion.Utilities.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.2",
       "restore": {
         "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfiguracionSol\\ADSConfiguracion.Utilities\\ADSConfiguracion.Utilities.csproj",
         "projectName": "ADSConfiguracion.Utilities",
@@ -42,8 +42,10 @@
         "netcoreapp2.2": {
           "dependencies": {
             "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.5, )"
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",

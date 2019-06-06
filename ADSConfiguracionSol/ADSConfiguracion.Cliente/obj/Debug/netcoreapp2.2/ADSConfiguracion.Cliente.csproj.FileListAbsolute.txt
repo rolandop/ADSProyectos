@@ -1,4 +1,3 @@
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.csprojAssemblyReference.cache
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.csproj.CoreCompileInputs.cache
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.AssemblyInfoInputs.cache
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.AssemblyInfo.cs
@@ -16,3 +15,4 @@ D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\o
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.RazorTargetAssemblyInfo.cache
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\bin\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.xml
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.xml
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Cliente\obj\Debug\netcoreapp2.2\ADSConfiguracion.Cliente.csprojAssemblyReference.cache

@@ -4,8 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>fce9c70d-7883-4560-95f1-34e9c82b4be4</UserSecretsId>
-      <GenerateDocumentationFile>true</GenerateDocumentationFile>
-      <NoWarn>$(NoWarn);1591</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>          
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ADSConfiguracion.Utilities" Version="1.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="ADSUtilities" Version="1.0.1" />    
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
@@ -21,12 +22,6 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="ADSConfiguracion.Utilities">
-      <HintPath>dlls\ADSConfiguracion.Utilities.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

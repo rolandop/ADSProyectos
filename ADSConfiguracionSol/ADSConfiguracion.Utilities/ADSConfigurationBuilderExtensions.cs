@@ -5,9 +5,9 @@ using System.Text;
 
 namespace ADSConfiguracion.Utilities
 {
-    public static class ADSConfigurationUtilsBuilderExtensions
+    public static class ADSConfigurationBuilderExtensions
     {
-        public static IApplicationBuilder UseADSConfiguracionUtils(this IApplicationBuilder app, 
+        public static IApplicationBuilder UseADSConfiguracion(this IApplicationBuilder app, 
                                 Action<ADSConfigurationBuildOptions> setupAction = null)
         {
             var options = new ADSConfigurationBuildOptions {

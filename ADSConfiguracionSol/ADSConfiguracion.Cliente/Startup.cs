@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using ADSConfiguracion.Utilities;
 using ADSConfiguracion.Utilities.Models;
+using ADSUtilities.Logger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,9 +38,26 @@ namespace ADSConfiguracion.Cliente
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            StartConfiguracion(services);
+            services.AddADSConfiguration(options =>
+            {
+                options.Configure(new ConfigurationParamModel
+                {
 
+                    Service
+                        = Configuration.GetSection("Service").Value,
+                    ServiceId
+                             = Configuration.GetSection("ServiceId").Value,
+                    ServiceConfiguration
+                            = Configuration.GetSection("Global:Services:Configuration:Service").Value,
+                    ServiceVersion
+                            = Configuration.GetSection("ServiceVersion").Value,
+                    ServiceEnvironment
+                        = Configuration.GetSection("ServiceEnvironment").Value
+                });
+
+            });
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
+            services.AddADSLogger();
 
             services.AddSwaggerGen(swagger =>
             {
@@ -68,32 +86,9 @@ namespace ADSConfiguracion.Cliente
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        private void StartConfiguracion(IServiceCollection services)
-        {
-
-            services.AddADSConfiguration(options =>
-            {
-                options.Configure(new ConfigurationParamModel {
-
-                    Service
-                        = Configuration.GetSection("Service").Value,
-                    ServiceId
-                             = Configuration.GetSection("ServiceId").Value,
-                    ServiceConfiguration
-                            = Configuration.GetSection("Global:Services:Configuration:Service").Value,
-                    ServiceVersion
-                            = Configuration.GetSection("ServiceVersion").Value,
-                    ServiceEnvironment
-                        = Configuration.GetSection("ServiceEnvironment").Value
-                }); 
-
-
-                
-            });
-        }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env
+            , ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -104,6 +99,10 @@ namespace ADSConfiguracion.Cliente
                 app.UseHsts();
             }
 
+            loggerFactory.AddADSLogger(c => {
+                c.LogLevel = LogLevel.Warning;
+            });
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -113,7 +112,8 @@ namespace ADSConfiguracion.Cliente
             });
 
             app.UseHttpsRedirection();
-            app.UseADSConfiguracionUtils();
+            app.UseADSConfiguracion();
+            
             app.UseMvc();
         }
     }
