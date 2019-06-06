@@ -10,10 +10,12 @@ namespace ADSAudits.Utils
 {
     public class LogParam
     {
-        public string TransactionId { get; set; }
-        public string Application { get; set; }
+        public string TraceId { get; set; }
+        public string Service { get; set; }
         public string LogLevel { get; set; }
-        public String Cuerpo { get; set; }
+        public int EventId { get; set; }
+        public object LogDetail { get; set; }
+        public string Message { get; set; }
 
     }
 
