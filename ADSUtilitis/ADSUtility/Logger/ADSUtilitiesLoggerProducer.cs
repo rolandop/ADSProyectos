@@ -56,6 +56,7 @@ namespace ADSUtilities.Logger
                     _producer
                         .Produce(_topicName, new Message<Null, string> { Value = message },
                             r => {
+
                                 if (!r.Error.IsError)
                                 {
                                     Console.WriteLine($"Delivered message to {r.TopicPartitionOffset}");

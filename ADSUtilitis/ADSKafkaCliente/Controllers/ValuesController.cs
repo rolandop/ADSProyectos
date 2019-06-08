@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ADSUtilities;
 using Microsoft.Extensions.Logging;
 
 namespace ADSKafkaCliente.Controllers
@@ -28,7 +29,8 @@ namespace ADSKafkaCliente.Controllers
         // GET api/values/5
         [HttpGet("execute/{numlogs}")]
         public ActionResult<string> Execute(int numlogs)
-        {
+        {   
+
             try
             {
                 var p = new
