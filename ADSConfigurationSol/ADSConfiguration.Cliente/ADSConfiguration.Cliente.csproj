@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>fce9c70d-7883-4560-95f1-34e9c82b4be4</UserSecretsId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>ADSConfiguration.Cliente</AssemblyName>
+    <RootNamespace>ADSConfiguration.Cliente</RootNamespace>          
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="ADSUtilities" Version="1.0.1" />    
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="RestSharp" Version="106.6.9" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ADSConfiguration.Utilities\ADSConfiguration.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
