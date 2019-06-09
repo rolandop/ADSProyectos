@@ -1,0 +1,11 @@
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\bin\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.deps.json
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\bin\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.runtimeconfig.json
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\bin\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.runtimeconfig.dev.json
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\bin\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.dll
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\bin\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.pdb
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\obj\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.csprojAssemblyReference.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\obj\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.csproj.CoreCompileInputs.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\obj\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.AssemblyInfoInputs.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\obj\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.AssemblyInfo.cs
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\obj\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.dll
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSConfiguracionSol\ADSConfiguracion.Utilities\obj\Debug\netcoreapp2.2\ADSConfiguracion.Utilities.pdb
