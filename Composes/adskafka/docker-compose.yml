@@ -15,15 +15,19 @@ services:
     image: wurstmeister/kafka:latest
     ports:
       - "9092:9092"
+      - "9094:9094"
     expose:
       - "9092"
+      - "9094"
     depends_on:
       - zookeeper
     links:
       - zookeeper:zk
-    environment:
-      KAFKA_ADVERTISED_HOST_NAME: kafka
-      KAFKA_ADVERTISED_PORT: "9092"
+    environment:      
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://172.16.1.236:9094
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

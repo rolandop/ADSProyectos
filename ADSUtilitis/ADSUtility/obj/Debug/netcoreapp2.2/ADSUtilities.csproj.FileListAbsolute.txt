@@ -6,3 +6,7 @@ D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\bin\Debug\netcoreapp2.2\ADSUtilities.pdb
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.dll
 D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.pdb
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.csprojAssemblyReference.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.dll
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.xml
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.csproj.CopyComplete

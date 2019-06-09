@@ -1,4 +1,5 @@
 ﻿using ADSUtilities.Models;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -30,9 +31,22 @@ namespace ADSUtilities.Logger
             string kafkaServer)
         {
             if (string.IsNullOrWhiteSpace(kafkaServer))
-                kafkaServer =
-                    Environment
-                        .GetEnvironmentVariable("Global__Services__kafka__Service");
+            {
+                var serviceProvider = services.BuildServiceProvider();
+                var configuration = serviceProvider.GetService<IConfiguration>();
+
+                kafkaServer = configuration.GetSection("Global:Services:kafka:Service").Value;
+
+                if (string.IsNullOrWhiteSpace(kafkaServer))
+                    kafkaServer =
+                            Environment
+                                .GetEnvironmentVariable("Global__Services__kafka__Service");
+
+
+
+
+            }
+                
 
             if (string.IsNullOrWhiteSpace(kafkaServer))
                 kafkaServer = "kafka:9092";

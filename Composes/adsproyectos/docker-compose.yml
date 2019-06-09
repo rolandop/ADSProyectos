@@ -36,8 +36,8 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: mongoadmin
       ME_CONFIG_MONGODB_ADMINPASSWORD: asegsys
       
-  adsconfiguracion:
-    image: citytechdock/adsconfiguracion
+  adsconfiguration:
+    image: citytechdock/adsconfiguration
     ports:
       - "60220:80"
     expose:
@@ -47,7 +47,7 @@ services:
     networks:
         adsnet:
             aliases:
-              - adsconfiguracion  
+              - adsconfiguration  
     restart: always
     environment:
       MongoDB__Host: mongo
@@ -55,46 +55,47 @@ services:
       MongoDB__User: mongoadmin
       MongoDB__Password: asegsys     
       
-  adsconfiguracioncliente:
-    image: citytechdock/adsconfiguracioncliente
+  adsconfigurationcliente:
+    image: citytechdock/adsconfigurationcliente
     ports:
       - "60221:80"
     expose:
       - "60221"
     depends_on:
-      - adsconfiguracion
+      - adsconfiguration
     networks:
         adsnet:
             aliases:
-              - adsconfiguracioncliente  
+              - adsconfigurationcliente  
     restart: always
     environment:
-      Global__Services__Configuration__Service: adsconfiguracion
-      Service: adsconfiguracioncliente
-      ServiceId: adsconfiguracioncliente
+      Global__Services__kafka__Service: kafka:9092
+      Global__Services__Configuration__Service: adsconfiguration
+      Service: adsconfigurationcliente
+      ServiceId: adsconfigurationcliente
       ServiceEnvironment: DEV
       ServiceVersion: 1.0
       
   adsauditsconsumer:
-    image: citytechdock/adslogsconsumer
+    image: citytechdock/adsauditsconsumer
     ports:
       - "60222:80"
     expose:
       - "60222"
     depends_on:
-      - adsconfiguracion
+      - mongo
     networks:
         adsnet:
             aliases:
-              - adslogsconsumer  
+              - adsauditsconsumer  
     restart: always
     environment:
-      Global__Services__Configuration__Service: adsconfiguracion
-      Service: adsconfiguracioncliente
-      ServiceId: adsconfiguracioncliente
-      ServiceEnvironment: DEV
-      ServiceVersion: 1.0
-    
+      Global__Services__kafka__Service: kafka:9092
+      CONSUMER__NAME: adsauditsconsumer
+      MongoDB__Host: mongo
+      MongoDB__Database: LogsDb
+      MongoDB__User: mongoadmin
+      MongoDB__Password: asegsys    
 
 volumes:
   adsvol-mongodb:

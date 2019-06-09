@@ -167,6 +167,7 @@
       "ADSUtilities/1.0.0": {
         "dependencies": {
           "Confluent.Kafka": "1.0.1.1",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "2.2.0",
           "Microsoft.Extensions.Logging.Abstractions": "2.2.0",
           "Newtonsoft.Json": "12.0.2",
