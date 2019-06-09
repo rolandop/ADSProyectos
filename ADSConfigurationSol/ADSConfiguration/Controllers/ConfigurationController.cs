@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RestSharp;
 
+
 namespace ADSConfiguration.Controllers
 {
     [Produces("application/json")]
@@ -35,7 +36,7 @@ namespace ADSConfiguration.Controllers
         }
 
         /// <summary>
-        /// Obtiene la configuración actual de un servicio
+        /// Obtiene la configuración actual de un servicio.
         /// </summary>
         /// <param name="id">Id del servicio</param>   
         /// <param name="environment">Ambiente de despliegue PRD = Producción, TST= Pruebas, DEV= Desallollo</param>   
