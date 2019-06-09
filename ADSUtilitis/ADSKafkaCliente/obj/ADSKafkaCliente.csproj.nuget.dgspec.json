@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj": {}
+    "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj": {}
   },
   "projects": {
-    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj": {
+    "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj",
+        "projectUniqueName": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj",
         "projectName": "ADSKafkaCliente",
-        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj",
-        "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
-        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSKafkaCliente\\obj\\",
+        "projectPath": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSKafkaCliente\\ADSKafkaCliente.csproj",
+        "packagesPath": "C:\\Users\\dmarante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSKafkaCliente\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\penaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dmarante\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {
-                "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj"
+              "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {
+                "projectPath": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj"
               }
             }
           }
@@ -75,20 +75,20 @@
         }
       }
     },
-    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {
+    "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
+        "projectUniqueName": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
         "projectName": "ADSUtilities",
-        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
-        "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
-        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\obj\\",
+        "projectPath": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
+        "packagesPath": "C:\\Users\\dmarante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\penaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dmarante\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -115,6 +115,10 @@
             "Confluent.Kafka": {
               "target": "Package",
               "version": "[1.0.1.1, )"
+            },
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
