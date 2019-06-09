@@ -76,15 +76,15 @@ namespace ADSUtilities
         {
             return services.BadRequest();
         }
-        //public static BadRequestObjectResult ADSBadRequest(this ControllerBase services, String mesagge)
-        //{
-        //    return services.BadRequest(new ResultModel
-        //    {
-        //        Code = 55,
-        //        Message = mesagge,
-        //        Data = null
-        //    });
-        //}
+        public static BadRequestObjectResult ADSBadRequest(this ControllerBase services, String mesagge)
+        {
+            return services.BadRequest(new ResultModel
+            {
+                Code = 55,
+                Message = mesagge,
+                Data = null
+            });
+        }
 
         #endregion
     }
