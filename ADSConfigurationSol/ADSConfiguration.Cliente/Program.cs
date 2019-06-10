@@ -28,8 +28,7 @@ namespace ADSConfiguration.Cliente
                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true); // optional extra provider
                        
-
-                  config.AddADSConfiguration(env.EnvironmentName);
+                  config.AddADSConfiguration();
                   config.AddEnvironmentVariables(); // overwrites previous values
 
                   if (args != null)

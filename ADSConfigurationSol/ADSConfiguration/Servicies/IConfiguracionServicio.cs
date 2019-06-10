@@ -18,6 +18,6 @@ namespace ADSConfiguration.Servicios
         Task<bool> RemoveAllConfigutarionsAsync();
         Task AddConfigurationAsync(Configuration elemento);
         Task<bool> Save(ICollection<ConfigurationModel> configuration);
-        Task Notify(string id, string ambiente, string version);
+        Task<bool> Notify(string id, string ambiente, string version);
     }
 }

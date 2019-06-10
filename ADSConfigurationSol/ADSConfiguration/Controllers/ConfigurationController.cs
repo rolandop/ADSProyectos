@@ -132,8 +132,15 @@ namespace ADSConfiguration.Controllers
 
             try
             {
-                await _configurationService.Notify(id, environment, version);
+                var result = 
+                        await _configurationService.Notify(id, environment, version);
+
+                if (!result)
+                {
+                    return StatusCode(500, "Error al notificar el servicio");
+                }
                 return Ok();
+
             }
             catch (Exception ex)
             {

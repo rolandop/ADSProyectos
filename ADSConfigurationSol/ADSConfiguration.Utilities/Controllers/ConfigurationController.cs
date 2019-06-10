@@ -24,15 +24,20 @@ namespace ADSConfiguration.Utilities.Controller
         private readonly ILogger<ConfigurationController> _logger;
         private readonly IConfiguration _configuration;
         private readonly IConfigurationProvider _configurationProvider;
+        private readonly ADSConfigurationProvider _adsConfigurationProvider;
 
         public ConfigurationController(
             ILogger<ConfigurationController> logger,
-            IConfiguration configuration,
-            IConfigurationBuilder builder)
+            IConfiguration configuration
+            //IConfigurationBuilder builder
+            )
         {
             _logger = logger;
             _configuration = configuration;
-            //_configurationProvider = configurationProvider;
+            _adsConfigurationProvider  = (_configuration as ConfigurationRoot).Providers
+                                        .Where(p => p is ADSConfigurationProvider)
+                                        .Select(p => p as ADSConfigurationProvider)
+                                        .FirstOrDefault();
         }
 
         [HttpGet]
@@ -50,6 +55,9 @@ namespace ADSConfiguration.Utilities.Controller
         public ActionResult Update([FromBody]ConfigurationJsonModel configuration)
         {
             _logger.LogInformation("Actualizar configuración {@Configuracion}", configuration);
+
+            _adsConfigurationProvider.Update(configuration.ConfigurationJson);
+
             //_configurationService.UpdateConfiguration(configuration.ConfigurationJson);
 
 
@@ -70,12 +78,26 @@ namespace ADSConfiguration.Utilities.Controller
 
         [HttpGet]
         [Route("value/{key}")]
-        public ActionResult Value(string key)
+        public ActionResult GetValue(string key)
         {
-            var valor = _configuration.GetSection(key)?.Value;
-            _logger.LogInformation("Valor= {@Valor}", valor);
+            var value = _configuration.GetSection(key)?.Value;
+            _logger.LogInformation("Valor= {@value}", value);
 
-            return Ok(valor);
+            return Ok(value);
+        }
+
+        [HttpPost]
+        [Route("{key}/{value}")]
+        public ActionResult SetValue(string key, string value)
+        {   
+            _logger.LogInformation("Clave={@key}, Valor={@value}", key, value);
+
+            _adsConfigurationProvider.SetValue(key, value);
+
+            value = _configuration.GetSection(key)?.Value;
+            _logger.LogInformation("Valor= {@value}", value);
+
+            return Ok($"{key}={value}");
         }
 
         [HttpGet]

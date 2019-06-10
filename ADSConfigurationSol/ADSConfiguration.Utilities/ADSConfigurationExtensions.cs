@@ -13,6 +13,8 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IApplicationBuilder UseADSConfiguration(this IApplicationBuilder app)
         {
+            
+
             return app;
         }
 
@@ -26,7 +28,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
         public static IConfigurationBuilder AddADSConfiguration
-                               (this IConfigurationBuilder builder, string environmentName)
+                               (this IConfigurationBuilder builder)
         {
             var options = new ADSConfigurationServiceOptions
             {
@@ -36,7 +38,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 ServiceEnvironment = Environment
                                 .GetEnvironmentVariable("ServiceEnvironment"),
                 ServiceConfiguration =
-                                Environment.GetEnvironmentVariable("ServiceConfiguration")
+                                Environment.GetEnvironmentVariable("Global__Services__Configuration_Service")
             };
 
             return builder.AddADSConfiguration(options);
