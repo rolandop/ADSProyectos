@@ -1,0 +1,1308 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ADSRegistroCivil</name>
+    </assembly>
+    <members>
+        <member name="T:WSConsultaCiudadano.ciudadano">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Acta">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ActaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ActaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.AnioInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Apellidos">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Calle">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CantonDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CantonFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CantonInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CantonInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CantonInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CantonMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CantonNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Clase">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ClaseDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ClaseMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCantonDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCantonFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCantonInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCantonInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCantonInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCantonMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCantonNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCondicionCedulado">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoCondicionDonante">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoError">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoEstadoCivil">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoGrupoEtnico">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoInstruccion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoLugarDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoLugarFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoLugarInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoLugarInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoLugarMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoLugarNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoNacionalidad">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoNacionalidadMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoNacionalidadPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoPaisDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoPaisFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoPaisInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoPaisInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoPaisInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoPaisMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoPaisNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoParroquiaDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoParroquiaFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoParroquiaInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoParroquiaInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoParroquiaInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoParroquiaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoParroquiaNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProfesion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProvinciaDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProvinciaFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProvinciaInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProvinciaInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProvinciaInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProvinciaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoProvinciaNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoSexo">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CodigoTipoCedula">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CondicionCedulado">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.CondicionDonante">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Conyuge">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Domicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Error">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.EstadoCivil">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaActualizacion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaCedulacion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaInscripcionNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FechaNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Firma">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.FirmaElectronica">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Fotografia">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Genero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.GrupoEtnico">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.IndividualDactilar">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Instruccion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.LugarDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.LugarFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.LugarInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.LugarInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.LugarMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.LugarNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NUI">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Nacionalidad">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NacionalidadMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NacionalidadPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Nombre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NombreMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NombrePadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Nombres">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NuiConyuge">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NuiMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NuiPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.NumeroCasa">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Observacion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ObservacionInstitucion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Pagina">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaginaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaginaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaisDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaisFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaisInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaisInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaisInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaisMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.PaisNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ParroquiaDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ParroquiaFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ParroquiaInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ParroquiaInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ParroquiaInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ParroquiaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ParroquiaNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Profesion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ProvinciaDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ProvinciaFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ProvinciaInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ProvinciaInscripcionDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ProvinciaInscripcionGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ProvinciaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.ProvinciaNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Sexo">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.TipoCedula">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.Tomo">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.TomoDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadano.TomoMatrimonio">
+            <remarks/>
+        </member>
+        <member name="T:WSConsultaCiudadano.ciudadanos">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadanos.codigoError">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadanos.error">
+            <remarks/>
+        </member>
+        <member name="P:WSConsultaCiudadano.ciudadanos.persona">
+            <remarks/>
+        </member>
+        <member name="T:WSRegistroCivil.ciudadanos">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.ciudadanos.codigoError">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.ciudadanos.error">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.ciudadanos.firmaElectronica">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.ciudadanos.inscrito">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.ciudadanos.persona">
+            <remarks/>
+        </member>
+        <member name="T:WSRegistroCivil.inscrito">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.Acta">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.ActaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.AnioInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.Clase">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.ClaseDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoCondicionNacido">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoError">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoLugarDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoLugarInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoLugarInscripcionFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoLugarNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoNacionalidadMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CodigoNacionalidadPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.CondicionNacido">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.Error">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.FechaActualizacion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.FechaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.FechaIngreso">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.FechaInscripcionFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.FechaNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.Genero">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.LugarDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.LugarInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.LugarInscripcionFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.LugarNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.NacionalidadMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.NacionalidadPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.Nombre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.NombreMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.NombrePadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.Pagina">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.PaginaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.Tomo">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.inscrito.TomoDefuncion">
+            <remarks/>
+        </member>
+        <member name="T:WSRegistroCivil.persona">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Acta">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.ActaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.ActaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.AnioInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CIConyuge">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CIMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CIPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP1">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP10">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP2">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP3">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP4">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP5">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP6">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP7">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP8">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CMP9">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Calle">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Cedula">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Clase">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.ClaseDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.ClaseMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoCondicionCedulado">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoDomicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoError">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoEstadoCivil">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoGenero">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoInstruccion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoLugarDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoLugarInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoLugarInscripcionFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoLugarMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoLugarNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoNacionalidad">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoNacionalidadMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoNacionalidadPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CodigoProfesion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.CondicionCedulado">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Conyuge">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Domicilio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Error">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.EstadoCivil">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.EstadoMagna">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.FechaActualizacion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.FechaCedulacion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.FechaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.FechaInscripcionFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.FechaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.FechaNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Firma">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.FirmaElectronica">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Fotografia">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Genero">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Huella">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.IndividualDactilar">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Instruccion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.LugarDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.LugarInscripcion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.LugarInscripcionFallecimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.LugarMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.LugarNacimiento">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Nacionalidad">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.NacionalidadMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.NacionalidadPadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Nombre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.NombreMadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.NombrePadre">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.NumeroCasa">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Observacion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.ObservacionInstitucion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Pagina">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.PaginaDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.PaginaMatrimonio">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Profesion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.Tomo">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.TomoDefuncion">
+            <remarks/>
+        </member>
+        <member name="P:WSRegistroCivil.persona.TomoMatrimonio">
+            <remarks/>
+        </member>
+        <member name="T:ADSRegistroCivil.Controllers.RegistroCivilController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.Controllers.RegistroCivilController.#ctor(Microsoft.Extensions.Logging.ILogger{ADSRegistroCivil.Servicios.RegistroCivilServicio},ADSRegistroCivil.Servicios.IRegistroCivilServicio)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="configuracionServicio"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.Controllers.RegistroCivilController.GetAsync(System.String,System.String,System.String)">
+            <summary>
+            Servicio Rest Consulta a Servicio Registro Civil.
+            </summary>
+            <param name="identification"> Numero de Identificación a Consultar</param>
+            /// <param name="consulta"> Opcion para indicar si se debe Forzar la Consulta a Registro Civil</param>
+            /// <param name="op"> Opción para consultar el servicio Antiguo = 0 o Nuevo = 1 de Registro Civil</param>
+            
+            <response code="200">Retorna cuando es exitóso</response>
+            <response code="400">Retorna cuando es excepción</response>
+            <response code="404">Retorna cuando es null la búsqueda</response>    
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Contexto.OdsContexto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Contexto.OdsContexto.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Contexto.OdsContexto.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ADSRegistroCivil.DAL.Contexto.OdsContexto},ADSConfiguration.Utilities.Services.IConfigurationService)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <param name="configurationService"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Contexto.OdsContexto.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Contexto.OdsContexto.DataClientes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Contexto.RegistroCivilContexto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Contexto.RegistroCivilContexto.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Contexto.RegistroCivilContexto.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ADSRegistroCivil.DAL.Contexto.RegistroCivilContexto},ADSConfiguration.Utilities.Services.IConfigurationService)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <param name="configurationService"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Contexto.RegistroCivilContexto.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Contexto.RegistroCivilContexto.ConsultaPersonaLogs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.IDENTIFICACION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.NOMBRE_COMPLETO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.COD_GENERO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.GENERO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.DIA_NACIMIENTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.MES_NACIMIENTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.ANIO_NACIMIENTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.FECHA_NACIMIENTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.COD_ESTADO_CIVIL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.ESTADO_CIVIL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.NOMBRE_CONYUGE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.DIRECCION_DOMICILIO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.NRO_DIRECCION_DOMICILIO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.NOMBRE_PADRE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.NOMBRE_MADRE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.FECHA_ACTUALIZACION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.CONDICION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.FECHA_DEFUNCION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.NACIONALIDAD">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.PROFESION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.SEXO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc.FECHA_CEDULACION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Enums.OrigenBusqueda">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ADSRegistroCivil.DAL.Enums.OrigenBusqueda.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ADSRegistroCivil.DAL.Enums.OrigenBusqueda.BasePropia">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ADSRegistroCivil.DAL.Enums.OrigenBusqueda.RegistroCivil">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ADSRegistroCivil.DAL.Enums.OrigenBusqueda.DataBook">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Modelos.ResponseModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Modelos.ResponseModel.Error">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Modelos.ResponseModel.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSRegistroCivil.DAL.Modelos.ResponseModel.Msg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Repositorio.ConsultaLogRepositorio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.ConsultaLogRepositorio.#ctor(ADSConfiguration.Utilities.Services.IConfigurationService,ADSRegistroCivil.DAL.Contexto.RegistroCivilContexto,Microsoft.Extensions.Logging.ILogger{ADSRegistroCivil.DAL.Repositorio.ConsultaLogRepositorio})">
+            <summary>
+            
+            </summary>
+            <param name="configurationService"></param>
+            <param name="oracleContext"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.ConsultaLogRepositorio.CrearLogAsync(ADSRegistroCivil.Modelos.ResponsePersonaModel)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.ConsultaLogRepositorio.AddLog(ADSRegistroCivil.DAL.Entidades.Siaerp.ConsultaPersonaLog,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="log"></param>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Repositorio.DatosPersonaRcRepositorio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.DatosPersonaRcRepositorio.#ctor(ADSConfiguration.Utilities.Services.IConfigurationService,ADSRegistroCivil.DAL.Contexto.OdsContexto,Microsoft.Extensions.Logging.ILogger{ADSRegistroCivil.DAL.Repositorio.DatosPersonaRcRepositorio})">
+            <summary>
+            
+            </summary>
+            <param name="configurationService"></param>
+            <param name="oracleContext"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.DatosPersonaRcRepositorio.BuscarPorId(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificacion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.DatosPersonaRcRepositorio.InsertarRegistroAsync(ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.DatosPersonaRcRepositorio.ActualizarRegistroAsync(ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Repositorio.IConsultaLogRepositorio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.IConsultaLogRepositorio.CrearLogAsync(ADSRegistroCivil.Modelos.ResponsePersonaModel)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.IConsultaLogRepositorio.AddLog(ADSRegistroCivil.DAL.Entidades.Siaerp.ConsultaPersonaLog,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="log"></param>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSRegistroCivil.DAL.Repositorio.IDatosPersonaRcRepositorio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.IDatosPersonaRcRepositorio.BuscarPorId(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificacion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.IDatosPersonaRcRepositorio.InsertarRegistroAsync(ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.DAL.Repositorio.IDatosPersonaRcRepositorio.ActualizarRegistroAsync(ADSRegistroCivil.DAL.Entidades.Ods.DataClientesRc)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSRegistroCivil.Modelos.ResponsePersonaModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSRegistroCivil.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSRegistroCivil.Servicios.IRegistroCivilServicio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.IRegistroCivilServicio.ConsultaRegistroCivilAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificacion"></param>
+            <param name="consulta"></param>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.IRegistroCivilServicio.ConsultaCiudadanoAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identification"></param>
+            <param name="consulta"></param>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.IRegistroCivilServicio.GuardarLogAsync(ADSRegistroCivil.Modelos.ResponsePersonaModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.IRegistroCivilServicio.BuscarPorIdentificacion(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificación"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.IRegistroCivilServicio.ValidarActualizacion(ADSRegistroCivil.Modelos.ResponsePersonaModel,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="tiempo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSRegistroCivil.Servicios.RegistroCivilServicio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.#ctor(Microsoft.Extensions.Logging.ILogger{ADSRegistroCivil.Servicios.RegistroCivilServicio},ADSRegistroCivil.DAL.Repositorio.IConsultaLogRepositorio,ADSRegistroCivil.DAL.Repositorio.IDatosPersonaRcRepositorio,ADSConfiguration.Utilities.Services.IConfigurationService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="consultaLogRepository"></param>
+            <param name="datosPersonaRcRepository"></param>
+            <param name="configurationService"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.ConsultaRegistroCivilAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificacion"></param>
+            <param name="consulta"></param>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.ConsultaCiudadanoAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identification"></param>
+            <param name="consulta"></param>
+            <param name="log"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.GuardarLogAsync(ADSRegistroCivil.Modelos.ResponsePersonaModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.BuscarPorIdentificacion(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificación"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.ValidarActualizacion(ADSRegistroCivil.Modelos.ResponsePersonaModel,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <param name="tiempo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.ConsultaNuevoRCAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.ConsultaAntiguoRCAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificacion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSRegistroCivil.Servicios.RegistroCivilServicio.ActualizaAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identification"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSRegistroCivil.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:ADSRegistroCivil.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSRegistroCivil.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:ADSRegistroCivil.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="loggerFactory"></param>
+        </member>
+    </members>
+</doc>
