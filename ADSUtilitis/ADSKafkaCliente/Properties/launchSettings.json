@@ -14,6 +14,7 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
+        "Logging__LogLevel_Default": "Information",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

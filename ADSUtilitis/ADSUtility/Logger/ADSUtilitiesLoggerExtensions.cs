@@ -1,4 +1,6 @@
 ﻿using ADSUtilities.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -10,6 +12,41 @@ namespace ADSUtilities.Logger
 {
     public static class ADSUtilitiesLoggerExtensions
     {
+        /// <summary>
+        /// Obtiene current traceId
+        /// </summary>
+        /// <param name="controllerBase"></param>
+        /// <returns></returns>
+        public static string TraceId(this ControllerBase controllerBase)
+        {
+
+            if (string.IsNullOrWhiteSpace(ADSUtilitiesLoggerEnvironment.TraceId))
+            {
+                if (controllerBase.Request.Headers.ContainsKey("TraceId"))
+                {
+                    var traceId = controllerBase.Request.Headers["TraceId"];
+                    ADSUtilitiesLoggerEnvironment.TraceId = traceId;
+                }
+                else
+                {
+                    var traceId = DateTime.Now.Ticks.ToString();
+                    ADSUtilitiesLoggerEnvironment.TraceId = traceId;
+                }
+            }
+           
+            return ADSUtilitiesLoggerEnvironment.TraceId;
+        }
+
+        /// <summary>
+        /// Set custom traceId
+        /// </summary>
+        /// <param name="controllerBase"></param>
+        /// <param name="traceId"></param>
+        public static void TraceId(this ControllerBase controllerBase, string traceId)
+        {
+            ADSUtilitiesLoggerEnvironment.TraceId = traceId;            
+        }
+
         public static IServiceCollection AddADSLogger(this IServiceCollection services,
             Action<string> configure)
         {
@@ -57,22 +94,25 @@ namespace ADSUtilities.Logger
         }
 
         public static ILoggerFactory AddADSLogger(this ILoggerFactory loggerFactory,
-            ADSUtilitiesLoggerConfiguration config)
+            ADSUtilitiesLoggerConfiguration config, IApplicationBuilder app)
         {
+            app.UseMiddleware<ADSUtilitiesLoggerRequest>();
             loggerFactory.AddProvider(new ADSUtilitiesLoggerProvider(config));
             return loggerFactory;
         }
-        public static ILoggerFactory AddADSLogger(this ILoggerFactory loggerFactory)
+        public static ILoggerFactory AddADSLogger(this ILoggerFactory loggerFactory
+            , IApplicationBuilder app)
         {
             var config = new ADSUtilitiesLoggerConfiguration();
-            return loggerFactory.AddADSLogger(config);
+            return loggerFactory.AddADSLogger(config, app);
         }
         public static ILoggerFactory AddADSLogger(this ILoggerFactory loggerFactory, 
-            Action<ADSUtilitiesLoggerConfiguration> configure)
+            Action<ADSUtilitiesLoggerConfiguration> configure, IApplicationBuilder app)
         {
             var config = new ADSUtilitiesLoggerConfiguration();
             configure(config);
-            return loggerFactory.AddADSLogger(config);
+            return loggerFactory.AddADSLogger(config, app);
         }
+
     }
 }

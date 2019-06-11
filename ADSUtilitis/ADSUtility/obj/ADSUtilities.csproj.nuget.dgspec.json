@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {}
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {
-      "version": "1.0.0",
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj": {
+      "version": "1.0.4",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
+        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
         "projectName": "ADSUtilities",
-        "projectPath": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
-        "packagesPath": "C:\\Users\\dmarante\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dmarante\\Documents\\ADS PROYECTOS\\ADSProyectos-1\\ADSUtilitis\\ADSUtility\\obj\\",
+        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\ADSUtilities.csproj",
+        "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
+        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSUtilitis\\ADSUtility\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\dmarante\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\penaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,9 +45,9 @@
               "target": "Package",
               "version": "[1.0.1.1, )"
             },
-            "Microsoft.AspNetCore": {
+            "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2.2.5, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",

@@ -12103,7 +12103,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.3",
     "restore": {
       "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSConfigurationSol\\ADSConfiguration.Utilities\\ADSConfiguration.Utilities.csproj",
       "projectName": "ADSConfiguration.Utilities",

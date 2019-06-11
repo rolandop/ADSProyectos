@@ -34,6 +34,7 @@ namespace ADSUtilities.Logger
                 var assembly = typeof(ADSUtilitiesLoggerProvider).GetTypeInfo().Assembly;
                 service = assembly.GetName().Name;
             }
+            _config.Service = service;
 
             return _loggers
                     .GetOrAdd(categoryName, name => 

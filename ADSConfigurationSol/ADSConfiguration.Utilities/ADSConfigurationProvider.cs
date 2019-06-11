@@ -103,7 +103,12 @@ namespace ADSConfiguration.Utilities
             SubscribeService();
         }
 
-        private void SubscribeService()
+        public string GetConfigurationJson()
+        {
+            return _configurationJson;
+        }
+
+        public void SubscribeService()
         {
             Console.WriteLine($"Subscribir servicio a {ServiceConfigurationUrl}");
 
@@ -158,20 +163,30 @@ namespace ADSConfiguration.Utilities
         }
 
         private void LoadConfiguration() {
+
+            Console.WriteLine($"LoadConfiguration {_configurationJson}");
+
             try
             {
                 var data = ADSConfigurationParser.Parse(_configurationJson);
 
                 foreach (var item in data)
                 {
-                    Data.Add(item);
+                    if (Data.ContainsKey(item.Key))
+                    {
+                        Data[item.Key] = item.Value;
+                    }
+                    else
+                    {
+                        Data.Add(item.Key, item.Value);
+                    }                   
                 }
-
+                Console.WriteLine($"LoadConfiguration  OK");
                 //_builder.AddInMemoryCollection();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al cargar configuración {_configurationJson}");
+                Console.WriteLine($"LoadConfiguration ERROR");
                 Console.WriteLine(ex.Message);
             }
         }
@@ -206,6 +221,29 @@ namespace ADSConfiguration.Utilities
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public void Update(string configurationJson)
+        {
+            Console.WriteLine($"Update.");
+
+            _configurationJson = configurationJson;
+            LoadConfiguration();
+
+        }
+
+        public void SetValue(string key, string value)
+        {
+            Console.WriteLine($"SetValue.");
+
+            if (Data.ContainsKey(key))
+            {
+                Data[key] = value;
+            }
+            else
+            {
+                Data.Add(key, value);
             }
         }
     }

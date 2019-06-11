@@ -164,7 +164,7 @@ namespace ADSConfiguration.Servicios
 
         }
 
-        public async Task Notify(string serviceId, string ambiente, string version)
+        public async Task<bool> Notify(string serviceId, string ambiente, string version)
         {
             var servicio = await _serviceRepository
                                             .GetServiceAsync(serviceId, ambiente, version);
@@ -172,6 +172,7 @@ namespace ADSConfiguration.Servicios
             if (servicio == null)
             {
                 _logger.LogWarning("Notificar NotFound");
+                return false;
             }
 
             var updateUrl = servicio.UpdateUrl;
@@ -213,10 +214,13 @@ namespace ADSConfiguration.Servicios
                                     serviceId, ambiente, version, respuesta.Content);
                     }
                 });
+
+                return true;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "No se pudo enviar la configuración al servicio ", serviceId);
+                return false;
             }
         }
 

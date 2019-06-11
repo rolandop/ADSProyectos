@@ -42,7 +42,8 @@ namespace ADSKafkaCliente
 
             loggerFactory.AddADSLogger( c=> {
                 c.LogLevel = LogLevel.Warning;
-            });
+                c.Service = Configuration.GetSection("ServiceId").Value;
+            }, app);
 
             app.UseMvc();
         }

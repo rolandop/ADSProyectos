@@ -24,15 +24,20 @@ namespace ADSConfiguration.Utilities.Controller
         private readonly ILogger<ConfigurationController> _logger;
         private readonly IConfiguration _configuration;
         private readonly IConfigurationProvider _configurationProvider;
+        private readonly ADSConfigurationProvider _adsConfigurationProvider;
 
         public ConfigurationController(
             ILogger<ConfigurationController> logger,
-            IConfiguration configuration,
-            IConfigurationBuilder builder)
+            IConfiguration configuration
+            //IConfigurationBuilder builder
+            )
         {
             _logger = logger;
             _configuration = configuration;
-            //_configurationProvider = configurationProvider;
+            _adsConfigurationProvider  = (_configuration as ConfigurationRoot).Providers
+                                        .Where(p => p is ADSConfigurationProvider)
+                                        .Select(p => p as ADSConfigurationProvider)
+                                        .FirstOrDefault();
         }
 
         [HttpGet]
@@ -50,10 +55,9 @@ namespace ADSConfiguration.Utilities.Controller
         public ActionResult Update([FromBody]ConfigurationJsonModel configuration)
         {
             _logger.LogInformation("Actualizar configuración {@Configuracion}", configuration);
-            //_configurationService.UpdateConfiguration(configuration.ConfigurationJson);
 
-
-            //return Ok(_configurationService.GetConfigurationJson());
+            _adsConfigurationProvider.Update(configuration.ConfigurationJson);
+            
             return Ok();
         }
 
@@ -63,19 +67,35 @@ namespace ADSConfiguration.Utilities.Controller
         {
             _logger.LogInformation("ConfiguracionActual");
 
-            //return Content(_configurationService.GetConfigurationJson(), "application/json");
+            var configurationJson = _adsConfigurationProvider
+                                            .GetConfigurationJson();
 
-            return Content("");
+            return Content(configurationJson, "application/json");
+
         }
 
         [HttpGet]
         [Route("value/{key}")]
-        public ActionResult Value(string key)
+        public ActionResult GetValue(string key)
         {
-            var valor = _configuration.GetSection(key)?.Value;
-            _logger.LogInformation("Valor= {@Valor}", valor);
+            var value = _configuration.GetSection(key)?.Value;
+            _logger.LogInformation("Valor= {@value}", value);
 
-            return Ok(valor);
+            return Ok(value);
+        }
+
+        [HttpPost]
+        [Route("{key}/{value}")]
+        public ActionResult SetValue(string key, string value)
+        {   
+            _logger.LogInformation("Clave={@key}, Valor={@value}", key, value);
+
+            _adsConfigurationProvider.SetValue(key, value);
+
+            value = _configuration.GetSection(key)?.Value;
+            _logger.LogInformation("Valor= {@value}", value);
+
+            return Ok($"{key}={value}");
         }
 
         [HttpGet]
@@ -85,13 +105,14 @@ namespace ADSConfiguration.Utilities.Controller
             try
             {
                 _logger.LogInformation("subscribe");
+                _adsConfigurationProvider.SubscribeService();
+                _logger.LogInformation("subscribe OK");
 
-                //_configurationService.SubscribeService();
                 return Ok();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al suscribir");
+                _logger.LogError(ex, "Error al subscribir servicio");
                 return StatusCode(500, ex.Message);
             }
            

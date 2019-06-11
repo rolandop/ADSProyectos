@@ -10,81 +10,188 @@ namespace ADSUtilities
     {
 
         #region ok
-        public static ObjectResult ADOk(this ControllerBase services)
+        public static ObjectResult ADSOk(this ControllerBase services)
         {
-            return services.ADSOk(null, RequestMessages.OK, 200);
+            return services.ADSOk(null);
         }
 
-        public static ObjectResult ADSOk(this ControllerBase services, Object data)
+        public static ObjectResult ADSOk(this ControllerBase services, object data)
         {
-            try
-            {
-                return services.ADSOk(data, RequestMessages.OK, 200);
-            }
-            catch (Exception e)
-            {
-                return services.StatusCode(500, e.Message);
-            }
-
+            return services.ADSOk(data, ResponseMessages.OK);
         }
 
-
-        public static ObjectResult ADSOk(this ControllerBase services, Object data, String mesagge)
+        public static ObjectResult ADSOk(this ControllerBase services, object data, string message)
         {
-            return services.ADSOk(data, mesagge, 200);
+            return services.ADSOk(data, message, 0);
         }
-        public static ObjectResult ADSOk(this ControllerBase services, Object data, String mesagge, int code)
+
+        public static ObjectResult ADSOk(this ControllerBase services, object data, string message, int code)
         {
             try
             {
                 return services.Ok(new ResultModel
                 {
                     Code = code,
-                    Message = mesagge,
+                    Message = message,
                     Data = data
                 });
             }
             catch (Exception e)
             {
-                return services.StatusCode(500, e.Message);
+                return services.ADSInternalError(e.Message);
+            }
+        }
+
+        #endregion
+
+        #region NotFound
+
+        public static ObjectResult ADSNotFound(this ControllerBase services)
+        {
+            return services.ADSNotFound(ResponseMessages.NOT_FOUND);
+        }
+        public static ObjectResult ADSNotFound(this ControllerBase services, string mesagge)
+        {
+            return services.ADSNotFound(mesagge, null);
+        }
+
+        public static ObjectResult ADSNotFound(this ControllerBase services, string mesagge, object data)
+        {
+            return services.ADSNotFound(mesagge, data, 404);
+        }
+
+        public static ObjectResult ADSNotFound(this ControllerBase services, string message, object data, int code)
+        {
+            try
+            {
+                return services.NotFound(new ResultModel
+                {
+                    Code = code,
+                    Message = message,
+                    Data = data
+                });
+            }
+            catch (Exception e)
+            {
+                return services.ADSInternalError(e.Message);
             }
         }
         #endregion
 
-        #region NotFound
-        public static NotFoundObjectResult ADSNotFound(this ControllerBase services)
+        #region BadRequest
+        public static ObjectResult ADSBadRequest(this ControllerBase services)
         {
-            return services.ADSNotFound(RequestMessages.NOT_FOUND, 404);
+            return services.ADSBadRequest(ResponseMessages.BAD_REQUEST);
         }
-        public static NotFoundObjectResult ADSNotFound(this ControllerBase services, String mesagge)
+        public static ObjectResult ADSBadRequest(this ControllerBase services, string mesagge)
         {
-            return services.ADSNotFound(mesagge, 404);
+            return services.ADSBadRequest(mesagge, null);
         }
-        public static NotFoundObjectResult ADSNotFound(this ControllerBase services, String mesagge, int code)
+
+        public static ObjectResult ADSBadRequest(this ControllerBase services, string mesagge, object data)
         {
-            return services.NotFound(new ResultModel
+            return services.ADSBadRequest(mesagge, data, 400);
+        }
+
+        public static ObjectResult ADSBadRequest(this ControllerBase services, string message, object data, int code)
+        {
+            try
             {
-                Code = code,
-                Message = mesagge,
-                Data = null
-            });
+                return services.BadRequest(new ResultModel
+                {
+                    Code = code,
+                    Message = message,
+                    Data = data
+                });
+            }
+            catch (Exception e)
+            {
+                return services.ADSInternalError(e.Message);
+            }
         }
+
         #endregion
 
-        #region BadRequest
-        public static BadRequestResult ADSBadRequest(this ControllerBase services)
+        #region IntrnalError
+        public static ObjectResult ADSInternalError(this ControllerBase services)
         {
-            return services.BadRequest();
+            return services.ADSInternalError(ResponseMessages.INTERNAL_ERROR);
         }
-        //public static BadRequestObjectResult ADSBadRequest(this ControllerBase services, String mesagge)
-        //{
-        //    return services.BadRequest(new ResultModel
-        //    {
-        //        Code = 55,
-        //        Message = mesagge,
-        //        Data = null
-        //    });
-        //}
+
+        public static ObjectResult ADSInternalError(this ControllerBase services, string message)
+        {
+            return services.ADSInternalError(message, null);
+        }
+
+        public static ObjectResult ADSInternalError(this ControllerBase services, string message, object data)
+        {
+            return services.ADSInternalError(message, data, 500);
+        }
+
+        public static ObjectResult ADSInternalError(this ControllerBase services, string message, int code)
+        {
+            return services.ADSInternalError(message, null, code);
+        }
+
+        public static ObjectResult ADSInternalError(this ControllerBase services, string message, object data, int code)
+        {
+            try
+            {
+                return services.StatusCode(code, new ResultModel
+                {
+                    Code = code,
+                    Message = message,
+                    Data = data
+                });
+            }
+            catch (Exception e)
+            {
+                return services.StatusCode(code, new ResultModel
+                {
+                    Code = code,
+                    Message = e.Message,
+                    Data = ""
+                }); ;
+            }
+        }
+
+        #endregion
+
+        #region StatusCode
+        public static ObjectResult ADSStatusCode(this ControllerBase services)
+        {
+            return services.ADSStatusCode(0);
+        }
+        public static ObjectResult ADSStatusCode(this ControllerBase services, int code)
+        {
+            return services.ADSStatusCode(code, "");
+        }
+
+        public static ObjectResult ADSStatusCode(this ControllerBase services, int code, string message)
+        {
+            return services.ADSStatusCode(code, message, null);
+        }
+
+        public static ObjectResult ADSStatusCode(this ControllerBase services, int code, string message, object data)
+        {
+            try
+            {
+                return services.StatusCode(code, new ResultModel
+                {
+                    Code = code,
+                    Message = message,
+                    Data = data
+                });
+            }
+            catch (Exception e)
+            {
+                return services.StatusCode(code, new ResultModel
+                {
+                    Code = code,
+                    Message = e.Message
+                }); ;
+            }
+        }
 
         #endregion
     }
