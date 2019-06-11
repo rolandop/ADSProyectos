@@ -28,8 +28,19 @@ namespace ADSUtilities.Logger
         }
 
         public bool IsEnabled(LogLevel logLevel)
-        {
-            return (int)logLevel >= (int)_config.LogLevel;
+        {   
+            var logLevelConfig = _config.LogLevel;
+            var logLevelEnv = 
+                Environment.GetEnvironmentVariable("Logging__LogLevel_Default");
+            
+            Enum.TryParse(logLevelEnv, true, out logLevelConfig);
+
+            if (logLevelConfig == LogLevel.None)
+            {
+                return false;
+            }
+
+            return (int)logLevel >= (int)logLevelConfig;
         }
 
         public void Log<TState>(LogLevel logLevel, 
@@ -52,7 +63,9 @@ namespace ADSUtilities.Logger
                     LogLevel = logLevel.ToString(),
                     Service = _service,
                     EventId = eventId.Id,
-                    TraceId = eventId.Name,
+                    TraceId = string.IsNullOrWhiteSpace(eventId.Name)
+                                ? ADSUtilitiesLoggerEnvironment.TraceId 
+                                : eventId.Name,
                     Message = message,
                     //LogDetail = state
                 };

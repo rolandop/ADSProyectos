@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "ADSConfiguration.Utilities/1.0.0": {
+      "ADSConfiguration.Utilities/1.0.3": {
         "dependencies": {
           "RestSharp": "106.6.9"
         },
@@ -25,7 +25,7 @@
     }
   },
   "libraries": {
-    "ADSConfiguration.Utilities/1.0.0": {
+    "ADSConfiguration.Utilities/1.0.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

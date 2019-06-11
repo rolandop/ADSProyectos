@@ -103,7 +103,12 @@ namespace ADSConfiguration.Utilities
             SubscribeService();
         }
 
-        private void SubscribeService()
+        public string GetConfigurationJson()
+        {
+            return _configurationJson;
+        }
+
+        public void SubscribeService()
         {
             Console.WriteLine($"Subscribir servicio a {ServiceConfigurationUrl}");
 

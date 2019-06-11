@@ -64,16 +64,8 @@ namespace Microsoft.Extensions.DependencyInjection
             });
 
             var options = new ADSConfigurationServiceOptions();
-
-            var serviceProvider = services.BuildServiceProvider();
-            var configuration = serviceProvider.GetService<IConfiguration>();
-            
-          
            
-            //services.AddSingleton<IConfigurationService, ConfigurationService>();
-            
-            //var configurationService = serviceProvider.GetService<IConfigurationService>();
-            //configurationService.SubscribeService();
+            services.AddSingleton<IConfigurationService, ConfigurationService>();            
 
             return services;
         }

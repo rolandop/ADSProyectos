@@ -24,7 +24,7 @@
     ".NETCoreApp,Version=v2.2": {
       "ADSConfiguration.Cliente/1.0.0": {
         "dependencies": {
-          "ADSConfiguration.Utilities": "1.0.0",
+          "ADSConfiguration.Utilities": "1.0.3",
           "ADSUtilities": "1.0.1",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -616,7 +616,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "ADSConfiguration.Utilities/1.0.0": {
+      "ADSConfiguration.Utilities/1.0.3": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "2.2.0",
@@ -4042,7 +4042,7 @@
       "path": "system.linq.parallel/4.3.0",
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
     },
-    "ADSConfiguration.Utilities/1.0.0": {
+    "ADSConfiguration.Utilities/1.0.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

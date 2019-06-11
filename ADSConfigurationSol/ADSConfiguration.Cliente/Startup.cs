@@ -84,6 +84,7 @@ namespace ADSConfiguration.Cliente
 
             loggerFactory.AddADSLogger(c => {
                 c.LogLevel = LogLevel.Warning;
+                c.Service = Configuration.GetSection("ServiceId").Value;
             });
 
             app.UseSwagger();

@@ -57,11 +57,7 @@ namespace ADSConfiguration.Utilities.Controller
             _logger.LogInformation("Actualizar configuración {@Configuracion}", configuration);
 
             _adsConfigurationProvider.Update(configuration.ConfigurationJson);
-
-            //_configurationService.UpdateConfiguration(configuration.ConfigurationJson);
-
-
-            //return Ok(_configurationService.GetConfigurationJson());
+            
             return Ok();
         }
 
@@ -71,9 +67,11 @@ namespace ADSConfiguration.Utilities.Controller
         {
             _logger.LogInformation("ConfiguracionActual");
 
-            //return Content(_configurationService.GetConfigurationJson(), "application/json");
+            var configurationJson = _adsConfigurationProvider
+                                            .GetConfigurationJson();
 
-            return Content("");
+            return Content(configurationJson, "application/json");
+
         }
 
         [HttpGet]
@@ -107,13 +105,14 @@ namespace ADSConfiguration.Utilities.Controller
             try
             {
                 _logger.LogInformation("subscribe");
+                _adsConfigurationProvider.SubscribeService();
+                _logger.LogInformation("subscribe OK");
 
-                //_configurationService.SubscribeService();
                 return Ok();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al suscribir");
+                _logger.LogError(ex, "Error al subscribir servicio");
                 return StatusCode(500, ex.Message);
             }
            

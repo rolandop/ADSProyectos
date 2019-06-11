@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ADSUtilities;
 using Microsoft.Extensions.Logging;
+using ADSUtilities.Logger;
 
 namespace ADSKafkaCliente.Controllers
 {
@@ -23,7 +24,19 @@ namespace ADSKafkaCliente.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return this.ADSOk(new string[] { "value1", "value2" });
+        }
+
+        [HttpGet("badrequest")]
+        public ActionResult<IEnumerable<string>> BadRequest()
+        {
+            return this.ADSBadRequest();
+        }
+
+        [HttpGet("internalerror")]
+        public ActionResult<IEnumerable<string>> InternalError()
+        {
+            return this.ADSInternalError();
         }
 
         // GET api/values/5
@@ -39,11 +52,11 @@ namespace ADSKafkaCliente.Controllers
                     Nombre = "Pepe"
                 };
 
-                var traceId = DateTime.Now.Ticks.ToString();
+                this.TraceId("Logs pruebas");
 
                 for (var i = 1; i <= numlogs; i++)
                 {
-                    _logger.LogWarning(new EventId(i, traceId), "Log {i} de {total}, model = {@model}{}", 
+                    _logger.LogWarning("Log {i} de {total}, model = {@model}{}", 
                             i, numlogs, p, new {
                                 valor2 = "mi mama me pega"
                             });
@@ -53,10 +66,10 @@ namespace ADSKafkaCliente.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(ex);
+                return this.ADSBadRequest(ex.Message);
             }            
 
-            return Ok();
+            return this.ADSOk();
         }
 
         [HttpGet("error")]

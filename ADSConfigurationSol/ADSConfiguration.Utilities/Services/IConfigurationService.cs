@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace ADSConfiguration.Utilities.Services
 {
-    public interface IConfigurationService: IConfiguration
+    public interface IConfigurationService
     {
-        string GetConfigurationJson();
-        void GetConfiguration();
-        void UpdateConfiguration(string configurationJson);
-        void SubscribeService();
         string GetValue(string clave);
     }
 }

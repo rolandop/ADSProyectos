@@ -9,6 +9,7 @@
     <description>Package Description</description>
     <dependencies>
       <group targetFramework=".NETCoreApp2.2">
+        <dependency id="Microsoft.Extensions.Configuration.Abstractions" version="2.2.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0" exclude="Build,Analyzers" />
         <dependency id="RestSharp" version="106.6.9" exclude="Build,Analyzers" />
       </group>
