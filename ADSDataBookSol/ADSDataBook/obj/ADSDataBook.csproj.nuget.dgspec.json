@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {}
+    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {}
   },
   "projects": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {
+    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
+        "projectUniqueName": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
         "projectName": "ADSDataBook",
-        "projectPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
+        "projectPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
         "packagesPath": "C:\\Users\\ortizja\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\obj\\",
+        "outputPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
