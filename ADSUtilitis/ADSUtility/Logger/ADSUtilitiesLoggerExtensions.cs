@@ -107,8 +107,7 @@ namespace ADSUtilities.Logger
             return loggerFactory.AddADSLogger(config, app);
         }
         public static ILoggerFactory AddADSLogger(this ILoggerFactory loggerFactory, 
-            Action<ADSUtilitiesLoggerConfiguration> configure
-            , IApplicationBuilder app)
+            Action<ADSUtilitiesLoggerConfiguration> configure, IApplicationBuilder app)
         {
             var config = new ADSUtilitiesLoggerConfiguration();
             configure(config);

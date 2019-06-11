@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ADSDataBook</name>
+    </assembly>
+    <members>
+        <member name="T:ADSDataBook.Controllers.DataBookController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.Controllers.DataBookController.#ctor(Microsoft.Extensions.Logging.ILogger{ADSDataBook.Servicios.DataBookService},ADSDataBook.Servicios.IDataBookService)">
+             <summary>
+            ---
+             </summary>
+             <param name="logger"></param>
+             <param name="configuracionServicio"></param>
+        </member>
+        <member name="M:ADSDataBook.Controllers.DataBookController.Get(System.String)">
+            <summary>
+            Servicio Rest Consulta a Servicio DataBook.
+            </summary>
+            <param name="identification"> Numero de Identificación a Consultar</param>
+            
+            <response code="200">Retorna cuando es exitóso</response>
+            <response code="400">Retorna cuando es excepción</response>
+            <response code="404">Retorna cuando es null la búsqueda</response>    
+        </member>
+        <member name="T:ADSDataBook.DAL.Contexto.MySqlContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.DAL.Contexto.MySqlContext.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.DAL.Contexto.MySqlContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ADSDataBook.DAL.Contexto.MySqlContext},ADSConfiguration.Utilities.Services.IConfigurationService)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <param name="configurationService"></param>
+        </member>
+        <member name="M:ADSDataBook.DAL.Contexto.MySqlContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="P:ADSDataBook.DAL.Contexto.MySqlContext.BaseCambios">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Contexto.OracleContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.DAL.Contexto.OracleContext.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.DAL.Contexto.OracleContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ADSDataBook.DAL.Contexto.OracleContext},ADSConfiguration.Utilities.Services.IConfigurationService)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <param name="configurationService"></param>
+        </member>
+        <member name="M:ADSDataBook.DAL.Contexto.OracleContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="P:ADSDataBook.DAL.Contexto.OracleContext.ConsultaPersonaLogs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Entidades.MySql.BaseCambios">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Entidades.Oracle.ConsultaPersonaLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Enums.AccionConsulta">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Enums.OrigenBusqueda">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Enums.RolBusqueda">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Modelos.ResponseModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSDataBook.DAL.Modelos.ResponseModel.Error">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSDataBook.DAL.Modelos.ResponseModel.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSDataBook.DAL.Modelos.ResponseModel.Msg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Modelos.SuccessModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSDataBook.DAL.Modelos.SuccessModel.Min">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSDataBook.DAL.Modelos.SuccessModel.Page">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ADSDataBook.DAL.Modelos.SuccessModel.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.DAL.Repository.BaseCambiosRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.DAL.Repository.BaseCambiosRepository.#ctor(ADSConfiguration.Utilities.Services.IConfigurationService,ADSDataBook.DAL.Contexto.MySqlContext,Microsoft.Extensions.Logging.ILogger{ADSDataBook.DAL.Repository.BaseCambiosRepository})">
+            <summary>
+            
+            </summary>
+            <param name="configurationService"></param>
+            <param name="mySqlContext"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ADSDataBook.DAL.Repository.BaseCambiosRepository.GuardarBaseIntermedia(ADSDataBook.DAL.Entidades.MySql.BaseCambios)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSDataBook.DAL.Repository.ConsultaLogRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.DAL.Repository.ConsultaLogRepository.#ctor(Microsoft.Extensions.Configuration.IConfiguration,ADSDataBook.DAL.Contexto.OracleContext,Microsoft.Extensions.Logging.ILogger{ADSDataBook.DAL.Repository.ConsultaLogRepository})">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+            <param name="oracleContext"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:ADSDataBook.DAL.Repository.ConsultaLogRepository.CrearLog(ADSDataBook.DAL.Entidades.MySql.BaseCambios)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:ADSDataBook.DAL.Repository.ConsultaLogRepository.AddLog(ADSDataBook.DAL.Entidades.Oracle.ConsultaPersonaLog,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="log"></param>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSDataBook.DAL.Repository.IConsultaLogRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.DAL.Repository.IConsultaLogRepository.CrearLog(ADSDataBook.DAL.Entidades.MySql.BaseCambios)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:ADSDataBook.DAL.Repository.IConsultaLogRepository.AddLog(ADSDataBook.DAL.Entidades.Oracle.ConsultaPersonaLog,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="log"></param>
+            <param name="con"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSDataBook.Modelos.PersonaLogModelo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ADSDataBook.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSDataBook.Servicios.DataBookService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.Servicios.DataBookService.#ctor(Microsoft.Extensions.Logging.ILogger{ADSDataBook.Servicios.DataBookService},ADSDataBook.DAL.Repository.IBaseCambiosRepository,ADSDataBook.DAL.Repository.IConsultaLogRepository,ADSConfiguration.Utilities.Services.IConfigurationService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="baseCambiosRepository"></param>
+            <param name="consultaLogRepository"></param>
+            <param name="configurationService"></param>
+        </member>
+        <member name="M:ADSDataBook.Servicios.DataBookService.ConsultarDataBook(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSDataBook.Servicios.DataBookService.MapearEntidad(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSDataBook.Servicios.DataBookService.GuardarBaseIntermedia(ADSDataBook.DAL.Entidades.MySql.BaseCambios)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSDataBook.Servicios.DataBookService.GuardarLog(ADSDataBook.DAL.Entidades.MySql.BaseCambios)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSDataBook.Servicios.IDataBookService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.Servicios.IDataBookService.ConsultarDataBook(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSDataBook.Servicios.IDataBookService.GuardarBaseIntermedia(ADSDataBook.DAL.Entidades.MySql.BaseCambios)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ADSDataBook.Servicios.IDataBookService.GuardarLog(ADSDataBook.DAL.Entidades.MySql.BaseCambios)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ADSDataBook.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:ADSDataBook.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ADSDataBook.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:ADSDataBook.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="loggerFactory"></param>
+        </member>
+    </members>
+</doc>

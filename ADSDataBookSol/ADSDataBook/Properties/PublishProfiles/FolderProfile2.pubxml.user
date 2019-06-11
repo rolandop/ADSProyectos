@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Publicaciones\MicroServicios\DataBook</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="MySqlConnection">
+      <Value>server=172.16.1.241%3bport=3306%3bdatabase=RUIA%3buid=conscamb%3bpassword=56k!#78PxIngC</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="SiaerpConnection">
+      <Value>Data Source=%28DESCRIPTION=%28ADDRESS_LIST=%28ADDRESS=%28PROTOCOL=TCP%29%28HOST=172.16.1.176%29%28PORT=1521%29%29%29%28CONNECT_DATA=%28SERVER=DEDICATED%29%28SERVICE_NAME=aesp1.aes.com.ec%29%29%29%3bUser Id=AESERP%3bPassword=AESERP%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
