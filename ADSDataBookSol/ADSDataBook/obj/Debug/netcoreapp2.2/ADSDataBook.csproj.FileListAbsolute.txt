@@ -30,3 +30,18 @@ C:\Work\Proyectos\ASEGSUR\ADS Core\Proyectos\DataBook\ADSDataBookSol\ADSDataBook
 C:\Work\Proyectos\ASEGSUR\ADS Core\Proyectos\DataBook\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.xml
 C:\Work\Proyectos\ASEGSUR\ADS Core\Proyectos\DataBook\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.pdb
 C:\Work\Proyectos\ASEGSUR\ADS Core\Proyectos\DataBook\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.csprojAssemblyReference.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\bin\Debug\netcoreapp2.2\ADSDataBook.deps.json
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\bin\Debug\netcoreapp2.2\ADSDataBook.runtimeconfig.json
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\bin\Debug\netcoreapp2.2\ADSDataBook.runtimeconfig.dev.json
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\bin\Debug\netcoreapp2.2\ADSDataBook.dll
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\bin\Debug\netcoreapp2.2\ADSDataBook.pdb
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\bin\Debug\netcoreapp2.2\ADSDataBook.xml
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.csproj.CoreCompileInputs.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.RazorAssemblyInfo.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.RazorAssemblyInfo.cs
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.AssemblyInfoInputs.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.AssemblyInfo.cs
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.RazorTargetAssemblyInfo.cache
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.dll
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.xml
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSDataBookSol\ADSDataBook\obj\Debug\netcoreapp2.2\ADSDataBook.pdb

@@ -15,6 +15,12 @@ ADSRegistroCivil
 docker run -d --name adsregistrocivil -p 60224:80 --expose=60224 --network adsnet --network-alias adsregistrocivil --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsregistrocivil
 
 
+ADSConsultaPla
+
+docker run -d --name adsconsultapla -p 60225:80 --expose=60225 --network adsnet --network-alias adsconsultapla --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsconsultapla
+
+
+
 ADSConfiguracionCliente
 docker run -d --name adsconfiguracioncliente -p 60221:80 --expose=60221 --network adsnet --network-alias adsconfiguracioncliente --link adsconfiguracion -e Global__Services__Configuration__ServiceUrl="http://adsconfiguracion" -e ServiceUrl="http://adsconfiguracioncliente" -e ASPNETCORE_ENVIRONMENT=Development citytechdock/adsconfiguracioncliente
 

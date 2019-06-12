@@ -6,7 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="dlls\" />
+    <Compile Remove="dlls\**" />
+    <Content Remove="dlls\**" />
+    <EmbeddedResource Remove="dlls\**" />
+    <None Remove="dlls\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

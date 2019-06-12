@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ADSConsultaPla</name>
+    </assembly>
+    <members>
+        <member name="T:ADSConsultaPla.Controllers.ConsultaPlaController">
+            <summary>
+            Controlador Consulta Pla Api v1
+            </summary>
+        </member>
+        <member name="M:ADSConsultaPla.Controllers.ConsultaPlaController.#ctor(Microsoft.Extensions.Logging.ILogger{ADSConsultaPla.Services.ConsultaPlaService},ADSConsultaPla.Services.IConsultaPlaService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="consultaPlaService"></param>
+        </member>
+        <member name="M:ADSConsultaPla.Controllers.ConsultaPlaController.GetConsultaSisprev(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identificacion"></param>
+            <param name="nombre"></param>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.EndpointDescription">
+            <summary>
+            <para>Foo API v1</para>
+            </summary>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.EndpointUrl">
+            <summary>
+            <para>/swagger/v1/swagger.json</para>
+            </summary>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.ContactName">
+            <summary>
+            <para>Jorge Serrano</para>
+            </summary>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.ContactUrl">
+            <summary>
+            <para>http://geeks.ms/jorge/</para>
+            </summary>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.DocNameV1">
+            <summary>
+            <para>v1</para>
+            </summary>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.DocInfoTitle">
+            <summary>
+            <para>Foo API</para>
+            </summary>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.DocInfoVersion">
+            <summary>
+            <para>v1</para>
+            </summary>
+        </member>
+        <member name="F:ADSConsultaPla.SwaggerConfiguration.DocInfoDescription">
+            <summary>
+            <para>Foo Api - Sample Web API in ASP.NET Core 2</para>
+            </summary>
+        </member>
+    </members>
+</doc>

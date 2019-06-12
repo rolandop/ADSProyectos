@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {}
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {}
   },
   "projects": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
+        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
         "projectName": "ADSDataBook",
-        "projectPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
-        "packagesPath": "C:\\Users\\ortizja\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\DataBook\\ADSDataBookSol\\ADSDataBook\\obj\\",
+        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\ADSDataBook.csproj",
+        "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
+        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSDataBookSol\\ADSDataBook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ortizja\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\penaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -49,7 +47,7 @@
             },
             "ADSUtilities": {
               "target": "Package",
-              "version": "[1.0.4, )"
+              "version": "[1.0.5, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",

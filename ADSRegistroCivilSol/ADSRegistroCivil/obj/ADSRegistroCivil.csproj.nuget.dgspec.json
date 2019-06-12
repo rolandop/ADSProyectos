@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {}
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {}
   },
   "projects": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {
+    "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
+        "projectUniqueName": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
         "projectName": "ADSRegistroCivil",
-        "projectPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
-        "packagesPath": "C:\\Users\\ortizja\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\obj\\",
+        "projectPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
+        "packagesPath": "C:\\Users\\penaa\\.nuget\\packages\\",
+        "outputPath": "D:\\ASEGSUR\\PROYECTOS\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ortizja\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\penaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -49,7 +47,7 @@
             },
             "ADSUtilities": {
               "target": "Package",
-              "version": "[1.0.4, )"
+              "version": "[1.0.5, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",

@@ -15,3 +15,4 @@ C:\Users\dmarante\Documents\ADS PROYECTOS\ADSProyectos-1\ADSUtilitis\ADSUtility\
 C:\Users\dmarante\Documents\ADS PROYECTOS\ADSProyectos-1\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.AssemblyInfo.cs
 C:\Users\dmarante\Documents\ADS PROYECTOS\ADSProyectos-1\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.dll
 C:\Users\dmarante\Documents\ADS PROYECTOS\ADSProyectos-1\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.pdb
+D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Debug\netcoreapp2.2\ADSUtilities.csprojAssemblyReference.cache

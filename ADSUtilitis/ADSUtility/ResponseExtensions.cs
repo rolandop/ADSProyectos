@@ -31,8 +31,8 @@ namespace ADSUtilities
             {
                 return services.Ok(new ResultModel
                 {
-                    Code = code,
-                    Message = message,
+                    Error = code,
+                    Msg = message,
                     Data = data
                 });
             }
@@ -66,8 +66,8 @@ namespace ADSUtilities
             {
                 return services.NotFound(new ResultModel
                 {
-                    Code = code,
-                    Message = message,
+                    Error = code,
+                    Msg = message,
                     Data = data
                 });
             }
@@ -99,8 +99,8 @@ namespace ADSUtilities
             {
                 return services.BadRequest(new ResultModel
                 {
-                    Code = code,
-                    Message = message,
+                    Error = code,
+                    Msg = message,
                     Data = data
                 });
             }
@@ -139,8 +139,8 @@ namespace ADSUtilities
             {
                 return services.StatusCode(code, new ResultModel
                 {
-                    Code = code,
-                    Message = message,
+                    Error = code,
+                    Msg = message,
                     Data = data
                 });
             }
@@ -148,9 +148,9 @@ namespace ADSUtilities
             {
                 return services.StatusCode(code, new ResultModel
                 {
-                    Code = code,
-                    Message = e.Message,
-                    Data = ""
+                    Error = code,
+                    Msg = e.Message,
+                    Data = null
                 }); ;
             }
         }
@@ -178,8 +178,8 @@ namespace ADSUtilities
             {
                 return services.StatusCode(code, new ResultModel
                 {
-                    Code = code,
-                    Message = message,
+                    Error = code,
+                    Msg = message,
                     Data = data
                 });
             }
@@ -187,8 +187,9 @@ namespace ADSUtilities
             {
                 return services.StatusCode(code, new ResultModel
                 {
-                    Code = code,
-                    Message = e.Message
+                    Error = code,
+                    Msg = e.Message,
+                    Data = null
                 }); ;
             }
         }

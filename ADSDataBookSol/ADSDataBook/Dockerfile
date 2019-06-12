@@ -3,6 +3,13 @@ WORKDIR /app
 EXPOSE 80
 
 ENV TZ=CET
+ENV Global__Services__kafka__Service="kafka:9092"
+ENV Global__Services__Configuration__Service="adsconfiguration"
+ENV Service="adsdatabook"
+ENV ServiceId="adsdatabook"
+ENV ServiceEnvironment="PRD"
+ENV ServiceVersion="1.0"
+
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
 WORKDIR /src

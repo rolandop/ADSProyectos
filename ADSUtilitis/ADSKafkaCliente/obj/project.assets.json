@@ -4544,7 +4544,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "ADSUtilities/1.0.4": {
+      "ADSUtilities/1.0.5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
@@ -12326,7 +12326,7 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
-    "ADSUtilities/1.0.4": {
+    "ADSUtilities/1.0.5": {
       "type": "project",
       "path": "../ADSUtility/ADSUtilities.csproj",
       "msbuildProject": "../ADSUtility/ADSUtilities.csproj"
@@ -12334,7 +12334,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "ADSUtilities >= 1.0.4",
+      "ADSUtilities >= 1.0.5",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",

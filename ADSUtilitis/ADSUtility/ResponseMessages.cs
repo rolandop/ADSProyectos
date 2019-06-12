@@ -8,7 +8,7 @@ namespace ADSUtilities
     {
         public static string OK = "Ok";
         public static string NOT_FOUND = "Datos no encontrados";
-        public static string BAD_REQUEST = "Bad Request";
+        public static string BAD_REQUEST = "Error en la solicitud";
         public static string INTERNAL_ERROR = "Error no controlado";
     }
 }
