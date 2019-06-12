@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ADSDataBook.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/v1")]
     [ApiController]
     public class ValuesController : ControllerBase
     {

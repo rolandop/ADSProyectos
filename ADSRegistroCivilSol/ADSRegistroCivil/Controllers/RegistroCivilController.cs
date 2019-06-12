@@ -16,7 +16,7 @@ namespace ADSRegistroCivil.Controllers
     /// 
     /// </summary>
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/v1")]
     [ApiController]
     public class RegistroCivilController : ControllerBase
     {
