@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {}
+    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {}
   },
   "projects": {
-    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {
+    "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
+        "projectUniqueName": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
         "projectName": "ADSRegistroCivil",
-        "projectPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
+        "projectPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\ADSRegistroCivil.csproj",
         "packagesPath": "C:\\Users\\ortizja\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\Proyectos\\RegistroCivil\\ADSRegistroCivilSol\\ADSRegistroCivil\\obj\\",
+        "outputPath": "C:\\Work\\Proyectos\\ASEGSUR\\ADS Core\\ADSProyectos\\ADSRegistroCivilSol\\ADSRegistroCivil\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
