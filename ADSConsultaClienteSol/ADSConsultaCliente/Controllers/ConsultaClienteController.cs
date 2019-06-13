@@ -152,8 +152,10 @@ namespace ADSConsultaCliente.Controllers
         {
             try
             {
-                _logger.LogInformation("Inicio Consulta MasterData {@identificacion} {@rc}", identificacion, rc);
                 this.TraceId("ConsultaMasterData_" + DateTime.Now.Ticks);
+
+                _logger.LogInformation("Inicio Consulta MasterData {@identificacion} {@rc}", identificacion, rc);
+                
                 var persona = _consultaClienteService.ConsultaMasterDataAsync(identificacion, rc);
                 if (persona != null)
                 {
@@ -167,9 +169,8 @@ namespace ADSConsultaCliente.Controllers
                 }
             }
             catch (Exception ex)
-            {
-                _logger.LogInformation("Respuesta Consulta MasterData {@BadRequest}", ex.StackTrace);
-                _logger.LogError(ex.StackTrace);
+            {                
+                _logger.LogError(ex, "Respuesta Consulta MasterData");
                 return this.ADSBadRequest();
             }
         }

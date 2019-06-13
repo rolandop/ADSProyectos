@@ -14,8 +14,7 @@ namespace ADSConsultaCliente
     public class Program
     {
         public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
+        {            
             var host = WebHost
              .CreateDefaultBuilder(args)
              .ConfigureAppConfiguration((builderContext, config) =>
@@ -46,9 +45,6 @@ namespace ADSConsultaCliente
 
             host.Run();
         }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+        
     }
 }
