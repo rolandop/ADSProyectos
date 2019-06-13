@@ -1,6 +1,7 @@
 ﻿
 using ADSConfiguration.Utilities.Services;
 using ADSRegistroCivil.DAL;
+using ADSRegistroCivil.DAL.Entidades.Ods;
 using ADSRegistroCivil.DAL.Entidades.Siaerp;
 using ADSRegistroCivil.DAL.Enums;
 using ADSRegistroCivil.DAL.Modelos;
@@ -21,7 +22,7 @@ using Utilities;
 namespace ADSRegistroCivil.Servicios
 {
     /// <summary>
-    /// 
+    /// Servicio Central del Registro Civil
     /// </summary>
     public class RegistroCivilServicio : IRegistroCivilServicio
     {
@@ -31,7 +32,7 @@ namespace ADSRegistroCivil.Servicios
         private readonly ILogger<RegistroCivilServicio> _logger;
 
         /// <summary>
-        /// 
+        /// Constructor sobre cargado
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="consultaLogRepository"></param>
@@ -50,11 +51,10 @@ namespace ADSRegistroCivil.Servicios
         }
 
         /// <summary>
-        /// 
+        /// Metodo de Consulta al registro civil antiguo
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="consulta"></param>
-        /// <param name="log"></param>
         /// <returns></returns>
         public async Task<ResponsePersonaModel> ConsultaRegistroCivilAsync(string identificacion, string consulta)
         {
@@ -72,11 +72,10 @@ namespace ADSRegistroCivil.Servicios
         }
 
         /// <summary>
-        /// 
+        /// Metodo de Consulta al registro civil Nuevo
         /// </summary>
         /// <param name="identification"></param>
         /// <param name="consulta"></param>
-        /// <param name="log"></param>
         /// <returns></returns>
         public async Task<ResponsePersonaModel> ConsultaCiudadanoAsync(string identification, string consulta)
         {
@@ -91,7 +90,6 @@ namespace ADSRegistroCivil.Servicios
                     var valida = ValidarActualizacion(registro, tiempoMax);
                     if(!valida)
                     {
-                        
                         return registro;
                     }
                     var reg = await ConsultaNuevoRCAsync(identification);
@@ -102,6 +100,8 @@ namespace ADSRegistroCivil.Servicios
                 else
                 {
                     var reg = await ConsultaNuevoRCAsync(identification);
+                    //var model = MapeaRCDataCliente(reg);
+                    //await GrabaAsync(model);
                     return reg;
                 }
 
@@ -110,6 +110,17 @@ namespace ADSRegistroCivil.Servicios
             else
             {
                 var reg = await ConsultaNuevoRCAsync(identification);
+                var model = BuscarPorIdentificacion(identification);
+                if(model != null)
+                {
+                    await ActualizaAsync(identification);
+                }
+                else
+                {
+                    //var model = MapeaRCDataCliente(reg);
+                    //await GrabaAsync(model);
+                }
+
                 return reg;
 
             }
@@ -286,6 +297,46 @@ namespace ADSRegistroCivil.Servicios
             catch(Exception)
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public async Task<bool> GrabaAsync(DataClientesRc model)
+        {
+            try
+            {
+                var result = await _datosPersonaRcRepository.InsertarRegistroAsync(model);
+                return result;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pm"></param>
+        /// <returns></returns>
+        public DataClientesRc MapeaRCDataCliente (ResponsePersonaModel pm)
+        {
+            try
+            {
+                var model = new DataClientesRc
+                {
+                    
+                    
+                };
+                return model;
+            }
+            catch(Exception)
+            {
+                return null;
             }
         }
     }

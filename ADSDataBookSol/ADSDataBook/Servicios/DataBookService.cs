@@ -22,7 +22,7 @@ using System.Xml;
 namespace ADSDataBook.Servicios
 {
     /// <summary>
-    /// 
+    /// Clase de servicio para gestión de MS DataBook
     /// </summary>
     public class DataBookService : IDataBookService
     {
@@ -34,7 +34,7 @@ namespace ADSDataBook.Servicios
 
 
         /// <summary>
-        /// 
+        /// Consturctor Sobre cargado
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="baseCambiosRepository"></param>
@@ -56,7 +56,7 @@ namespace ADSDataBook.Servicios
         }
         
         /// <summary>
-        /// 
+        /// Metodo de Consulta al servicio externo DataBook
         /// </summary>
         /// <param name="identification"></param>
         /// <returns></returns>
@@ -93,7 +93,7 @@ namespace ADSDataBook.Servicios
         }
         
         /// <summary>
-        /// 
+        /// Metodo para mapeo de Entidad Obtenida en DataBook (XML) a un Objeto
         /// </summary>
         /// <param name="xml"></param>
         /// <returns></returns>
@@ -185,6 +185,12 @@ namespace ADSDataBook.Servicios
                     MTR_ESTADO = "ACTIVO",
                     MTR_TIPO_IDENTIFICACION = "C",
                     MTR_TIPO_PERSONA = "NATURAL",
+
+                    //Valores Fecha
+
+                    MTR_FEC_CREACION = DateTime.Now,
+                    MTR_FEC_ULT_ACT = DateTime.Now,
+                
 
 
                 };
