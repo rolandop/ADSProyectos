@@ -98,7 +98,7 @@ namespace ADSConsultaCliente.DAL
                     model.MTR_ES_REF_COMERCIAL = databook.MTR_ES_REF_COMERCIAL;
                     model.MTR_ES_REF_PERSONAL = databook.MTR_ES_REF_PERSONAL;
                     model.MTR_ES_SOLICITANTE = databook.MTR_ES_SOLICITANTE;
-                    model.MTR_ES_TALLER = model.MTR_ES_TALLER;
+                    model.MTR_ES_TALLER = databook.MTR_ES_TALLER;
                     model.MTR_FACEBOOK = databook.MTR_FACEBOOK;
                     model.MTR_FEC_CONSTITUCION = databook.MTR_FEC_CONSTITUCION;
                     model.MTR_FEC_CREACION = databook.MTR_FEC_CREACION;

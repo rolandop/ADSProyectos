@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 
@@ -68,7 +69,7 @@ namespace ADSConsultaCliente
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<RuiaContext>(options => options.UseMySql(Configuration.GetSection("ConnectionStrings").GetSection("RuiaConnection").Value));
-            services.AddDbContext<SiaerpContext>(options => options.UseOracle(Configuration.GetSection("ConnectionStrings").GetSection("SiaerpConnection").Value));
+            services.AddDbContext<SiaerpContext>(options => options.UseOracle(Configuration.GetSection("Global:Services:Siaerp:ConnectionString").Value));
             services.AddScoped<IConsultaClienteRepositorio, ConsultaClienteRepositorio>();
             services.AddScoped<ISiaerpRepositorio, SiaerpRepositorio>();
             services.AddScoped<IConsultaClienteService, ConsultaClienteService>();
@@ -115,6 +116,11 @@ namespace ADSConsultaCliente
         /// <param name="loggerFactory"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            var cultureInfo = new CultureInfo("ec-EC");
+            cultureInfo.NumberFormat.CurrencySymbol = "$";
+            cultureInfo.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
             loggerFactory.AddADSLogger(c =>
             {
                 c.LogLevel = LogLevel.Information;
