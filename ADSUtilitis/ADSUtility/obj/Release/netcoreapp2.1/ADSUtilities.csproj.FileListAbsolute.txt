@@ -1,8 +1,0 @@
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\bin\Release\netcoreapp2.1\ADSUtilities.deps.json
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\bin\Release\netcoreapp2.1\ADSUtilities.dll
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\bin\Release\netcoreapp2.1\ADSUtilities.pdb
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.1\ADSUtilities.csproj.CoreCompileInputs.cache
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.1\ADSUtilities.AssemblyInfoInputs.cache
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.1\ADSUtilities.AssemblyInfo.cs
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.1\ADSUtilities.dll
-C:\Users\Danner\source\repos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.1\ADSUtilities.pdb

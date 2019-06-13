@@ -34,11 +34,11 @@ namespace ADSConsultaPla.Controllers
 
        
         /// <summary>
-        /// 
+        /// Consulta desde Sisprev
         /// </summary>
-        /// <param name="identificacion"></param>
-        /// <param name="nombre"></param>
-        /// <param name="app"></param>
+        /// <param name="identificacion">Identificación</param>
+        /// <param name="nombre">Nombre</param>
+        /// <param name="app">Aplicación que consulta</param>
         /// <returns></returns>
         [HttpGet("sisprev/{identificacion}/{nombre}/{app}")]
         public IActionResult GetConsultaSisprev(string identificacion, string nombre, string app)
