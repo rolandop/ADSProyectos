@@ -15,7 +15,7 @@ using Microsoft.Extensions.Logging;
 namespace ADSDataBook.Controllers
 {
     /// <summary>
-    /// 
+    /// Controlador API para manejo de Integración con DataBook
     /// </summary>
     [Produces("application/json")]
     [Route("api/[controller]/v1")]
@@ -27,7 +27,7 @@ namespace ADSDataBook.Controllers
         private readonly IDataBookService _configuracionServicio;
 
         /// <summary>
-        ///---
+        ///Constructor sobre cargado
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="configuracionServicio"></param>
@@ -37,10 +37,7 @@ namespace ADSDataBook.Controllers
         {
             _logger = logger;
             _configuracionServicio = configuracionServicio;
-            //configuration = iConfig;
         }
-
-        
 
         /// <summary>
         /// Servicio Rest Consulta a Servicio DataBook.
@@ -50,6 +47,7 @@ namespace ADSDataBook.Controllers
         /// <response code="200">Retorna cuando es exitóso</response>
         /// <response code="400">Retorna cuando es excepción</response>
         /// <response code="404">Retorna cuando es null la búsqueda</response>    
+        /// <response code="500">Retorna cuando se produce un error interno del servicio</response>   
         [HttpGet]
         [Route("{identification}")]
         [ProducesResponseType(typeof(ResponseModel), 200)]

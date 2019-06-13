@@ -50,11 +50,13 @@ namespace ADSRegistroCivil.Controllers
         /// <response code="200">Retorna cuando es exitóso</response>
         /// <response code="400">Retorna cuando es excepción</response>
         /// <response code="404">Retorna cuando es null la búsqueda</response>    
+        /// <response code="500">Retorna cuando se produce un error interno del servicio</response>   
         [HttpGet]
         [Route("{identification}/{consulta}/{op}")]
         [ProducesResponseType(typeof(ResponseModel), 200)]
         [ProducesResponseType(typeof(ResponseModel), 400)]
         [ProducesResponseType(typeof(ResponseModel), 404)]
+        [ProducesResponseType(typeof(ResponseModel), 500)]
         public async Task<IActionResult> GetAsync(string identification, string consulta, string op)
         {
             try
@@ -64,8 +66,6 @@ namespace ADSRegistroCivil.Controllers
                     _logger.LogInformation("Invocación incorrecta faltan parametros de entrada");
                     return this.BadRequest();
                 }
-
-                _logger.LogInformation("Consulta Servicio Antiguo Registro Civil {@identification}", identification);
 
                 if (op == "0")
                 {

@@ -46,7 +46,7 @@ namespace ADSDataBook.DAL.Repository
                 var person = _mySqlContext.BaseCambios.FirstOrDefault(x => x.MTR_IDENTIFICACION == model.MTR_IDENTIFICACION);
                 if (person != null)
                 {
-                    person.MTR_IDENTIFICACION = model.MTR_IDENTIFICACION;
+                    
                     person.MTR_NOMBRE_COMPLETO = model.MTR_NOMBRE_COMPLETO;
                     person.MTR_DIRECCION_DOMICILIO = model.MTR_DIRECCION_DOMICILIO;
                     person.MTR_ACT_ECONOMICA = model.MTR_ACT_ECONOMICA;
@@ -99,7 +99,6 @@ namespace ADSDataBook.DAL.Repository
                     person.MTR_ES_REF_COMERCIAL = model.MTR_ES_REF_COMERCIAL;
                     person.MTR_ES_REF_PERSONAL = model.MTR_ES_REF_PERSONAL;
                     person.MTR_ES_SOLICITANTE = model.MTR_ES_SOLICITANTE;
-                    //person.MTR_TIPO_IDENTIFICACION = model.MTR_TIPO_IDENTIFICACION;
                     person.MTR_ES_TALLER = model.MTR_ES_TALLER;
                     person.MTR_FACEBOOK = model.MTR_FACEBOOK;
                     person.MTR_FEC_CONSTITUCION = model.MTR_FEC_CONSTITUCION;
@@ -109,7 +108,7 @@ namespace ADSDataBook.DAL.Repository
                     person.MTR_FEC_INI_ACT = model.MTR_FEC_INI_ACT;
                     person.MTR_FEC_INSC_RUC = model.MTR_FEC_INSC_RUC;
                     person.MTR_FEC_MATRIMONIO = model.MTR_FEC_MATRIMONIO;
-                    person.MTR_FEC_ULT_ACT = model.MTR_FEC_ULT_ACT;
+                    person.MTR_FEC_ULT_ACT = DateTime.Now;
                     person.MTR_FUENTE_OTROS_ING = model.MTR_FUENTE_OTROS_ING;
                     person.MTR_GASTOS_MENS = model.MTR_GASTOS_MENS;
                     person.MTR_GENERO = model.MTR_GENERO;
