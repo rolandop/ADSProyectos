@@ -1,9 +1,0 @@
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\bin\Release\netcoreapp2.2\ADSUtilities.deps.json
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\bin\Release\netcoreapp2.2\ADSUtilities.dll
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\bin\Release\netcoreapp2.2\ADSUtilities.pdb
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.2\ADSUtilities.csproj.CoreCompileInputs.cache
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.2\ADSUtilities.AssemblyInfoInputs.cache
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.2\ADSUtilities.AssemblyInfo.cs
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.2\ADSUtilities.dll
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.2\ADSUtilities.pdb
-D:\ASEGSUR\PROYECTOS\ADSProyectos\ADSUtilitis\ADSUtility\obj\Release\netcoreapp2.2\ADSUtilities.csprojAssemblyReference.cache
