@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 namespace ADSRegistroCivil.Controllers
 {
     /// <summary>
-    /// 
+    /// Controlador Principal MS Registro Civil
     /// </summary>
     [Produces("application/json")]
     [Route("api/[controller]/v1")]
