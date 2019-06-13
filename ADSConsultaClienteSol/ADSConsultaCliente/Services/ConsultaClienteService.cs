@@ -116,8 +116,7 @@ namespace ADSConsultaCliente.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.StackTrace);
-                // _logger.LogInformation("Fin de llamada ConsultaMasterData");
+                _logger.LogError(ex, "Error al llamar a ConsultaMasterDataAsync");                
                 return null;
             }
         }
@@ -156,13 +155,17 @@ namespace ADSConsultaCliente.Services
         /// <returns></returns>
         public PersonaModel ConsultaDatabookAsync(string identificacion, PersonaModel model)
         {
-            string url = string.Format("{0}/{1}", _configuration.GetSection("Global:Services:Databook:Service").Value, identificacion);
+            var url = _configuration
+                                    .GetSection("Global:Services:Databook:Service").Value;
+            
             RestClient client = new RestClient(url);
-            RestRequest request = new RestRequest(Method.GET);
+            RestRequest request = new RestRequest($"api/DataBook/v1/{identificacion}", 
+                                        Method.GET);
 
             request.AddHeader("content-type", "application/json");
             request.AddHeader("TraceId", ADSUtilitiesLoggerEnvironment.TraceId);
             request.RequestFormat = DataFormat.Json;
+
             var response = client.Execute(request);
 
             if (response.StatusDescription == "OK")
@@ -191,9 +194,12 @@ namespace ADSConsultaCliente.Services
         public string ConsultaPlaAsync(string identificacion, string nombre, string app)
         {
             string result = "";
-            string url = string.Format("{0}/api/ConsultaPla/v1/sisprev/{1}/{2}/{3}", _configuration.GetSection("Global:Services:Pla:Service").Value, identificacion,nombre,app);
+            string url =_configuration.GetSection("Global:Services:Pla:Service").Value;
+                
             RestClient client = new RestClient(url);
-            RestRequest request = new RestRequest(Method.GET);
+            RestRequest request = new RestRequest($"api/ConsultaPla/v1/sisprev/{identificacion}/{nombre}/{app}", 
+                Method.GET);
+
             request.RequestFormat = DataFormat.Json;
             var response = client.Execute(request);
 
@@ -220,9 +226,13 @@ namespace ADSConsultaCliente.Services
         /// <returns></returns>
         public PersonaModel ConsultaRegistroCivilAsync(string identificacion, string consulta, string op, PersonaModel model)
         {
-            string url = string.Format("{0}/{1}/{2}/{3}", _configuration.GetSection("Global:Services:RegistroCivil:Service").Value, identificacion, consulta, op);
+            string url =
+                _configuration.GetSection("Global:Services:RegistroCivil:Service").Value;
+
             RestClient client = new RestClient(url);
-            RestRequest request = new RestRequest(Method.GET);
+            RestRequest request = new RestRequest($"api/RegistroCivil/v1/{identificacion}/{consulta}/{op}",                 
+                Method.GET);
+
             request.AddHeader("content-type", "application/json");
             request.AddHeader("TraceId", ADSUtilitiesLoggerEnvironment.TraceId);
             request.RequestFormat = DataFormat.Json;

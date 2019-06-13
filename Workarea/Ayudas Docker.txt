@@ -8,16 +8,24 @@ docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsne
 
 ADSDatabook
 
+docker build -t adsdatabook . -f ADSDataBookDockerfile
 docker run -d --name adsdatabook -p 60223:80 --expose=60223 --network adsnet --network-alias adsdatabook --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsdatabook
 
 ADSRegistroCivil
 
+docker build -t adsregistrocivil . -f ADSRegistroCivilDockerfile
 docker run -d --name adsregistrocivil -p 60224:80 --expose=60224 --network adsnet --network-alias adsregistrocivil --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsregistrocivil
 
 
 ADSConsultaPla
 
 docker run -d --name adsconsultapla -p 60225:80 --expose=60225 --network adsnet --network-alias adsconsultapla --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsconsultapla
+
+
+ADSConsultaCliente
+
+docker build -t adsconsultacliente . -f ADSConsultaClienteDockerfile
+docker run -d --name adsconsultacliente -p 60226:80 --expose=60226 --network adsnet --network-alias adsconsultacliente --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsconsultacliente
 
 
 
@@ -56,6 +64,8 @@ apt-get install apt-transport-https  ca-certificates curl software-properties-co
 
 Crear imagenes
 docker build -t nombreimagen . -f ADSConfiguracionDockerfile
+
+
 
 
 

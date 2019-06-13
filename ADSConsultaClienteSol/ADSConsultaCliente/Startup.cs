@@ -117,7 +117,7 @@ namespace ADSConsultaCliente
         {
             loggerFactory.AddADSLogger(c =>
             {
-                c.LogLevel = LogLevel.Warning;
+                c.LogLevel = LogLevel.Information;
                 c.Service = Configuration.GetSection("ServiceId").Value;
             }, app);
 
