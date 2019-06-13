@@ -18,7 +18,7 @@ namespace ADSDataBook.Controllers
     /// 
     /// </summary>
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/v1")]
     [ApiController]
     public class DataBookController : ControllerBase
     {
@@ -55,7 +55,7 @@ namespace ADSDataBook.Controllers
         [ProducesResponseType(typeof(ResponseModel), 200)]
         [ProducesResponseType(typeof(ResponseModel), 400)]
         [ProducesResponseType(typeof(ResponseModel), 404)]
-
+        [ProducesResponseType(typeof(ResponseModel), 500)]
         public IActionResult Get (string identification)
         {
             try

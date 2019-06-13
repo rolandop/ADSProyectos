@@ -16,7 +16,7 @@ namespace ADSRegistroCivil.Controllers
     /// 
     /// </summary>
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/v1")]
     [ApiController]
     public class RegistroCivilController : ControllerBase
     {
@@ -59,6 +59,12 @@ namespace ADSRegistroCivil.Controllers
         {
             try
             {
+                if(string.IsNullOrEmpty(identification) || string.IsNullOrEmpty(consulta) || string.IsNullOrEmpty(op))
+                {
+                    _logger.LogInformation("Invocación incorrecta faltan parametros de entrada");
+                    return this.BadRequest();
+                }
+
                 _logger.LogInformation("Consulta Servicio Antiguo Registro Civil {@identification}", identification);
 
                 if (op == "0")

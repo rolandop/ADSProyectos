@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "ADSUtilities/1.0.4": {
+      "ADSUtilities/1.0.5": {
         "dependencies": {
           "Confluent.Kafka": "1.0.1.1",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
@@ -726,7 +726,7 @@
     }
   },
   "libraries": {
-    "ADSUtilities/1.0.4": {
+    "ADSUtilities/1.0.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

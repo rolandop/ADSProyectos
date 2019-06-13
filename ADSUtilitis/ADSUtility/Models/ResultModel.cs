@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,14 @@ namespace ADSUtilities.Models
 {
     public class ResultModel
     {
-        public int Code { get; set; }
-        public String Message { get; set; }
-        public Object Data { get; set; }
+        [JsonProperty(PropertyName = "Error")]
+        public int Error { get; set; }
+
+        [JsonProperty(PropertyName = "Msg")]
+        public string Msg { get; set; }
+
+        [JsonProperty(PropertyName = "Data")]
+        public object Data { get; set; }
     }
    
 }
