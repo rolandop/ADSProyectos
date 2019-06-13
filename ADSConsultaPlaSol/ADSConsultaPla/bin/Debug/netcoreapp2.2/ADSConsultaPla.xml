@@ -18,7 +18,7 @@
         </member>
         <member name="M:ADSConsultaPla.Controllers.ConsultaPlaController.GetConsultaSisprev(System.String,System.String,System.String)">
             <summary>
-            
+            Consulta desde Sisprev
             </summary>
             <param name="identificacion"></param>
             <param name="nombre"></param>

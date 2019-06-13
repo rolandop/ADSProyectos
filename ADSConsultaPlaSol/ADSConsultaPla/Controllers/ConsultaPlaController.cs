@@ -34,7 +34,7 @@ namespace ADSConsultaPla.Controllers
 
        
         /// <summary>
-        /// 
+        /// Consulta desde Sisprev
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="nombre"></param>
