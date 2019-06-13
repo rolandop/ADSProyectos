@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
 WORKDIR /app
 EXPOSE 80
 
-ENV TZ=CET
+ENV TZ=America/Guayaquil
 ENV Global__Services__kafka__Service="kafka:9092"
 ENV Global__Services__Configuration__Service="adsconfiguration"
 ENV Service="adsregistrocivil"

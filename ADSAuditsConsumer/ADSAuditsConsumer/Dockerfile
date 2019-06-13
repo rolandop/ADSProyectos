@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/runtime:2.2-stretch-slim AS base
 WORKDIR /app
 
+ENV TZ=America/Guayaquil
 ENV Global__Services__kafka__Service="kafka:9092"
 ENV CONSUMER__NAME="adsloggerconsumer"
 ENV MongoDB__Host="mongo"

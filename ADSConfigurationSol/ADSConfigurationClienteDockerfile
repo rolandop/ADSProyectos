@@ -3,6 +3,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+ENV TZ=America/Guayaquil
 ENV Global__Services__Configuration__Service="adsconfiguracion"
 ENV ServiceId="adsconfiguracioncliente"
 ENV ServiceEnvironment="DEV"

@@ -3,6 +3,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+ENV TZ=America/Guayaquil
 ENV MongoDB__Host="mongo"
 ENV MongoDB__Database="ConfiguracionesDb"
 ENV MongoDB__User="mongoadmin"
