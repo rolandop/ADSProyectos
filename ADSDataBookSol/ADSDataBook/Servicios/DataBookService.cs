@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -68,12 +69,16 @@ namespace ADSDataBook.Servicios
                 var urlServicio = _configurationService.GetValue("databook:UrlDataBook");
                 var con = _configurationService.GetValue("Global:Services:Siaerp:ConnectionString");
                 var url = urlServicio + identification +"&usr=SUR";
-                var client = new RestClient(url);
+                var client = new RestClient(url) { Encoding = Encoding.GetEncoding("iso-8859-1") };
                 var request = new RestRequest(Method.GET);
                 var response = client.Execute(request);
                 _logger.LogInformation("Termina Invocacion Servicio DataBook");
+                _logger.LogInformation("Inicio Transformación encoding");
+                Encoding encoding = Encoding.GetEncoding("ISO-8859-1");
+                var result1 = encoding.GetString(response.RawBytes);
+                _logger.LogInformation("Termina Transformación encoding");
                 _logger.LogInformation("Invoca Transformación de Objeto");
-                var result = MapearEntidad(response.Content);
+                var result = MapearEntidad(result1);
                 _logger.LogInformation("Termina Invocacion Transformación de Objeto");
                 if (result == null)
                 {
@@ -127,7 +132,6 @@ namespace ADSDataBook.Servicios
                 var diaDefuncion = ((XmlElement)civil[0]).GetElementsByTagName("diadefuncion")[0];
                 var mesDefuncion = ((XmlElement)civil[0]).GetElementsByTagName("mesdefuncion")[0];
                 var anioDefuncion = ((XmlElement)civil[0]).GetElementsByTagName("aniodefuncion")[0];
-
 
                 var fechaMatrimonio = "";
                 if (string.IsNullOrEmpty(diaMatrimonio.InnerText) && string.IsNullOrEmpty(mesMatrimonio.InnerText) && string.IsNullOrEmpty(anioMatrimonio.InnerText))
