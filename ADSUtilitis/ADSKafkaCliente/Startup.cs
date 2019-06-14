@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ADSUtilities.Logger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,6 +45,7 @@ namespace ADSKafkaCliente
                 c.LogLevel = LogLevel.Warning;
                 c.Service = Configuration.GetSection("ServiceId").Value;
             }, app);
+            
 
             app.UseMvc();
         }

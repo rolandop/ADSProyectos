@@ -1,4 +1,5 @@
 ﻿using ADSUtilities.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -58,13 +59,15 @@ namespace ADSUtilities.Logger
             {
                 var message = formatter(state, exception);
 
+                var traceId = ADSUtilitiesLoggerEnvironment.TraceId;
+
                 var log = new LogModel
                 {
                     LogLevel = logLevel.ToString(),
                     Service = _service,
                     EventId = eventId.Id,
                     TraceId = string.IsNullOrWhiteSpace(eventId.Name)
-                                ? ADSUtilitiesLoggerEnvironment.TraceId 
+                                ? traceId
                                 : eventId.Name,
                     Message = message,
                     //LogDetail = state

@@ -12,20 +12,19 @@ namespace ADSUtilities.Logger
         public ADSUtilitiesLoggerRequest(RequestDelegate next)
         {
             _next = next;
-            
         }
 
         public async Task Invoke(HttpContext context)
         {
-            ADSUtilitiesLoggerEnvironment.TraceId = 
-                                    DateTime.Now.Ticks.ToString();
+            HttpContext context_ = ADSUtilitiesLoggerEnvironment.Current;
 
-            if (context.Request.Headers.ContainsKey("TraceId"))
+            context.Request.Headers.Add("RequestStartDate", DateTime.Now.Ticks.ToString());
+            if (!context.Request.Headers.ContainsKey("TraceId"))
             {
-                var traceId = context.Request.Headers["TraceId"];
-                ADSUtilitiesLoggerEnvironment.TraceId = traceId;
-            }            
-
+                var traceId = DateTime.Now.Ticks.ToString();
+                context.Request.Headers.Add("TraceId", traceId);
+            }
+            
             await _next.Invoke(context);
         }
     }

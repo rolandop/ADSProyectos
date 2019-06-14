@@ -1,5 +1,6 @@
 ﻿using ADSUtilities.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,22 +20,19 @@ namespace ADSUtilities.Logger
         /// <returns></returns>
         public static string TraceId(this ControllerBase controllerBase)
         {
+            var traceId = "";
 
-            if (string.IsNullOrWhiteSpace(ADSUtilitiesLoggerEnvironment.TraceId))
+            if (!controllerBase.Request.Headers.ContainsKey("TraceId"))
             {
-                if (controllerBase.Request.Headers.ContainsKey("TraceId"))
-                {
-                    var traceId = controllerBase.Request.Headers["TraceId"];
-                    ADSUtilitiesLoggerEnvironment.TraceId = traceId;
-                }
-                else
-                {
-                    var traceId = DateTime.Now.Ticks.ToString();
-                    ADSUtilitiesLoggerEnvironment.TraceId = traceId;
-                }
+                traceId = DateTime.Now.Ticks.ToString();
+                controllerBase.Request.Headers.Add("TraceId", traceId);
+            }
+            else
+            {
+                traceId = controllerBase.Request.Headers["TraceId"];
             }
            
-            return ADSUtilitiesLoggerEnvironment.TraceId;
+            return traceId;
         }
 
         /// <summary>
@@ -44,7 +42,14 @@ namespace ADSUtilities.Logger
         /// <param name="traceId"></param>
         public static void TraceId(this ControllerBase controllerBase, string traceId)
         {
-            ADSUtilitiesLoggerEnvironment.TraceId = traceId;            
+            if (!controllerBase.Request.Headers.ContainsKey("TraceId"))
+            {
+                controllerBase.Request.Headers.Add("TraceId", traceId);
+            }
+            else
+            {
+                controllerBase.Request.Headers["TraceId"] = traceId;
+            }
         }
 
         public static IServiceCollection AddADSLogger(this IServiceCollection services,
@@ -78,10 +83,6 @@ namespace ADSUtilities.Logger
                     kafkaServer =
                             Environment
                                 .GetEnvironmentVariable("Global__Services__kafka__Service");
-
-
-
-
             }
                 
 
@@ -89,6 +90,8 @@ namespace ADSUtilities.Logger
                 kafkaServer = "kafka:9092";
 
             ADSUtilitiesLoggerProducer.KafkaServer = kafkaServer;
+          
+            services.AddSingleton<IHttpContextAccessor, ADSUtilities.Logger.HttpContextAccessor>();
 
             return services;
         }
@@ -97,6 +100,9 @@ namespace ADSUtilities.Logger
             ADSUtilitiesLoggerConfiguration config, IApplicationBuilder app)
         {
             app.UseMiddleware<ADSUtilitiesLoggerRequest>();
+
+          ///  var a = app.ApplicationServices.GetService<ADSUtilities.Logger.HttpContextAccessor>();
+
             loggerFactory.AddProvider(new ADSUtilitiesLoggerProvider(config));
             return loggerFactory;
         }

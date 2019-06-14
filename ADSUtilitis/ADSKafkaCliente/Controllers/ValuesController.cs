@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ADSUtilities;
 using Microsoft.Extensions.Logging;
 using ADSUtilities.Logger;
+using Microsoft.AspNetCore.Http;
 
 namespace ADSKafkaCliente.Controllers
 {
@@ -14,16 +15,22 @@ namespace ADSKafkaCliente.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly ILogger<ValuesController> _logger;
+        private readonly IHttpContextAccessor _accesor;
 
-        public ValuesController(ILogger<ValuesController> logger)
+        public ValuesController(ILogger<ValuesController> logger
+                                //,IHttpContextAccessor accesor
+                                )
         {
             _logger = logger;
+            //_accesor = accesor;
         }
 
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            var current = ADSUtilitiesLoggerEnvironment.Current;
+
             return this.ADSOk(new string[] { "value1", "value2" });
         }
 

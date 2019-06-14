@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace ADSUtilities.Logger
         private readonly ConcurrentDictionary<string, ADSUtilitiesLogger> _loggers = 
                                     new ConcurrentDictionary<string, ADSUtilitiesLogger>();
         private readonly ADSUtilitiesLoggerProducer _loggerProducer;
-
+        
         public ADSUtilitiesLoggerProvider(ADSUtilitiesLoggerConfiguration config)
         {
             _config = config;

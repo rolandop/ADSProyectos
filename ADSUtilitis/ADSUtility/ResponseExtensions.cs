@@ -1,4 +1,5 @@
-﻿using ADSUtilities.Models;
+﻿using ADSUtilities.Logger;
+using ADSUtilities.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,8 @@ namespace ADSUtilities
                 {
                     Error = code,
                     Msg = message,
-                    Data = data
+                    Data = data,
+                    Request = RequestModel.GetRequest(services)
                 });
             }
             catch (Exception e)

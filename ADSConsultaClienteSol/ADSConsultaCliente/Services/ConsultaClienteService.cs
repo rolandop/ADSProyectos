@@ -157,6 +157,8 @@ namespace ADSConsultaCliente.Services
         {
             var url = _configuration
                                     .GetSection("Global:Services:Databook:Service").Value;
+
+            _logger.LogInformation("Consultando databoock a {url}", url);
             
             RestClient client = new RestClient(url);
             RestRequest request = new RestRequest($"api/DataBook/v1/{identificacion}", 

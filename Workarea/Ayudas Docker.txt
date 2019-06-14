@@ -9,23 +9,23 @@ docker run -d --name adsconfiguracion -p 60220:80 --expose=60220 --network adsne
 ADSDatabook
 
 docker build -t adsdatabook . -f ADSDataBookDockerfile
-docker run -d --name adsdatabook -p 60223:80 --expose=60223 --network adsnet --network-alias adsdatabook --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsdatabook
+docker run -d --name adsdatabook -p 60223:80 --expose=60223 --network adsnet --network-alias adsdatabook --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Production adsdatabook
 
 ADSRegistroCivil
 
 docker build -t adsregistrocivil . -f ADSRegistroCivilDockerfile
-docker run -d --name adsregistrocivil -p 60224:80 --expose=60224 --network adsnet --network-alias adsregistrocivil --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsregistrocivil
+docker run -d --name adsregistrocivil -p 60224:80 --expose=60224 --network adsnet --network-alias adsregistrocivil --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Production adsregistrocivil
 
 
 ADSConsultaPla
 
-docker run -d --name adsconsultapla -p 60225:80 --expose=60225 --network adsnet --network-alias adsconsultapla --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsconsultapla
+docker run -d --name adsconsultapla -p 60225:80 --expose=60225 --network adsnet --network-alias adsconsultapla --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Production adsconsultapla
 
 
 ADSConsultaCliente
 
 docker build -t adsconsultacliente . -f ADSConsultaClienteDockerfile
-docker run -d --name adsconsultacliente -p 60226:80 --expose=60226 --network adsnet --network-alias adsconsultacliente --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Development adsconsultacliente
+docker run -d --name adsconsultacliente -p 60226:80 --expose=60226 --network adsnet --network-alias adsconsultacliente --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Production adsconsultacliente
 
 
 
@@ -66,7 +66,23 @@ Crear imagenes
 docker build -t nombreimagen . -f ADSConfiguracionDockerfile
 
 
+cambiar zona horaria 
 
+export TZ=America/Guayaquil
+
+netcore
+
+cp /usr/share/zoneinfo/America/Guayaquil /etc/localtime
+
+ó
+
+ln -s /usr/share/zoneinfo/America/Guayaquil /etc/localtime
+
+
+mongo-express
+
+apk add tzdata
+cp /usr/share/zoneinfo/America/Guayaquil /etc/localtime
 
 
 Serilog
