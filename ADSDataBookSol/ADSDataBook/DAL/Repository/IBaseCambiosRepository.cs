@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace ADSDataBook.DAL.Repository
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IBaseCambiosRepository
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         bool GuardarBaseIntermedia(BaseCambios model);
     }
 }
