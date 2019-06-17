@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="ADSConfiguration.Utilities" Version="1.0.3" />
-    <PackageReference Include="ADSUtilities" Version="1.0.5" />
+    <PackageReference Include="ADSUtilities" Version="1.0.6" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
     <PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.7.770" />
     <PackageReference Include="Microsoft.AspNetCore.App" />

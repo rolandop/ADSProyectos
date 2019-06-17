@@ -23,7 +23,7 @@ namespace ADSConsultaPla.Controllers
         private readonly IConsultaPlaService _consultaPlaService;
 
         /// <summary>
-        /// 
+        /// Constructor del controlador
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="consultaPlaService"></param>
@@ -35,7 +35,7 @@ namespace ADSConsultaPla.Controllers
 
 
         /// <summary>
-        /// Consulta desde Sisprev
+        /// Consulta Sisprev para devolver solo si está en lista negra o no
         /// </summary>
         /// <param name="identificacion">Identificación</param>
         /// <param name="nombre">Nombre</param>
@@ -75,7 +75,7 @@ namespace ADSConsultaPla.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Consulta Sisprev para obtener datos completos de la persona
         /// </summary>
         /// <param name="persona"></param>
         /// <returns></returns>

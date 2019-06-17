@@ -24,7 +24,7 @@ namespace ADSConsultaPla.Services
         }
 
         /// <summary>
-        /// 
+        /// Servicio consulta Pla para saber si está en lista negra
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="nombre"></param>
@@ -47,7 +47,7 @@ namespace ADSConsultaPla.Services
         }
 
         /// <summary>
-        /// Servicio para consulta a Pla
+        /// Servicio para consultar a Pla los datos de la persona
         /// </summary>
         /// <param name="persona"></param>
         /// <returns></returns>
@@ -68,7 +68,7 @@ namespace ADSConsultaPla.Services
         }
 
         /// <summary>
-        /// 
+        /// Llamada al servicio de SISPREV del ASURAPI para saber si está en lista negra
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="nombre"></param>
@@ -101,7 +101,7 @@ namespace ADSConsultaPla.Services
         }
 
         /// <summary>
-        /// 
+        /// Llamada al servicio de SISPREV del ASURAPI para obtener datos de la persona
         /// </summary>
         /// <param name="persona"></param>
         /// <returns></returns>

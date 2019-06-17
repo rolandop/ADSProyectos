@@ -44,7 +44,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// Servicio consulta  de persona 
+        /// Servicio consulta de persona 
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="rc"></param>
@@ -122,7 +122,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Servicio para consultar la BD del MasterData Persona
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="model"></param>
@@ -135,7 +135,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Servicio para consultar la BD del MasterData Universo
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="model"></param>
@@ -148,7 +148,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        ///  Llamada al servicio de consulta del Databook
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="model"></param>
@@ -186,7 +186,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Llamada al servicio de consulta Pla
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="nombre"></param>
@@ -225,7 +225,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Llamada al servicio de consulta del Registro Civil
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="consulta"></param>
