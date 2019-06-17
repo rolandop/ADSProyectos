@@ -44,7 +44,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// Servicio consulta  de persona 
+        /// Servicio consulta de persona 
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="rc"></param>
@@ -122,7 +122,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Servicio para consultar la BD del MasterData Persona
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="model"></param>
@@ -135,7 +135,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Servicio para consultar la BD del MasterData Universo
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="model"></param>
@@ -148,7 +148,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        ///  Llamada al servicio de consulta del Databook
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="model"></param>
@@ -186,7 +186,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Llamada al servicio de consulta Pla
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="nombre"></param>
@@ -197,21 +197,27 @@ namespace ADSConsultaCliente.Services
         {
             string result = "";
             string url =_configuration.GetSection("Global:Services:Pla:Service").Value;
-                
-            RestClient client = new RestClient(url);
-            RestRequest request = new RestRequest($"api/ConsultaPla/v1/sisprev/{identificacion}/{nombre}/{app}", 
-                Method.GET);
 
+            var requestModel = new DatosClienteModel()
+            {
+                Identification = identificacion,
+                Name = nombre,
+                App = app
+            };            
+            var client = new RestClient(url);
+            var request = new RestRequest($"api/ConsultaPla/v1/sisprev", Method.POST);
             request.RequestFormat = DataFormat.Json;
+            var data = JsonConvert.SerializeObject(requestModel);
+            request.AddParameter("application/json", data, ParameterType.RequestBody);
             var response = client.Execute(request);
 
             if (response.StatusDescription == "OK")
             {
                 string aux = response.Content;
-                var resultado = JsonConvert.DeserializeObject<ResponseModel>(aux);
+                var resultado = JsonConvert.DeserializeObject<PlaResponseModel>(aux);
                 if (resultado.Msg == "Ok")
                 {
-                    result = (string)resultado.Data;
+                    result = resultado.Data.ListaNegra;
                     return result;
                 }
             }
@@ -219,7 +225,7 @@ namespace ADSConsultaCliente.Services
         }
 
         /// <summary>
-        /// 
+        /// Llamada al servicio de consulta del Registro Civil
         /// </summary>
         /// <param name="identificacion"></param>
         /// <param name="consulta"></param>

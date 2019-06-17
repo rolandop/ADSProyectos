@@ -40,7 +40,16 @@ namespace ADSConsultaCliente.DAL.Modelos
         public new ResponseDatabookModel Data { get; set; }
     }
 
-    
+    /// <summary>
+    /// 
+    /// </summary>
+    public class PlaResponseModel : ResponseModel
+    {
+        [JsonProperty(PropertyName = "Data")]
+        public new DatosPersonaPlaModel Data { get; set; }
+    }
+
+
 
     /// <summary>
     /// 

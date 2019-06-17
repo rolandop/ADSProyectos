@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -21,6 +22,10 @@ namespace ADSConsultaPla
 {
     public class Startup
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Log.Logger =
@@ -33,12 +38,20 @@ namespace ADSConsultaPla
 
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="env"></param>
         public Startup(IHostingEnvironment env)
         {
             Configuration = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddJsonFile("appSettings.json").Build();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             StartConfiguracion(services);            
@@ -68,18 +81,30 @@ namespace ADSConsultaPla
         {
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
             services.AddADSConfiguration();
-            //services.AddADSLogger();
+            services.AddADSLogger();
 
             services.AddSingleton<IConsultaPlaService, ConsultaPlaService>();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
+        /// <param name="loggerFactory"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            var cultureInfo = new CultureInfo("ec-EC");
+            cultureInfo.NumberFormat.CurrencySymbol = "$";
+            cultureInfo.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
             loggerFactory.AddADSLogger(c =>
             {
-                c.LogLevel = LogLevel.Warning;
+                c.LogLevel = LogLevel.Information;
+                c.Service = Configuration.GetSection("ServiceId").Value;
             }, app);
 
             app.UseSwagger();

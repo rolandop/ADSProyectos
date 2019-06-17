@@ -128,7 +128,7 @@ namespace ADSDataBook.DAL.Repository
                 }
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }

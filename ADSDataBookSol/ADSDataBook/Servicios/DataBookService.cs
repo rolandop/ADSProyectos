@@ -468,11 +468,11 @@ namespace ADSDataBook.Servicios
                 return result;
                 
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 _logger.LogError("Transformación con error");
                 return null;
-            }
+                }
             
 
         }
@@ -489,7 +489,7 @@ namespace ADSDataBook.Servicios
 
                 return _baseCambiosRepository.GuardarBaseIntermedia(model);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
