@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace ADSConsultaPla.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DatosPersonaPlaModel
     {
         public string TipoDocumento { get; set; }
@@ -21,5 +24,15 @@ namespace ADSConsultaPla.Models
         public string Mensaje { get; set; }
         public int IndLista { get; set; }
         public int IndAutorizacion { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DatosClienteModel
+    {
+        public string Identification { get; set; }
+        public string Name { get; set; }
+        public string App { get; set; }
     }
 }
