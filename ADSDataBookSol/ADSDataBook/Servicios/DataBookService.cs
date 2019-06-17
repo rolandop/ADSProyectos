@@ -399,10 +399,10 @@ namespace ADSDataBook.Servicios
                 {
                     numVehiculos += 1;
                 }
-                if (!string.IsNullOrEmpty(placa1.InnerText))
-                {
-                    numVehiculos += 1;
-                }
+                //if (!string.IsNullOrEmpty(placa1.InnerText))
+                //{
+                //    numVehiculos += 1;
+                //}
 
 
                 var result = new BaseCambios
@@ -468,11 +468,11 @@ namespace ADSDataBook.Servicios
                 return result;
                 
             }
-            catch(Exception)
+            catch(Exception e)
             {
                 _logger.LogError("Transformación con error");
                 return null;
-                }
+            }
             
 
         }
@@ -489,7 +489,7 @@ namespace ADSDataBook.Servicios
 
                 return _baseCambiosRepository.GuardarBaseIntermedia(model);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
