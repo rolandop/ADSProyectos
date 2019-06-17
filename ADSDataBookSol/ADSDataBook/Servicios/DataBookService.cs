@@ -399,10 +399,10 @@ namespace ADSDataBook.Servicios
                 {
                     numVehiculos += 1;
                 }
-                if (!string.IsNullOrEmpty(placa1.InnerText))
-                {
-                    numVehiculos += 1;
-                }
+                //if (!string.IsNullOrEmpty(placa1.InnerText))
+                //{
+                //    numVehiculos += 1;
+                //}
 
 
                 var result = new BaseCambios
