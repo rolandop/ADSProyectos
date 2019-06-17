@@ -85,16 +85,24 @@ namespace ADSConsultaPla.Controllers
             try
             {
                 _logger.LogInformation("Inicio Consulta Pla {@persona}", persona);
-                var result = _consultaPlaService.ConsultaSisprevServicePost(persona);
-                if (result != null)
+                if (persona != null && string.IsNullOrEmpty(persona.Identification))
                 {
-                    _logger.LogInformation("Respuesta Consulta Pla: {@persona} {@result}", persona, result);
-                    return this.ADSOk(result);
+                    _logger.LogError("Error al llamar GetConsultaSisprev: No tiene identificación");
+                    return this.ADSBadRequest();
                 }
                 else
                 {
-                    _logger.LogInformation("Respuesta consulta GetConsultaSisprev: {@persona} No encontrado", persona);
-                    return this.ADSNotFound();
+                    var result = _consultaPlaService.ConsultaSisprevServicePost(persona);
+                    if (result != null)
+                    {
+                        _logger.LogInformation("Respuesta Consulta Pla: {@persona} {@result}", persona, result);
+                        return this.ADSOk(result);
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Respuesta consulta GetConsultaSisprev: {@persona} No encontrado", persona);
+                        return this.ADSNotFound();
+                    }
                 }
             }
             catch (Exception ex)

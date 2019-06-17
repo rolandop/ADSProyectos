@@ -205,7 +205,7 @@ namespace ADSConsultaCliente.Services
                 App = app
             };            
             var client = new RestClient(url);
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest($"api/ConsultaPla/v1/sisprev", Method.POST);
             request.RequestFormat = DataFormat.Json;
             var data = JsonConvert.SerializeObject(requestModel);
             request.AddParameter("application/json", data, ParameterType.RequestBody);
