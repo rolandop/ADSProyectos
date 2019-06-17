@@ -1,6 +1,7 @@
 ﻿using ADSConsultaPla.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -13,44 +14,68 @@ namespace ADSConsultaPla.Services
 {
     public class ConsultaPlaService : IConsultaPlaService
     {
+        private readonly ILogger<ConsultaPlaService> _logger;
         private readonly IConfiguration _configuration;
 
-        public ConsultaPlaService(IConfiguration configuration)
+        public ConsultaPlaService(ILogger<ConsultaPlaService> logger, IConfiguration configuration)
         {
+            this._logger = logger;
             this._configuration = configuration;
         }
 
-        //public Task<PlaService.ExecuteResponse> ConsultaPlaService(string identificacion, string nombre, string aplicacion)
-        //{
-        //    try
-        //    {
-                
-        //        var datosPla = new PlaService.WSBuscaListaTotalSoapPortClient();
-        //        var temp = datosPla.ExecuteAsync(identificacion, nombre, aplicacion);
-        //        return temp;
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return null;
-        //    }
-
-        //}
-
-        public string ConsultaSisprevService(string identificacion, string nombre, string app)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="identificacion"></param>
+        /// <param name="nombre"></param>
+        /// <param name="aplicacion"></param>
+        /// <returns></returns>
+        public string ConsultaSisprevServiceGet(string identificacion, string nombre, string aplicacion)
         {
             try
             {
-                var result = ExecuteSisprevService(identificacion, nombre, app);
-                return result;
+                _logger.LogInformation("Inicio llamada servicio ExecuteSisprevService: {@identificacion} {@nombre} {@aplicacion}", identificacion, nombre, aplicacion);
+                var result = ExecuteSisprevServiceGet(identificacion, nombre, aplicacion);
+                _logger.LogInformation("Fin llamada servicio ExecuteSisprevService: {@identificacion} {@respuesta}", identificacion, result);
+                return result;                
             }
             catch (Exception)
             {
-                return "";
+                return null;
+            }
+
+        }
+
+        /// <summary>
+        /// Servicio para consulta a Pla
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <returns></returns>
+        public DatosPersonaPlaModel ConsultaSisprevServicePost(DatosClienteModel persona)
+        {
+            try
+            {
+                _logger.LogInformation("Inicio llamada servicio ExecuteSisprevService: {@persona}", persona);
+                var result = ExecuteSisprevServicePost(persona);
+                _logger.LogInformation("Fin llamada servicio ExecuteSisprevService: {@persona} {@respuesta}", persona, result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error no controlado.");
+                throw ex;
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="identificacion"></param>
+        /// <param name="nombre"></param>
+        /// <param name="app"></param>
+        /// <returns></returns>
         [HttpGet]
-        public string ExecuteSisprevService(string identificacion, string nombre, string app)
+        public string ExecuteSisprevServiceGet(string identificacion, string nombre, string app)
         {
             try
             {
@@ -72,6 +97,39 @@ namespace ADSConsultaPla.Services
             catch (Exception ex)
             {
                 return "";
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public DatosPersonaPlaModel ExecuteSisprevServicePost(DatosClienteModel persona)
+        {
+            try
+            {
+                var url = string.Format("{0}", _configuration.GetSection("Global:Services:UrlSisprev:Service").Value);
+                var client = new RestClient(url);
+                var request = new RestRequest(Method.POST);
+                request.RequestFormat = DataFormat.Json;
+                var data = JsonConvert.SerializeObject(persona);
+                request.AddParameter("application/json", data, ParameterType.RequestBody);
+                var response = client.Execute(request);
+                if (response.StatusDescription == "OK")
+                {
+                    var aux = response.Content;
+                    aux = aux.Replace("\\", "").TrimStart('"').TrimEnd('"');
+                    var result = JsonConvert.DeserializeObject<DatosPersonaPlaModel>(aux);
+                    return result;
+                }
+                return null;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }
