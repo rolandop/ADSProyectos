@@ -79,8 +79,8 @@ namespace ADSDataBook.Controllers
                 _logger.LogInformation("Termina Guardado Informacion en Base Intermedia {@Objeto}", save);
                 if (save != true)
                 {
-                    _logger.LogInformation("Termina Proceso con respuesta HttpCode 400, registro no grabado en Base de Cambios");
-                    return this.ADSBadRequest();
+                    _logger.LogInformation("Termina Proceso con respuesta HttpCode 500, registro no grabado en Base de Cambios");
+                    return this.ADSInternalError();
 
                 }
                 _logger.LogInformation("Termina Proceso con respuesta HttpCode 200, Respuesta de Servicio exitosa");
