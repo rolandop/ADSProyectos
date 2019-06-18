@@ -283,7 +283,7 @@ namespace ADSDataBook.DAL.Entidades.MySql
         [JsonProperty("NumEmpleados")]
         public decimal? MTR_NUM_EMPLEADOS { get; set; }
         [JsonProperty("NumPropiedades")]
-        public int? MTR_NUM_PROPIEDADES { get; set; }
+        public decimal? MTR_NUM_PROPIEDADES { get; set; }
         [JsonProperty("TarjetaCred")]
         public string MTR_TARJETA_CRED { get; set; }
         [JsonProperty("Bancarizado")]
