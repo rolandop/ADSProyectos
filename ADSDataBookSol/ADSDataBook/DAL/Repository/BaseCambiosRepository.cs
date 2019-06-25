@@ -139,7 +139,9 @@ namespace ADSDataBook.DAL.Repository
                     person.MTR_TELEFONO_CELULAR = model.MTR_TELEFONO_CELULAR;
                     person.MTR_TELEFONO_OTRO = model.MTR_TELEFONO_OTRO;
                     person.MTR_FEC_NACIMIENTO = model.MTR_FEC_NACIMIENTO;
-
+                    person.MTR_COD_PAIS = model.MTR_COD_PAIS;
+                    person.MTR_SUELDO_PROPIO = model.MTR_SUELDO_PROPIO;
+                    person.MTR_INGRESOS = model.MTR_INGRESOS;
 
                     _mySqlContext.SaveChanges();
                     return true;
