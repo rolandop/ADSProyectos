@@ -57,15 +57,21 @@ namespace ADSDataBook
             services.AddDbContext<OracleContext>(options =>
             {
                 var connection = Configuration.GetSection("Global:Services:Siaerp:ConnectionString").Value;
-                options.UseOracle(connection);
+                options.UseOracle(connection, options2 => options2.UseOracleSQLCompatibility("11"));
             });
             
             services.AddDbContext<MySqlContext>(options =>
             {
                 var connection = Configuration.GetSection("databook:ConnectionStrings:MySqlConnection").Value;
                 options.UseMySql(connection);
-            }
-            );    
+            });
+
+            services.AddDbContext<RuiaContext>(options =>
+            {
+                var connection = Configuration.GetSection("databook:ConnectionStrings:Ruia").Value;
+                options.UseOracle(connection, options2 => options2.UseOracleSQLCompatibility("11"));
+            });
+
             services.AddScoped<IDataBookService, DataBookService>();
             services.AddScoped<IBaseCambiosRepository, BaseCambiosRepository>();
             services.AddScoped<IConsultaLogRepository, ConsultaLogRepository>();

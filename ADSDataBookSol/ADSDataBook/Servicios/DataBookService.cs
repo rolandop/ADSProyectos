@@ -1,6 +1,7 @@
 ﻿using ADSConfiguration.Utilities.Services;
 using ADSDataBook.DAL.Contexto;
-using ADSDataBook.DAL.Entidades.MySql;
+//using ADSDataBook.DAL.Entidades.MySql;
+using ADSDataBook.DAL.Entidades.Ruia;
 using ADSDataBook.DAL.Entidades.Oracle;
 using ADSDataBook.DAL.Enums;
 using ADSDataBook.DAL.Modelos;
@@ -141,10 +142,12 @@ namespace ADSDataBook.Servicios
                 var direccionempleador = ((XmlElement)actual[0]).GetElementsByTagName("direccionempleador")[0];
                 var actividadempleador = ((XmlElement)actual[0]).GetElementsByTagName("actividadempleador")[0];
                 var cargo = ((XmlElement)actual[0]).GetElementsByTagName("cargo")[0];
+                var salarioPromedio = ((XmlElement)actual[0]).GetElementsByTagName("salariopromedio")[0];
                 var salarioactual = ((XmlElement)actual[0]).GetElementsByTagName("salarioactual")[0];
                 var fechaentrada = ((XmlElement)actual[0]).GetElementsByTagName("fechaentrada")[0];
                 var fechasalida = ((XmlElement)actual[0]).GetElementsByTagName("fechasalida")[0];
                 var telefonoEmpleador = ((XmlElement)actual[0]).GetElementsByTagName("telefonoempleador")[0];
+                var nombreComercial = ((XmlElement)actual[0]).GetElementsByTagName("descripcionempleador")[0];
 
                 #endregion
 
@@ -158,6 +161,7 @@ namespace ADSDataBook.Servicios
                 var salarioactual1 = ((XmlElement)primero[0]).GetElementsByTagName("salarioempleador")[0];
                 var fechaentrada1 = ((XmlElement)primero[0]).GetElementsByTagName("fechasalidaempleador")[0];
                 var fechasalida1 = ((XmlElement)primero[0]).GetElementsByTagName("fechasalidaempleador")[0];
+                var nombreComercial1 = ((XmlElement)primero[0]).GetElementsByTagName("descripcionempleador")[0];
                 #endregion
 
                 #region SegundoAnterior
@@ -170,6 +174,7 @@ namespace ADSDataBook.Servicios
                 var salarioactual2 = ((XmlElement)segundo[0]).GetElementsByTagName("salarioempleador")[0];
                 var fechaentrada2 = ((XmlElement)segundo[0]).GetElementsByTagName("fechasalidaempleador")[0];
                 var fechasalida2 = ((XmlElement)segundo[0]).GetElementsByTagName("fechasalidaempleador")[0];
+                var nombreComercial2 = ((XmlElement)segundo[0]).GetElementsByTagName("descripcionempleador")[0];
                 #endregion
 
                 #region Sri
@@ -298,6 +303,7 @@ namespace ADSDataBook.Servicios
                     fechaMatrimonio = diaMatrimonio.InnerText + "/" + mesMatrimonio.InnerText + "/" + anioMatrimonio.InnerText;
                 }
                 var fechaDefuncion = "";
+                DateTime? fecDefuncion;
                 if (string.IsNullOrEmpty(diaDefuncion.InnerText) && string.IsNullOrEmpty(mesDefuncion.InnerText) && string.IsNullOrEmpty(anioDefuncion.InnerText))
                 {
                     fechaDefuncion = null;
@@ -305,6 +311,7 @@ namespace ADSDataBook.Servicios
                 else
                 {
                     fechaDefuncion = diaDefuncion.InnerText + "/" + mesDefuncion.InnerText + "/" + anioDefuncion.InnerText;
+                    fecDefuncion = Convert.ToDateTime(fechaDefuncion);
                 }
 
                 decimal antiguedadTrabajo;
@@ -319,13 +326,13 @@ namespace ADSDataBook.Servicios
 
                     var fechaActual = DateTime.Now;
                     var fechaInicioT = Convert.ToDateTime(fechaentrada.InnerText);
-                    antiguedadTrabajo = (fechaActual - fechaInicioT).Days;
+                    antiguedadTrabajo = ((fechaActual - fechaInicioT).Days) / 365;
                 }
                 else
                 {
                     var fechaActual = Convert.ToDateTime(fechasalida.InnerText);
                     var fechaInicioT = Convert.ToDateTime(fechaentrada.InnerText);
-                    antiguedadTrabajo = (fechaActual - fechaInicioT).Ticks;
+                    antiguedadTrabajo = ((fechaActual - fechaInicioT).Days) / 365;
                 }
 
                 var estadoCivilDesc = "";
@@ -406,6 +413,12 @@ namespace ADSDataBook.Servicios
                     numVehiculos += 1;
                 }
 
+                var cargas = 0;
+                if(estadoCivil.InnerText == "2")
+                {
+                    cargas = numHijos + 1;
+                }
+
                 var result = new BaseCambios
                 {
                     MTR_IDENTIFICACION = string.IsNullOrEmpty(cedula.InnerText) ? null : cedula.InnerText,
@@ -416,7 +429,7 @@ namespace ADSDataBook.Servicios
                     MTR_NOMBRE_CONYUGE = string.IsNullOrEmpty(nombreConyugue.InnerText) ? null : nombreConyugue.InnerText,
                     MTR_NOMBRE_PADRE = string.IsNullOrEmpty(nombrePadre.InnerText) ? null : nombrePadre.InnerText,
                     MTR_NOMBRE_MADRE = string.IsNullOrEmpty(nombreMadre.InnerText) ? null : nombreMadre.InnerText,
-                    MTR_COD_NACIONALIDAD = string.IsNullOrEmpty(nacionalidad.InnerText) ? null : nacionalidad.InnerText,
+                    MTR_COD_NACIONALIDAD = nacionalidad.InnerText,
                     MTR_PROFESION = string.IsNullOrEmpty(profesion.InnerText) ? null : profesion.InnerText,
                     MTR_NACIONALIDAD = string.IsNullOrEmpty(nacionalidad.InnerText) ? null : nacionalidad.InnerText,
                     MTR_FEC_NACIMIENTO = Convert.ToDateTime(diaNacimiento.InnerText + "/" + mesNacimiento.InnerText + "/" + anioNacimiento.InnerText),
@@ -433,14 +446,14 @@ namespace ADSDataBook.Servicios
                     MTR_COD_CANTON = string.IsNullOrEmpty(canton.InnerText) ? null : canton.InnerText,
                     MTR_CANTON = string.IsNullOrEmpty(cantonMedidor) ? null : cantonMedidor,
                     MTR_CARGO = string.IsNullOrEmpty(cargo.InnerText) ? null : cargo.InnerText,
-                    MTR_CIIU = string.IsNullOrEmpty(parroquia.InnerText) ? null : parroquia.InnerText,
+                    MTR_CIIU = string.IsNullOrEmpty(actividad.InnerText) ? null : actividad.InnerText,
                     MTR_DIRECCION_OFICINA = string.IsNullOrEmpty(direccionempleador.InnerText) ? null : direccionempleador.InnerText,
                     MTR_DIRECCION_OTRA = string.IsNullOrEmpty(direccionempleador1.InnerText) ? null : direccionempleador1.InnerText,
                     MTR_EMAIL_PERSONAL = string.IsNullOrEmpty(correo) ? null : correo,
                     MTR_ID_CONYUGE = string.IsNullOrEmpty(conyugeCedula) ? null : conyugeCedula,
                     MTR_ID_EMPRESA = string.IsNullOrEmpty(rucempleador.InnerText) ? null : rucempleador.InnerText,
-                    MTR_INGRESOS = string.IsNullOrEmpty(salarioactual.InnerText) ? 0 : Convert.ToDecimal(salarioactual.InnerText),
-                    MTR_NOM_COMERCIAL = string.IsNullOrEmpty(nombreEmpleador.InnerText) ? null : nombreEmpleador.InnerText,
+                    MTR_INGRESOS = Convert.ToDecimal(salarioPromedio.InnerText),
+                    MTR_NOM_COMERCIAL = string.IsNullOrEmpty(nombreComercial.InnerText) ? string.IsNullOrEmpty(nombreComercial1.InnerText) ? string.IsNullOrEmpty(nombreComercial2.InnerText) ? null : nombreComercial2.InnerText : nombreComercial1.InnerText : nombreComercial.InnerText,
                     MTR_NOMBRE_EMPRESA = string.IsNullOrEmpty(nombreEmpleador.InnerText) ? null : nombreEmpleador.InnerText,
                     MTR_NUM_HIJOS = numHijos,
                     MTR_NUM_VEHICULOS = numVehiculos,
@@ -451,18 +464,12 @@ namespace ADSDataBook.Servicios
                     MTR_TELEFONO_CELULAR = string.IsNullOrEmpty(tel2.InnerText) ? null : tel2.InnerText,
                     MTR_TELEFONO_DOMICILIO = string.IsNullOrEmpty(tel1.InnerText) ? null : tel1.InnerText,
                     MTR_TELEFONO_OTRO = string.IsNullOrEmpty(tel3.InnerText) ? null : tel3.InnerText,
-
-                    //Valores Fijos
+                    MTR_COD_PAIS = nacionalidad.InnerText,
+                    MTR_SUELDO_PROPIO = string.IsNullOrEmpty(salarioactual.InnerText) ? 0 : Convert.ToDecimal(salarioactual.InnerText),
                     MTR_ESTADO = "ACTIVO",
                     MTR_TIPO_IDENTIFICACION = "C",
                     MTR_TIPO_PERSONA = "NATURAL",
-
-                    //Valores Fecha
-                   
-                    
-                
-
-
+                    MTR_CARGAS_FAMILIARES = cargas,
                 };
                 _logger.LogInformation("Transformación exitosa {@identification}", result.MTR_IDENTIFICACION);
 

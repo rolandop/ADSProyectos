@@ -100,8 +100,8 @@ namespace ADSRegistroCivil.Servicios
                 else
                 {
                     var reg = await ConsultaNuevoRCAsync(identification);
-                    //var model = MapeaRCDataCliente(reg);
-                    //await GrabaAsync(model);
+                    var model = MapeaRCDataCliente(reg);
+                    await GrabaAsync(model);
                     return reg;
                 }
 
@@ -117,8 +117,8 @@ namespace ADSRegistroCivil.Servicios
                 }
                 else
                 {
-                    //var model = MapeaRCDataCliente(reg);
-                    //await GrabaAsync(model);
+                    var model1 = MapeaRCDataCliente(reg);
+                    await GrabaAsync(model1);
                 }
 
                 return reg;

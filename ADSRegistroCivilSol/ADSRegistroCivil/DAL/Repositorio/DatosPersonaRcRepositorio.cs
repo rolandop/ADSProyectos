@@ -62,7 +62,7 @@ namespace ADSRegistroCivil.DAL.Repositorio
         {
             try
             {
-                _oracleContext.Add(model);
+                _oracleContext.DataClientes.Add(model);
                 var result = await _oracleContext.SaveChangesAsync();
                 return true;
             }

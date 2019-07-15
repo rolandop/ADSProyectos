@@ -100,6 +100,7 @@ namespace ADSRegistroCivil.Controllers
 
                         if(!save)
                         {
+                            
                             _logger.LogInformation("Datos no encontrados");
                             return this.NotFound();
                         }
