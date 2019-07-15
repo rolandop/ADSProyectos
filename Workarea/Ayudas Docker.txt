@@ -19,6 +19,7 @@ docker run -d --name adsregistrocivil -p 60224:80 --expose=60224 --network adsne
 
 ADSConsultaPla
 
+docker build -t adsconsultapla . -f ADSConsultaPlaDockerfile
 docker run -d --name adsconsultapla -p 60225:80 --expose=60225 --network adsnet --network-alias adsconsultapla --link adsconfiguracion -e ASPNETCORE_ENVIRONMENT=Production adsconsultapla
 
 

@@ -70,7 +70,8 @@ namespace ADSUtilities
                 {
                     Error = code,
                     Msg = message,
-                    Data = data
+                    Data = data,
+                    Request = RequestModel.GetRequest(services)
                 });
             }
             catch (Exception e)
@@ -103,7 +104,8 @@ namespace ADSUtilities
                 {
                     Error = code,
                     Msg = message,
-                    Data = data
+                    Data = data,
+                    Request = RequestModel.GetRequest(services)
                 });
             }
             catch (Exception e)
@@ -143,7 +145,8 @@ namespace ADSUtilities
                 {
                     Error = code,
                     Msg = message,
-                    Data = data
+                    Data = data,
+                    Request = RequestModel.GetRequest(services)
                 });
             }
             catch (Exception e)
@@ -152,7 +155,8 @@ namespace ADSUtilities
                 {
                     Error = code,
                     Msg = e.Message,
-                    Data = null
+                    Data = null,
+                    Request = RequestModel.GetRequest(services)
                 }); ;
             }
         }
@@ -182,7 +186,8 @@ namespace ADSUtilities
                 {
                     Error = code,
                     Msg = message,
-                    Data = data
+                    Data = data,
+                    Request = RequestModel.GetRequest(services)
                 });
             }
             catch (Exception e)
@@ -191,7 +196,8 @@ namespace ADSUtilities
                 {
                     Error = code,
                     Msg = e.Message,
-                    Data = null
+                    Data = null,
+                    Request = RequestModel.GetRequest(services)
                 }); ;
             }
         }
