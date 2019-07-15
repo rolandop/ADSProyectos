@@ -55,9 +55,9 @@ namespace ADSConsultaPla.Services
         {
             try
             {
-                _logger.LogInformation("Inicio llamada servicio ExecuteSisprevService: {@persona}", persona);
+                _logger.LogInformation("Inicio ejecución de servicio ExecuteSisprevService: {@persona}", persona);
                 var result = ExecuteSisprevServicePost(persona);
-                _logger.LogInformation("Fin llamada servicio ExecuteSisprevService: {@persona} {@respuesta}", persona, result);
+                _logger.LogInformation("Fin ejecución de servicio ExecuteSisprevService: {@persona} {@respuesta}", persona, result);
                 return result;
             }
             catch (Exception ex)

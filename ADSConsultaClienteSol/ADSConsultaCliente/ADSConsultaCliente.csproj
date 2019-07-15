@@ -15,7 +15,6 @@
     <PackageReference Include="ADSConfiguration.Utilities" Version="1.0.3" />
     <PackageReference Include="ADSUtilities" Version="1.0.6" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
-    <PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.7.770" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Core" Version="2.2.0" />
@@ -46,6 +45,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
     <PackageReference Include="MySql.Data" Version="8.0.16" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="2.19.0-beta4" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.31" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
     <PackageReference Include="RestSharp" Version="106.6.9" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
