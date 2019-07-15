@@ -41,14 +41,22 @@ namespace ADSDataBook.DAL.Contexto
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("AESERP");
+            base.OnModelCreating(modelBuilder);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //var con = GetConnectionSiaerp();
                 var con = _configurationService.GetValue("Global:Services:Siaerp:ConnectionString");
-                optionsBuilder.UseOracle(con);
+                optionsBuilder.UseOracle(con, options => options.UseOracleSQLCompatibility("11"));
             }
 
         }

@@ -1,7 +1,8 @@
 ﻿
 using ADSConfiguration.Utilities.Services;
 using ADSDataBook.DAL.Contexto;
-using ADSDataBook.DAL.Entidades.MySql;
+//using ADSDataBook.DAL.Entidades.MySql;
+using ADSDataBook.DAL.Entidades.Ruia;
 using ADSDataBook.DAL.Entidades.Oracle;
 using ADSDataBook.DAL.Enums;
 using Microsoft.Extensions.Configuration;
@@ -69,14 +70,12 @@ namespace ADSDataBook.DAL.Repository
                     CedulaConsultada = info.MTR_IDENTIFICACION,
                     DataBook = 1
                 };
-
                 var flag = AddLog(model, connection);
-
-                //_oracleContext.ConsultaPersonaLogs.Add(model);
-                //var x = _oracleContext.SaveChangesAsync();
+                _oracleContext.ConsultaPersonaLogs.Add(model);
+                _oracleContext.SaveChanges();
                 return flag;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }

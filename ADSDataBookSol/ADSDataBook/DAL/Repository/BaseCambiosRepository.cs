@@ -1,7 +1,8 @@
 ﻿
 using ADSConfiguration.Utilities.Services;
 using ADSDataBook.DAL.Contexto;
-using ADSDataBook.DAL.Entidades.MySql;
+//using ADSDataBook.DAL.Entidades.MySql;
+using ADSDataBook.DAL.Entidades.Ruia;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -16,20 +17,22 @@ namespace ADSDataBook.DAL.Repository
     public class BaseCambiosRepository : IBaseCambiosRepository
     {
         private readonly ILogger<BaseCambiosRepository> _logger;
-        private readonly MySqlContext _mySqlContext;
+        //private readonly MySqlContext _Context;
+        private readonly RuiaContext _Context;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="configurationService"></param>
-        /// <param name="mySqlContext"></param>
+        /// <param name="Context"></param>
         /// <param name="logger"></param>
         public BaseCambiosRepository(
                         IConfigurationService configurationService,
-                        MySqlContext mySqlContext,
+                        //MySqlContext Context,
+                        RuiaContext Context,
                         ILogger<BaseCambiosRepository> logger)
         {
-            _mySqlContext = mySqlContext;
+            _Context = Context;
             _logger = logger;
 
         }
@@ -43,7 +46,7 @@ namespace ADSDataBook.DAL.Repository
         {
             try
             {
-                var person = _mySqlContext.BaseCambios.FirstOrDefault(x => x.MTR_IDENTIFICACION == model.MTR_IDENTIFICACION);
+                var person = _Context.BaseCambios.FirstOrDefault(x => x.MTR_IDENTIFICACION == model.MTR_IDENTIFICACION);
                 if (person != null)
                 {
                     person.MTR_DIRECCION_DOMICILIO = model.MTR_DIRECCION_DOMICILIO;
@@ -143,14 +146,14 @@ namespace ADSDataBook.DAL.Repository
                     person.MTR_SUELDO_PROPIO = model.MTR_SUELDO_PROPIO;
                     person.MTR_INGRESOS = model.MTR_INGRESOS;
 
-                    _mySqlContext.SaveChanges();
+                    _Context.SaveChanges();
                     return true;
                 }
                 else
                 {
                     model.MTR_FEC_CREACION = DateTime.Now;
-                    _mySqlContext.BaseCambios.Add(model);
-                    _mySqlContext.SaveChanges();
+                    _Context.BaseCambios.Add(model);
+                    _Context.SaveChanges();
                     _logger.LogInformation("Cambios grabados. en Base de Cambios");
                     return true;
                 }
