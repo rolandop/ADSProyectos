@@ -14,11 +14,31 @@ namespace ADSConsultaCliente.DAL
     {
         private readonly IConfigurationService _configurationService;
 
-        public string ConnectionString { get; set; }
-
-        public RuiaContext(DbContextOptions<RuiaContext> options) : base(options)
+        public RuiaContext(DbContextOptions<RuiaContext> options, IConfigurationService configurationService)
+               : base(options)
         {
-            //_configurationService = configurationService;
+            _configurationService = configurationService;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("RUIA");
+            base.OnModelCreating(modelBuilder);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                var con = _configurationService.GetValue("Global:Services:Ruia:ConnectionString");
+                optionsBuilder.UseOracle(con, options => options.UseOracleSQLCompatibility("11"));
+            }
         }
 
         public DbSet<Persona> Personas { get; set; }

@@ -72,7 +72,8 @@ namespace ADSConsultaCliente
             services.AddSingleton(mapper);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<RuiaContext>(options => options.UseMySql(Configuration.GetSection("Global:Services:Ruia:ConnectionString").Value));
+            var cnx = Configuration.GetSection("Global:Services:Ruia:ConnectionString").Value;
+            services.AddDbContext<RuiaContext>(options => options.UseOracle(cnx, options2 => options2.UseOracleSQLCompatibility("11")));
             services.AddDbContext<SiaerpContext>(options => options.UseOracle(Configuration.GetSection("Global:Services:Siaerp:ConnectionString").Value));
             services.AddScoped<IConsultaClienteRepositorio, ConsultaClienteRepositorio>();
             services.AddScoped<ISiaerpRepositorio, SiaerpRepositorio>();
