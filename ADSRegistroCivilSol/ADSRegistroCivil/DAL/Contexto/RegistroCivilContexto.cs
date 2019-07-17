@@ -45,7 +45,6 @@ namespace ADSRegistroCivil.DAL.Contexto
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //var con = GetConnectionSiaerp();
                 var con = _configurationService.GetValue("Global:Services:Siaerp:ConnectionString");
                 optionsBuilder.UseOracle(con);
             }
