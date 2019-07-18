@@ -419,58 +419,58 @@ namespace ADSDataBook.Servicios
                     cargas = numHijos + 1;
                 }
 
-                var result = new BaseCambios
-                {
-                    MTR_IDENTIFICACION = string.IsNullOrEmpty(cedula.InnerText) ? null : cedula.InnerText,
-                    MTR_PRIMER_NOMBRE = string.IsNullOrEmpty(primerNombre.InnerText) ? null : primerNombre.InnerText,
-                    MTR_SEGUNDO_NOMBRE = string.IsNullOrEmpty(segundoNombre.InnerText) ? null : segundoNombre.InnerText,
-                    MTR_PRIMER_APELLIDO = string.IsNullOrEmpty(primerApellido.InnerText) ? null : primerApellido.InnerText,
-                    MTR_SEGUNDO_APELLIDO = string.IsNullOrEmpty(segundoApellido.InnerText) ? null : segundoApellido.InnerText,
-                    MTR_NOMBRE_CONYUGE = string.IsNullOrEmpty(nombreConyugue.InnerText) ? null : nombreConyugue.InnerText,
-                    MTR_NOMBRE_PADRE = string.IsNullOrEmpty(nombrePadre.InnerText) ? null : nombrePadre.InnerText,
-                    MTR_NOMBRE_MADRE = string.IsNullOrEmpty(nombreMadre.InnerText) ? null : nombreMadre.InnerText,
-                    MTR_COD_NACIONALIDAD = nacionalidad.InnerText,
-                    MTR_PROFESION = string.IsNullOrEmpty(profesion.InnerText) ? null : profesion.InnerText,
-                    MTR_NACIONALIDAD = string.IsNullOrEmpty(nacionalidad.InnerText) ? null : nacionalidad.InnerText,
-                    MTR_FEC_NACIMIENTO = Convert.ToDateTime(diaNacimiento.InnerText + "/" + mesNacimiento.InnerText + "/" + anioNacimiento.InnerText),
-                    MTR_FEC_MATRIMONIO = Convert.ToDateTime(fechaMatrimonio),
-                    MTR_FEC_DEFUNCION = Convert.ToDateTime(fechaDefuncion),
-                    MTR_ESTADO_CIVIL = estadoCivilDesc ?? null,
-                    MTR_GENERO = generoDesc ?? null,
-                    MTR_NOMBRE_COMPLETO = primerApellido.InnerText + " " + segundoApellido.InnerText + " " + primerNombre.InnerText + " " + segundoNombre.InnerText,
-                    MTR_DIRECCION_DOMICILIO = string.IsNullOrEmpty(direccion.InnerText) ? null : direccion.InnerText,
-                    MTR_DESC_ACT_ECONOMICA = string.IsNullOrEmpty(actividadempleador.InnerText) ? null : actividadempleador.InnerText,
-                    MTR_ANTIG_TRABAJO = antiguedadTrabajo,
-                    MTR_CALLE_PRINC_OFI = calle != null ? string.IsNullOrEmpty(calle.InnerText) ? null : calle.InnerText : null,
-                    MTR_CALLE_SECUN_OFI = interseccion != null ? string.IsNullOrEmpty(interseccion.InnerText) ? null : interseccion.InnerText : null,
-                    MTR_COD_CANTON = string.IsNullOrEmpty(canton.InnerText) ? null : canton.InnerText,
-                    MTR_CANTON = string.IsNullOrEmpty(cantonMedidor) ? null : cantonMedidor,
-                    MTR_CARGO = string.IsNullOrEmpty(cargo.InnerText) ? null : cargo.InnerText,
-                    MTR_CIIU = string.IsNullOrEmpty(actividad.InnerText) ? null : actividad.InnerText,
-                    MTR_DIRECCION_OFICINA = string.IsNullOrEmpty(direccionempleador.InnerText) ? null : direccionempleador.InnerText,
-                    MTR_DIRECCION_OTRA = string.IsNullOrEmpty(direccionempleador1.InnerText) ? null : direccionempleador1.InnerText,
-                    MTR_EMAIL_PERSONAL = string.IsNullOrEmpty(correo) ? null : correo,
-                    MTR_ID_CONYUGE = string.IsNullOrEmpty(conyugeCedula) ? null : conyugeCedula,
-                    MTR_ID_EMPRESA = string.IsNullOrEmpty(rucempleador.InnerText) ? null : rucempleador.InnerText,
-                    MTR_INGRESOS = Convert.ToDecimal(salarioPromedio.InnerText),
-                    MTR_NOM_COMERCIAL = string.IsNullOrEmpty(nombreComercial.InnerText) ? string.IsNullOrEmpty(nombreComercial1.InnerText) ? string.IsNullOrEmpty(nombreComercial2.InnerText) ? null : nombreComercial2.InnerText : nombreComercial1.InnerText : nombreComercial.InnerText,
-                    MTR_NOMBRE_EMPRESA = string.IsNullOrEmpty(nombreEmpleador.InnerText) ? null : nombreEmpleador.InnerText,
-                    MTR_NUM_HIJOS = numHijos,
-                    MTR_NUM_VEHICULOS = numVehiculos,
-                    MTR_PARROQUIA = string.IsNullOrEmpty(parroquia.InnerText) ? null : parroquia.InnerText,
-                    MTR_COD_PROVINCIA = string.IsNullOrEmpty(provincia.InnerText) ? null : provincia.InnerText,
-                    MTR_SECTOR_OFI = string.IsNullOrEmpty(referencia.InnerText) ? null : referencia.InnerText,
-                    MTR_NUMERO_OFI = string.IsNullOrEmpty(telefonoEmpleador.InnerText) ? null : telefonoEmpleador.InnerText,
-                    MTR_TELEFONO_CELULAR = string.IsNullOrEmpty(tel2.InnerText) ? null : tel2.InnerText,
-                    MTR_TELEFONO_DOMICILIO = string.IsNullOrEmpty(tel1.InnerText) ? null : tel1.InnerText,
-                    MTR_TELEFONO_OTRO = string.IsNullOrEmpty(tel3.InnerText) ? null : tel3.InnerText,
-                    MTR_COD_PAIS = nacionalidad.InnerText,
-                    MTR_SUELDO_PROPIO = string.IsNullOrEmpty(salarioactual.InnerText) ? 0 : Convert.ToDecimal(salarioactual.InnerText),
-                    MTR_ESTADO = "ACTIVO",
-                    MTR_TIPO_IDENTIFICACION = "C",
-                    MTR_TIPO_PERSONA = "NATURAL",
-                    MTR_CARGAS_FAMILIARES = cargas,
-                };
+                var result = new BaseCambios();
+
+                result.MTR_IDENTIFICACION = string.IsNullOrEmpty(cedula.InnerText) ? null : cedula.InnerText;
+                result.MTR_PRIMER_NOMBRE = string.IsNullOrEmpty(primerNombre.InnerText) ? null : primerNombre.InnerText;
+                result.MTR_SEGUNDO_NOMBRE = string.IsNullOrEmpty(segundoNombre.InnerText) ? null : segundoNombre.InnerText;
+                result.MTR_PRIMER_APELLIDO = string.IsNullOrEmpty(primerApellido.InnerText) ? null : primerApellido.InnerText;
+                result.MTR_SEGUNDO_APELLIDO = string.IsNullOrEmpty(segundoApellido.InnerText) ? null : segundoApellido.InnerText;
+                result.MTR_NOMBRE_CONYUGE = string.IsNullOrEmpty(nombreConyugue.InnerText) ? null : nombreConyugue.InnerText;
+                result.MTR_NOMBRE_PADRE = string.IsNullOrEmpty(nombrePadre.InnerText) ? null : nombrePadre.InnerText;
+                result.MTR_NOMBRE_MADRE = string.IsNullOrEmpty(nombreMadre.InnerText) ? null : nombreMadre.InnerText;
+                result.MTR_COD_NACIONALIDAD = nacionalidad.InnerText;
+                result.MTR_PROFESION = string.IsNullOrEmpty(profesion.InnerText) ? null : profesion.InnerText;
+                result.MTR_NACIONALIDAD = string.IsNullOrEmpty(nacionalidad.InnerText) ? null : nacionalidad.InnerText;
+                result.MTR_FEC_NACIMIENTO = Convert.ToDateTime(diaNacimiento.InnerText + "/" + mesNacimiento.InnerText + "/" + anioNacimiento.InnerText);
+                result.MTR_FEC_MATRIMONIO = Convert.ToDateTime(fechaMatrimonio);
+                result.MTR_FEC_DEFUNCION = Convert.ToDateTime(fechaDefuncion);
+                result.MTR_ESTADO_CIVIL = estadoCivilDesc ?? null;
+                result.MTR_GENERO = generoDesc ?? null;
+                result.MTR_NOMBRE_COMPLETO = primerApellido.InnerText + " " + segundoApellido.InnerText + " " + primerNombre.InnerText + " " + segundoNombre.InnerText;
+                result.MTR_DIRECCION_DOMICILIO = string.IsNullOrEmpty(direccion.InnerText) ? null : direccion.InnerText;
+                result.MTR_DESC_ACT_ECONOMICA = string.IsNullOrEmpty(actividadempleador.InnerText) ? null : actividadempleador.InnerText;
+                result.MTR_ANTIG_TRABAJO = antiguedadTrabajo;
+                result.MTR_CALLE_PRINC_OFI = calle != null ? string.IsNullOrEmpty(calle.InnerText) ? null : calle.InnerText : null;
+                result.MTR_CALLE_SECUN_OFI = interseccion != null ? string.IsNullOrEmpty(interseccion.InnerText) ? null : interseccion.InnerText : null;
+                result.MTR_COD_CANTON = string.IsNullOrEmpty(canton.InnerText) ? null : canton.InnerText;
+                result.MTR_CANTON = string.IsNullOrEmpty(cantonMedidor) ? null : cantonMedidor;
+                result.MTR_CARGO = string.IsNullOrEmpty(cargo.InnerText) ? null : cargo.InnerText;
+                result.MTR_CIIU = string.IsNullOrEmpty(actividad.InnerText) ? null : actividad.InnerText;
+                result.MTR_DIRECCION_OFICINA = string.IsNullOrEmpty(direccionempleador.InnerText) ? null : direccionempleador.InnerText;
+                result.MTR_DIRECCION_OTRA = string.IsNullOrEmpty(direccionempleador1.InnerText) ? null : direccionempleador1.InnerText;
+                result.MTR_EMAIL_PERSONAL = string.IsNullOrEmpty(correo) ? null : correo;
+                result.MTR_ID_CONYUGE = string.IsNullOrEmpty(conyugeCedula) ? null : conyugeCedula;
+                result.MTR_ID_EMPRESA = string.IsNullOrEmpty(rucempleador.InnerText) ? null : rucempleador.InnerText;
+                result.MTR_INGRESOS = string.IsNullOrEmpty(salarioPromedio.InnerText) ? 0 : Convert.ToDecimal(salarioPromedio.InnerText);
+                result.MTR_NOM_COMERCIAL = string.IsNullOrEmpty(nombreComercial.InnerText) ? string.IsNullOrEmpty(nombreComercial1.InnerText) ? string.IsNullOrEmpty(nombreComercial2.InnerText) ? null : nombreComercial2.InnerText : nombreComercial1.InnerText : nombreComercial.InnerText;
+                result.MTR_NOMBRE_EMPRESA = string.IsNullOrEmpty(nombreEmpleador.InnerText) ? null : nombreEmpleador.InnerText;
+                result.MTR_NUM_HIJOS = numHijos;
+                result.MTR_NUM_VEHICULOS = numVehiculos;
+                result.MTR_PARROQUIA = string.IsNullOrEmpty(parroquia.InnerText) ? null : parroquia.InnerText;
+                result.MTR_COD_PROVINCIA = string.IsNullOrEmpty(provincia.InnerText) ? null : provincia.InnerText;
+                result.MTR_SECTOR_OFI = string.IsNullOrEmpty(referencia.InnerText) ? null : referencia.InnerText;
+                result.MTR_NUMERO_OFI = string.IsNullOrEmpty(telefonoEmpleador.InnerText) ? null : telefonoEmpleador.InnerText;
+                result.MTR_TELEFONO_CELULAR = string.IsNullOrEmpty(tel2.InnerText) ? null : tel2.InnerText;
+                result.MTR_TELEFONO_DOMICILIO = string.IsNullOrEmpty(tel1.InnerText) ? null : tel1.InnerText;
+                result.MTR_TELEFONO_OTRO = string.IsNullOrEmpty(tel3.InnerText) ? null : tel3.InnerText;
+                result.MTR_COD_PAIS = nacionalidad.InnerText;
+                result.MTR_SUELDO_PROPIO = string.IsNullOrEmpty(salarioactual.InnerText) ? 0 : Convert.ToDecimal(salarioactual.InnerText);
+                result.MTR_ESTADO = "ACTIVO";
+                result.MTR_TIPO_IDENTIFICACION = "C";
+                result.MTR_TIPO_PERSONA = "NATURAL";
+                result.MTR_CARGAS_FAMILIARES = cargas;
+                
                 _logger.LogInformation("Transformación exitosa {@identification}", result.MTR_IDENTIFICACION);
 
                 return result;

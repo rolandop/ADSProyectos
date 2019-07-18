@@ -52,7 +52,7 @@ namespace ADSRegistroCivil.DAL.Repositorio
                 var connection = _configurationService.GetValue("Global:Services:Siaerp:ConnectionString");
                 var model = new ConsultaPersonaLog
                 {
-                    IdConsultaPersonaLog = 0,
+                    IdConsultaPersonaLog = 2,
                     IdUsuario = 15663,
                     Usuario = "DATOSPERSONAWS",
                     Rol = (int)RolBusqueda.Normal,
@@ -69,10 +69,10 @@ namespace ADSRegistroCivil.DAL.Repositorio
                     DataBook = 0
                 };
 
-                var flag = AddLog(model, connection);
+                //var flag = AddLog(model, connection);
 
                 _oracleContext.ConsultaPersonaLogs.Add(model);
-                //await _oracleContext.SaveChangesAsync();
+                await _oracleContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception e)

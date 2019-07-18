@@ -58,7 +58,7 @@ namespace ADSRegistroCivil.Servicios
         /// <returns></returns>
         public async Task<ResponsePersonaModel> ConsultaRegistroCivilAsync(string identificacion, string consulta)
         {
-            
+
             if (consulta != "S")
             {
                 var registro = BuscarPorIdentificacion(identificacion);
@@ -79,16 +79,16 @@ namespace ADSRegistroCivil.Servicios
         /// <returns></returns>
         public async Task<ResponsePersonaModel> ConsultaCiudadanoAsync(string identification, string consulta)
         {
-            
+
             if (consulta != "S")
             {
                 var tiempo = _configurationService.GetValue("registrocivil:Tiempo");
                 var tiempoMax = Convert.ToInt32(tiempo);
                 var registro = BuscarPorIdentificacion(identification);
-                if(registro != null)
+                if (registro != null)
                 {
                     var valida = ValidarActualizacion(registro, tiempoMax);
-                    if(!valida)
+                    if (!valida)
                     {
                         return registro;
                     }
@@ -105,13 +105,13 @@ namespace ADSRegistroCivil.Servicios
                     return reg;
                 }
 
-                
+
             }
             else
             {
                 var reg = await ConsultaNuevoRCAsync(identification);
                 var model = BuscarPorIdentificacion(identification);
-                if(model != null)
+                if (model != null)
                 {
                     await ActualizaAsync(identification);
                 }
@@ -154,23 +154,23 @@ namespace ADSRegistroCivil.Servicios
             try
             {
                 var response = _datosPersonaRcRepository.BuscarPorId(identificación);
-                var model = new ResponsePersonaModel
-                {
-                    Cedula = response.IDENTIFICACION,
-                    Nombre = response.NOMBRE_COMPLETO,
-                    Profesion = response.PROFESION,
-                    NombreMadre = response.NOMBRE_MADRE,
-                    NombrePadre = response.NOMBRE_PADRE,
-                    Conyuge = response.NOMBRE_CONYUGE,
-                    EstadoCivil = response.ESTADO_CIVIL,
-                    FechaCedulacion = response.FECHA_CEDULACION.ToString() == null ? null : response.FECHA_CEDULACION.ToString("dd/MM/yyyy"),
-                    FechaActualizacion = response.FECHA_ACTUALIZACION.ToString() == null ? null : response.FECHA_ACTUALIZACION.ToString("dd/MM/yyyy"),
-                    //FechaDefuncion = response.FECHA_DEFUNCION.ToString() == null ? null : response.FECHA_DEFUNCION
+                var model = new ResponsePersonaModel();
 
-                };
+
+                model.Cedula = response.IDENTIFICACION;
+                model.Nombre = response.NOMBRE_COMPLETO;
+                model.Profesion = response.PROFESION;
+                model.NombreMadre = response.NOMBRE_MADRE;
+                model.NombrePadre = response.NOMBRE_PADRE;
+                model.Conyuge = response.NOMBRE_CONYUGE;
+                model.EstadoCivil = response.ESTADO_CIVIL;
+                model.FechaCedulacion = string.IsNullOrEmpty(response.FECHA_CEDULACION) ? null : response.FECHA_CEDULACION;
+                model.FechaActualizacion = string.IsNullOrEmpty(response.FECHA_ACTUALIZACION) ? null : response.FECHA_ACTUALIZACION;
+                //FechaDefuncion = response.FECHA_DEFUNCION.ToString() == null ? null : response.FECHA_DEFUNCION
+
                 return model;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -190,13 +190,13 @@ namespace ADSRegistroCivil.Servicios
                 var fechaActual = DateTime.Now;
                 var dif = fechaActual - fechaActualizacion;
                 var dias = dif.Days;
-                if(dif.Days > tiempo)
+                if (dif.Days > tiempo)
                 {
                     return true;
                 }
                 return false;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -294,7 +294,7 @@ namespace ADSRegistroCivil.Servicios
                 var resul = await _datosPersonaRcRepository.ActualizarRegistroAsync(model);
                 return resul;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }
@@ -312,7 +312,7 @@ namespace ADSRegistroCivil.Servicios
                 var result = await _datosPersonaRcRepository.InsertarRegistroAsync(model);
                 return result;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }
@@ -323,18 +323,25 @@ namespace ADSRegistroCivil.Servicios
         /// </summary>
         /// <param name="pm"></param>
         /// <returns></returns>
-        public DataClientesRc MapeaRCDataCliente (ResponsePersonaModel pm)
+        public DataClientesRc MapeaRCDataCliente(ResponsePersonaModel pm)
         {
             try
             {
                 var model = new DataClientesRc
                 {
-                    
-                    
+                    IDENTIFICACION = pm.Cedula,
+                    NOMBRE_COMPLETO = pm.Nombre,
+                    PROFESION = pm.Profesion,
+                    FECHA_NACIMIENTO = pm.FechaNacimiento,
+                    FECHA_ACTUALIZACION = DateTime.Now.ToString("dd/MM/yyyy"),
+                    NOMBRE_MADRE = pm.NombreMadre,
+                    NOMBRE_PADRE = pm.NombrePadre,
+                    //ESTADO_CIVIL = pm.EstadoCivil,
+                    COD_ESTADO_CIVIL = pm.CodigoEstadoCivil,
                 };
                 return model;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return null;
             }

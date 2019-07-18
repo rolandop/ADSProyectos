@@ -44,7 +44,7 @@ namespace ADSRegistroCivil.DAL.Repositorio
         {
             try
             {
-                var result = _oracleContext.DataClientes.FirstOrDefault(x => x.IDENTIFICACION == identificacion);
+                var result = _oracleContext.DataClientes.FirstOrDefault(x => x.IDENTIFICACION.Trim() == identificacion.Trim());
                 return result;
             }
             catch(Exception e)
@@ -90,7 +90,7 @@ namespace ADSRegistroCivil.DAL.Repositorio
                 result.IDENTIFICACION = model.IDENTIFICACION;
                 result.NOMBRE_COMPLETO = model.NOMBRE_COMPLETO;
                 result.ESTADO_CIVIL = model.ESTADO_CIVIL;
-                result.FECHA_ACTUALIZACION = DateTime.Now;
+                result.FECHA_ACTUALIZACION = DateTime.Now.ToString("yyyy-MM-dd");
                 result.FECHA_DEFUNCION = model.FECHA_DEFUNCION;
                 result.PROFESION = model.PROFESION;
                 await _oracleContext.SaveChangesAsync();

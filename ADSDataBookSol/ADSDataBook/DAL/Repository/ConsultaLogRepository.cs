@@ -54,7 +54,7 @@ namespace ADSDataBook.DAL.Repository
                 var connection = _configuration.GetSection("Global:Services:Siaerp:ConnectionString").Value;
                 var model = new ConsultaPersonaLog
                 {
-                    IdConsultaPersonaLog = 0,
+                    IdConsultaPersonaLog = 2,
                     IdUsuario = 15663,
                     Usuario = "DATOSPERSONAWS",
                     Rol = (int)RolBusqueda.Normal,
@@ -70,9 +70,9 @@ namespace ADSDataBook.DAL.Repository
                     CedulaConsultada = info.MTR_IDENTIFICACION,
                     DataBook = 1
                 };
-                var flag = AddLog(model, connection);
+                //var flag = AddLog(model, connection);
                 _oracleContext.ConsultaPersonaLogs.Add(model);
-                //_oracleContext.SaveChanges();
+                _oracleContext.SaveChanges();
                 return flag;
             }
             catch (Exception e)

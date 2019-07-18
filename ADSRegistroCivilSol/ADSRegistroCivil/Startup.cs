@@ -59,7 +59,7 @@ namespace ADSRegistroCivil
             services.AddDbContext<RegistroCivilContexto>(options =>
             {
                 var connection = Configuration.GetSection("Global:Services:Siaerp:ConnectionString").Value;
-                options.UseOracle(connection);
+                options.UseOracle(connection, options2 => options2.UseOracleSQLCompatibility("11"));
             });
 
             services.AddDbContext<OdsContexto>(options =>
