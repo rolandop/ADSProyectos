@@ -77,7 +77,7 @@ namespace ADSRegistroCivil.DAL.Entidades.Ods
         /// <summary>
         /// 
         /// </summary>
-        public string FECHA_ACTUALIZACION { get; set; }
+        public DateTime? FECHA_ACTUALIZACION { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -101,7 +101,7 @@ namespace ADSRegistroCivil.DAL.Entidades.Ods
         /// <summary>
         /// 
         /// </summary>
-        public string FECHA_CEDULACION { get; set; }
+        public DateTime? FECHA_CEDULACION { get; set; }
         
     }
 }
