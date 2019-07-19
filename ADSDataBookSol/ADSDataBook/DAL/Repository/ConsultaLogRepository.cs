@@ -73,7 +73,7 @@ namespace ADSDataBook.DAL.Repository
                 //var flag = AddLog(model, connection);
                 _oracleContext.ConsultaPersonaLogs.Add(model);
                 _oracleContext.SaveChanges();
-                return flag;
+                return true;
             }
             catch (Exception e)
             {
