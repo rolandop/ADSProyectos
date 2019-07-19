@@ -164,8 +164,8 @@ namespace ADSRegistroCivil.Servicios
                 model.NombrePadre = response.NOMBRE_PADRE;
                 model.Conyuge = response.NOMBRE_CONYUGE;
                 model.EstadoCivil = response.ESTADO_CIVIL;
-                model.FechaCedulacion = string.IsNullOrEmpty(response.FECHA_CEDULACION) ? null : response.FECHA_CEDULACION;
-                model.FechaActualizacion = string.IsNullOrEmpty(response.FECHA_ACTUALIZACION) ? null : response.FECHA_ACTUALIZACION;
+                model.FechaCedulacion = response.FECHA_CEDULACION == null ? null : response.FECHA_CEDULACION;
+                model.FechaActualizacion = response.FECHA_ACTUALIZACION == null ? null : response.FECHA_ACTUALIZACION;
                 //FechaDefuncion = response.FECHA_DEFUNCION.ToString() == null ? null : response.FECHA_DEFUNCION
 
                 return model;
@@ -229,7 +229,7 @@ namespace ADSRegistroCivil.Servicios
             response.CondicionCedulado = personaRc.@return.CondicionCedulado;
             response.Conyuge = personaRc.@return.Conyuge;
             response.EstadoCivil = personaRc.@return.EstadoCivil;
-            response.FechaCedulacion = personaRc.@return.FechaCedulacion;
+            response.FechaCedulacion = Convert.ToDateTime(personaRc.@return.FechaCedulacion);
             response.FechaDefuncion = personaRc.@return.FechaFallecimiento;
             response.FechaNacimiento = personaRc.@return.FechaNacimiento;
             response.FechaMatrimonio = personaRc.@return.FechaMatrimonio;
@@ -268,7 +268,7 @@ namespace ADSRegistroCivil.Servicios
             response.CondicionCedulado = personaRc.@return.CondicionCedulado;
             response.Conyuge = personaRc.@return.Conyuge;
             response.EstadoCivil = personaRc.@return.EstadoCivil;
-            response.FechaCedulacion = personaRc.@return.FechaCedulacion;
+            response.FechaCedulacion = Convert.ToDateTime(personaRc.@return.FechaCedulacion);
             response.FechaDefuncion = personaRc.@return.FechaDefuncion;
             response.FechaNacimiento = personaRc.@return.FechaNacimiento;
             response.FechaMatrimonio = personaRc.@return.FechaMatrimonio;
@@ -333,7 +333,7 @@ namespace ADSRegistroCivil.Servicios
                     NOMBRE_COMPLETO = pm.Nombre,
                     PROFESION = pm.Profesion,
                     FECHA_NACIMIENTO = pm.FechaNacimiento,
-                    FECHA_ACTUALIZACION = DateTime.Now.ToString("dd/MM/yyyy"),
+                    FECHA_ACTUALIZACION = DateTime.Now,
                     NOMBRE_MADRE = pm.NombreMadre,
                     NOMBRE_PADRE = pm.NombrePadre,
                     //ESTADO_CIVIL = pm.EstadoCivil,

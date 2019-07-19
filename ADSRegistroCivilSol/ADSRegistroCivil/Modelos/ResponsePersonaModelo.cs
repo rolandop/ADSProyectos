@@ -96,9 +96,9 @@ namespace ADSRegistroCivil.Modelos
 
         public string EstadoMagna { get; set; }
 
-        public string FechaActualizacion { get; set; }
+        public DateTime? FechaActualizacion { get; set; }
 
-        public string FechaCedulacion { get; set; }
+        public DateTime? FechaCedulacion { get; set; }
 
         public string FechaDefuncion { get; set; }
 
