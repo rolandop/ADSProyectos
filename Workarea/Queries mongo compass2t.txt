@@ -1,0 +1,17 @@
+client
+5c33d309cc761c4d05397c6d
+
+user
+5c2cf2346c698346ce20c1fc
+
+
+appId
+5c33d14ecc761c4d05397c57
+
+profileId
+5c33d14ecc761c4d05397c61   5ca50f850eac5f6930071936
+{"auth.email": {$eq: "rolando.pena@citytech.ec"}}
+{"auth.email": {$eq: "pjimenez@cifraseg.net.ec"}}
+{_id:{$eq:ObjectId('5c33d14ecc761c4d05397c61')}}
+{accessToken: { $eq:"28475720aecc033cd435ac023a062b45438df6f1c538c2c51509e40a5d789c9c"}}
+

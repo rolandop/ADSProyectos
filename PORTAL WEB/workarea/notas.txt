@@ -1,0 +1,9 @@
+UADI
+
+Agregar campo de poliza en tabla BonCumplimientoDetalle
+
+BONOS POR CUMPLIMIENTO CON ENDOSO “R”.- Validar opción de hacerlo desde la UADI, caso contrario se implementaria la logica en el WS
+
+SEMANA COMERCIAL.- Sugerir crear campos ANIO_COMERCIAL Y SEMANA_COMERCIAL, hasta mientras se mapeará desde el servicio
+
+TABLA DE CAMPOS.- Sugerir desde la UADI, hasta mientras se mapeará desde el servicio

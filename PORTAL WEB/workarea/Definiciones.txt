@@ -1,0 +1,15 @@
+09/05/2019
+
+Otro tiket
+Front 360 
+
+Otro ticket
+Api Gateway sobre kong hacia IAM
+
+Arquitectura MCA
+
+Nomenclatura Ingles/Español
+
+
+
+Trelo, herramienta de gestión

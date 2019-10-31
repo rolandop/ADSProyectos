@@ -1,0 +1,4 @@
+Queries Congo compas
+
+usuarios
+{"auth.email":{"$eq":"rolando.pena@citytech.ec"}}

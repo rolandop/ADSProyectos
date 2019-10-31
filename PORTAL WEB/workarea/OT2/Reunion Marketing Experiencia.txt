@@ -1,0 +1,13 @@
+Identificación
+Nombres
+Direccion
+Correo
+
+
+Rol Comercial, Indemizaciones, Operaciones, Renovaciones, 
+
+Definir número de columnas estandar
+Crear vistas condenzadas por perfiles
+
+Mostrar unicamente los roles que pertenezca el cliente
+

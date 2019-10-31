@@ -62,6 +62,28 @@ namespace ADSConsultaCliente.Services
                     persona = ObtenerPersonaUniversoServicioAsync(identificacion, persona ?? new PersonaModel());
                     _logger.LogInformation("Fin llamada servicio ObtenerPersonaUniversoServicioAsync {@persona}", persona);
 
+                    var paramConsulta = rc ? "S" : "N";
+                    persona = ConsultaRegistroCivilAsync(identificacion, paramConsulta, "1", new PersonaModel());
+                    if (persona != null)
+                    {
+                        //registro en siaerp
+                        //var usuario = _siaerpRepositorio.MapPersonaModelToUsuario(persona);
+                        //var siaerp = _siaerpRepositorio.SaveSiaerpNuevoUsuario(usuario);
+                        //fin de registro
+                        _logger.LogInformation("Inicio llamada servicio ConsultaPlaAsync {@identificacion} {@nombre} {@app}", identificacion, persona.MTR_NOMBRE_COMPLETO, "MD");
+                        var listaNegra = ConsultaPlaAsync(identificacion, persona.MTR_NOMBRE_COMPLETO, "MD");
+                        _logger.LogInformation("Fin llamada servicio ConsultaPlaAsync {@listaNegra}", listaNegra);
+                        persona.MTR_PLA_LISTA = listaNegra;
+                    }
+                    else
+                    {
+                        //_logger.LogInformation("Fin de llamada ConsultaMasterData");
+                        return new PersonaModel();
+                    }
+
+
+                    /*
+
                     _logger.LogInformation("Inicio llamada servicio ConsultaDatabookAsync {@identificacion} {@persona}", identificacion, persona);
                     persona = ConsultaDatabookAsync(identificacion, persona ?? new PersonaModel());
                     _logger.LogInformation("Fin llamada servicio ConsultaDatabookAsync {@persona}", persona);
@@ -100,7 +122,9 @@ namespace ADSConsultaCliente.Services
                             //_logger.LogInformation("Fin de llamada ConsultaMasterData");
                             return new PersonaModel();
                         }
-                    }
+                    }*/
+
+
                 }
                 else
                 {
@@ -155,6 +179,8 @@ namespace ADSConsultaCliente.Services
         /// <returns></returns>
         public PersonaModel ConsultaDatabookAsync(string identificacion, PersonaModel model)
         {
+            return model;
+
             var url = _configuration
                                     .GetSection("Global:Services:Databook:Service").Value;
 
